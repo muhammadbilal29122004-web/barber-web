@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Image from "next/image";
 
 export default function Header() {
   const navItems = [
@@ -12,8 +11,12 @@ export default function Header() {
   ];
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-gray-900 border-b border-gray-800">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <header className="fixed top-0 left-0 right-0 z-50">
+      {/* Transparent overlay on hero image */}
+      <div className="absolute inset-0 bg-black/20 backdrop-blur-sm"></div>
+      
+      {/* Content Overlay */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
@@ -30,11 +33,11 @@ export default function Header() {
                 />
               </svg>
             </div>
-            <span className="text-white text-lg font-semibold">Logoipsum</span>
+            <span className="text-orange-500 text-lg font-semibold">Logoipsum</span>
           </Link>
 
-          {/* Navigation */}
-          <nav className="hidden lg:flex items-center gap-6 xl:gap-8">
+          {/* Navigation - Centered */}
+          <nav className="hidden lg:flex items-center gap-6 xl:gap-8 absolute left-1/2 transform -translate-x-1/2">
             {navItems.map((item) => (
               <Link
                 key={item.href}

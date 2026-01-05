@@ -65,7 +65,7 @@ export default function FAQs() {
   const rightColumnFAQs = faqs.filter((_, index) => index % 2 === 1);
 
   return (
-    <section className="py-20 bg-gray-900">
+    <section className="py-20 bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
         <div className="text-center mb-12">

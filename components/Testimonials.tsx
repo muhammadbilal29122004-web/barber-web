@@ -72,7 +72,7 @@ export default function Testimonials() {
   };
 
   return (
-    <section className="py-20 bg-gray-900">
+    <section className="py-20 bg-black">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
         <div className="text-center mb-12">
@@ -94,7 +94,7 @@ export default function Testimonials() {
 
         {/* Testimonial Cards */}
         <div className="relative mb-8">
-          <div className="grid md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+          <div className="grid md:grid-cols-2 gap-6 max-w-[1190px] mx-auto">
             {getVisibleTestimonials().map((testimonial) => (
               <div
                 key={testimonial.id}
@@ -115,7 +115,7 @@ export default function Testimonials() {
                 </div>
 
                 {/* Testimonial Text */}
-                <p className="text-white text-lg leading-relaxed mb-6">
+                <p className="text-white text-lg leading-relaxeimage.pngd mb-6">
                   {testimonial.text}
                 </p>
 

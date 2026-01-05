@@ -51,17 +51,17 @@ export default function SignUpPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-900 flex items-center justify-center p-4 relative">
+    <div className="min-h-screen bg-black flex items-center justify-center p-4 relative">
       {/* Background blur effect */}
       <div className="absolute inset-0 bg-gradient-to-br from-gray-800 via-gray-900 to-black opacity-50"></div>
       <div className="absolute inset-0 backdrop-blur-sm"></div>
 
       {/* Sign Up Card */}
-      <div className="relative w-full max-w-md bg-gray-800 rounded-2xl shadow-2xl border border-gray-700 p-8 md:p-10">
+      <div className="relative w-full max-w-[690px] min-h-[771px] bg-black rounded-2xl shadow-2xl border border-[#2C2C2C] p-8 md:p-10 flex flex-col">
         {/* Close Button */}
         <Link
           href="/"
-          className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center text-white hover:text-orange-500 transition-colors"
+          className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center text-white hover:text-[#FF9900] transition-colors"
           aria-label="Close"
         >
           <svg
@@ -82,20 +82,18 @@ export default function SignUpPage() {
         {/* Logo */}
         <div className="flex justify-center mb-6">
           <Link href="/" className="flex items-center gap-2">
-            <div className="w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center">
+            <div className="relative w-8 h-8">
               <svg
-                className="w-6 h-6 text-white"
+                className="w-8 h-8 text-[#FF9900]"
                 fill="currentColor"
-                viewBox="0 0 20 20"
+                viewBox="0 0 24 24"
               >
-                <path
-                  fillRule="evenodd"
-                  d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
-                  clipRule="evenodd"
-                />
+                {/* Sun icon with rays */}
+                <circle cx="12" cy="12" r="4" fill="currentColor" />
+                <path d="M12 2v2M12 20v2M2 12h2M20 12h2M5.64 5.64l1.41 1.41M16.95 16.95l1.41 1.41M5.64 18.36l1.41-1.41M16.95 7.05l1.41-1.41" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
               </svg>
             </div>
-            <span className="text-white text-2xl font-semibold">Logoipsum</span>
+            <span className="text-[#FF9900] text-xl font-semibold">Logoipsum</span>
           </Link>
         </div>
 
@@ -108,13 +106,13 @@ export default function SignUpPage() {
         </p>
 
         {/* Sign Up Form */}
-        <form onSubmit={handleSubmit} className="space-y-5">
+        <form onSubmit={handleSubmit} className="space-y-6">
           {/* First Name and Second Name - Side by Side */}
           <div className="grid grid-cols-2 gap-4">
             <div>
               <label
                 htmlFor="firstName"
-                className="block text-white text-sm font-medium mb-2"
+                className="block text-[#9A9A9A] text-sm font-medium mb-2"
               >
                 First Name
               </label>
@@ -124,14 +122,14 @@ export default function SignUpPage() {
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
                 placeholder="Write your first name"
-                className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-orange-500 transition-colors"
+                className="w-full bg-[#1F1F1F] border border-[#2C2C2C] rounded-lg px-4 py-3 text-white placeholder:text-[#6F6F6F] focus:outline-none focus:border-[#FF9900] transition-colors"
                 required
               />
             </div>
             <div>
               <label
                 htmlFor="secondName"
-                className="block text-white text-sm font-medium mb-2"
+                className="block text-[#9A9A9A] text-sm font-medium mb-2"
               >
                 Second Name
               </label>
@@ -141,7 +139,7 @@ export default function SignUpPage() {
                 value={secondName}
                 onChange={(e) => setSecondName(e.target.value)}
                 placeholder="Write your second name"
-                className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-orange-500 transition-colors"
+                className="w-full bg-[#1F1F1F] border border-[#2C2C2C] rounded-lg px-4 py-3 text-white placeholder:text-[#6F6F6F] focus:outline-none focus:border-[#FF9900] transition-colors"
                 required
               />
             </div>
@@ -151,7 +149,7 @@ export default function SignUpPage() {
           <div>
             <label
               htmlFor="email"
-              className="block text-white text-sm font-medium mb-2"
+              className="block text-[#9A9A9A] text-sm font-medium mb-2"
             >
               Email
             </label>
@@ -161,7 +159,7 @@ export default function SignUpPage() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Write your email"
-              className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:border-orange-500 transition-colors"
+              className="w-full bg-[#1F1F1F] border border-[#2C2C2C] rounded-lg px-4 py-3 text-white placeholder:text-[#6F6F6F] focus:outline-none focus:border-[#FF9900] transition-colors"
               required
             />
           </div>
@@ -170,7 +168,7 @@ export default function SignUpPage() {
           <div>
             <label
               htmlFor="password"
-              className="block text-white text-sm font-medium mb-2"
+              className="block text-[#9A9A9A] text-sm font-medium mb-2"
             >
               Password
             </label>
@@ -181,7 +179,7 @@ export default function SignUpPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Write your password"
-                className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 pr-12 text-white placeholder-gray-400 focus:outline-none focus:border-orange-500 transition-colors"
+                className="w-full bg-[#1F1F1F] border border-[#2C2C2C] rounded-lg px-4 py-3 pr-12 text-white placeholder:text-[#6F6F6F] focus:outline-none focus:border-[#FF9900] transition-colors"
                 required
               />
               <button
@@ -233,7 +231,7 @@ export default function SignUpPage() {
           <div>
             <label
               htmlFor="confirmPassword"
-              className="block text-white text-sm font-medium mb-2"
+              className="block text-[#9A9A9A] text-sm font-medium mb-2"
             >
               Confirm Password
             </label>
@@ -244,7 +242,7 @@ export default function SignUpPage() {
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 placeholder="Confirm your password"
-                className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 pr-12 text-white placeholder-gray-400 focus:outline-none focus:border-orange-500 transition-colors"
+                className="w-full bg-[#1F1F1F] border border-[#2C2C2C] rounded-lg px-4 py-3 pr-12 text-white placeholder:text-[#6F6F6F] focus:outline-none focus:border-[#FF9900] transition-colors"
                 required
               />
               <button
@@ -301,14 +299,14 @@ export default function SignUpPage() {
               id="terms"
               checked={agreeToTerms}
               onChange={(e) => setAgreeToTerms(e.target.checked)}
-              className="mt-1 w-4 h-4 text-orange-500 bg-gray-700 border-gray-600 rounded focus:ring-orange-500 focus:ring-2"
+              className="mt-1 w-4 h-4 text-[#FF9900] bg-[#1F1F1F] border-[#2C2C2C] rounded focus:ring-[#FF9900] focus:ring-2"
               required
             />
             <label htmlFor="terms" className="text-gray-300 text-sm">
               I agree with our{" "}
               <Link
                 href="/terms"
-                className="text-orange-500 underline hover:text-orange-400 transition-colors"
+                className="text-[#FF9900] underline hover:opacity-80 transition-colors"
               >
                 terms & conditions
               </Link>
@@ -319,7 +317,7 @@ export default function SignUpPage() {
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full bg-gradient-to-r from-orange-500 to-orange-600 text-white font-semibold py-3 rounded-lg hover:from-orange-600 hover:to-orange-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg"
+            className="w-full bg-[#FF9900] text-white font-semibold py-3 rounded-full hover:bg-[#E68900] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
           >
             {isLoading ? "Creating Account..." : "Create Account"}
           </button>
@@ -328,10 +326,10 @@ export default function SignUpPage() {
         {/* Separator */}
         <div className="relative my-8">
           <div className="absolute inset-0 flex items-center">
-            <div className="w-full border-t border-gray-600"></div>
+            <div className="w-full border-t border-[#2C2C2C]"></div>
           </div>
           <div className="relative flex justify-center text-sm">
-            <span className="px-4 bg-gray-800 text-gray-300">or</span>
+            <span className="px-4 bg-black text-gray-300">or</span>
           </div>
         </div>
 
@@ -340,7 +338,7 @@ export default function SignUpPage() {
           {/* Google */}
           <button
             onClick={() => handleSocialSignup("google")}
-            className="flex items-center justify-center gap-2 bg-gray-700 border border-gray-600 hover:bg-gray-600 text-white py-3 rounded-lg transition-colors"
+            className="flex items-center justify-center gap-2 bg-[#252525] hover:bg-[#2C2C2C] text-white py-3 rounded-full transition-colors border border-[#2C2C2C]"
           >
             <svg className="w-5 h-5" viewBox="0 0 24 24">
               <path
@@ -366,7 +364,7 @@ export default function SignUpPage() {
           {/* Apple */}
           <button
             onClick={() => handleSocialSignup("apple")}
-            className="flex items-center justify-center gap-2 bg-gray-700 border border-gray-600 hover:bg-gray-600 text-white py-3 rounded-lg transition-colors"
+            className="flex items-center justify-center gap-2 bg-[#252525] hover:bg-[#2C2C2C] text-white py-3 rounded-full transition-colors border border-[#2C2C2C]"
           >
             <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
               <path d="M17.05 20.28c-.98.95-2.05.88-3.08.4-1.09-.5-2.08-.48-3.24 0-1.44.62-2.2.44-3.06-.4C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01.01zm-3.67-17.5c.15-1.23 1.13-2.18 2.4-2.3.27 1.18-.72 2.27-1.81 2.61-.23-.84-.28-1.71-.59-2.31z" />
@@ -377,7 +375,7 @@ export default function SignUpPage() {
           {/* Facebook */}
           <button
             onClick={() => handleSocialSignup("facebook")}
-            className="flex items-center justify-center gap-2 bg-gray-700 border border-gray-600 hover:bg-gray-600 text-white py-3 rounded-lg transition-colors"
+            className="flex items-center justify-center gap-2 bg-[#252525] hover:bg-[#2C2C2C] text-white py-3 rounded-full transition-colors border border-[#2C2C2C]"
           >
             <div className="w-5 h-5 bg-blue-600 rounded flex items-center justify-center">
               <span className="text-white text-xs font-bold">f</span>
@@ -387,11 +385,11 @@ export default function SignUpPage() {
         </div>
 
         {/* Login Link */}
-        <div className="mt-8 text-center">
+        <div className="mt-auto text-center pt-4">
           <span className="text-gray-300">Already have an account? </span>
           <Link
             href="/auth/login"
-            className="text-orange-500 hover:text-orange-400 transition-colors font-medium underline"
+            className="text-[#FF9900] hover:opacity-80 transition-colors font-medium underline"
           >
             Login
           </Link>

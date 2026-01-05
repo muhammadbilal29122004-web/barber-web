@@ -64,10 +64,10 @@ export default function PopularInstructors() {
   };
 
   return (
-    <section className="py-20 bg-gray-900">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header Section */}
-        <div className="text-center mb-12">
+    <section className="py-20 bg-black">
+      {/* Header Section */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+        <div className="text-center">
           <div className="flex items-center justify-center gap-2 mb-4">
             <div className="w-8 h-0.5 bg-orange-500"></div>
             <h2 className="text-sm font-semibold text-orange-500 uppercase tracking-wider">
@@ -82,11 +82,12 @@ export default function PopularInstructors() {
             practical, everyday barbering skills.
           </p>
         </div>
+      </div>
 
-        {/* Carousel Container */}
-        <div className="relative">
-          <div className="overflow-x-visible overflow-y-visible px-8 md:px-12">
-            <div className="flex items-center justify-center gap-2 md:gap-4">
+        {/* Carousel Container - Full Width */}
+        <div className="relative w-full">
+          <div className="overflow-x-visible overflow-y-visible">
+            <div className="flex items-center justify-center gap-2 md:gap-4 lg:gap-6">
               {getVisibleCards().map((instructor, idx) => {
                 const isCenter = instructor.position === 0;
                 const isEdge = Math.abs(instructor.position) === 2;
@@ -101,47 +102,49 @@ export default function PopularInstructors() {
                     style={{
                       transform: `scale(${scale})`,
                       opacity: opacity,
-                      width: "300px",
+                      width: isCenter ? "min(400px, 25vw)" : "min(350px, 22vw)",
                       zIndex: zIndex,
                     }}
                   >
-                    <div className="bg-gray-800 rounded-lg overflow-hidden shadow-xl">
-                      {/* Instructor Image */}
-                      <div className="relative h-80 bg-gradient-to-br from-gray-700 to-gray-900">
-                        <div className="absolute inset-0 flex items-center justify-center">
-                          {/* Placeholder for instructor image */}
-                          <div className="w-full h-full bg-gradient-to-br from-gray-600 via-gray-700 to-gray-800 relative">
-                            {/* Simulated person silhouette */}
-                            <div className="absolute inset-0 flex items-center justify-center">
-                              <div className="w-32 h-40 bg-gray-500 rounded-full relative">
-                                <div className="absolute -bottom-4 left-1/2 -translate-x-1/2 w-40 h-20 bg-gray-600 rounded-full"></div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
+                    <div className={`relative rounded-lg overflow-hidden ${isCenter ? 'shadow-2xl ring-2 ring-orange-500 ring-opacity-70 brightness-110' : 'shadow-xl'}`}>
+                      {/* Instructor Image - Full Card */}
+                      <div className="relative w-full h-[600px] md:h-[700px] overflow-hidden">
+                        <img
+                          src="/all in one.png"
+                          alt={instructor.name}
+                          className="w-full h-full object-cover"
+                        />
+                        {/* Gradient Overlay for text readability */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
 
-                      {/* Instructor Info */}
-                      <div className="p-6 text-center">
-                        <h4 className="text-xl font-bold text-white mb-2">
-                          {instructor.name}
-                        </h4>
-                        <div className="flex items-center justify-center gap-1 mb-4 flex-wrap text-sm text-white">
-                          {instructor.skills.map((skill, skillIdx) => (
-                            <span key={skillIdx}>
-                              {skill}
-                              {skillIdx < instructor.skills.length - 1 && (
-                                <span className="text-orange-500 mx-1">•</span>
-                              )}
-                            </span>
-                          ))}
+                        {/* Instructor Info - Overlaid at bottom */}
+                        <div className="absolute bottom-0 left-0 right-0 p-6 text-center">
+                          <h4 className="text-2xl font-bold text-white mb-2">
+                            {instructor.name}
+                          </h4>
+                          {/* Skills - Only show for center card */}
+                          {isCenter && (
+                            <div className="flex items-center justify-center gap-1 mb-4 flex-wrap text-sm text-white">
+                              {instructor.skills.map((skill, skillIdx) => (
+                                <span key={skillIdx}>
+                                  {skill}
+                                  {skillIdx < instructor.skills.length - 1 && (
+                                    <span className="text-orange-500 mx-1">•</span>
+                                  )}
+                                </span>
+                              ))}
+                            </div>
+                          )}
+                          {/* View Profile Button - Only show for center card */}
+                          {isCenter && (
+                            <Link
+                              href={`/instructors/${instructor.id}`}
+                              className="inline-block bg-orange-500 text-white font-medium px-6 py-2 rounded-full hover:bg-orange-600 transition-colors"
+                            >
+                              View Profile
+                            </Link>
+                          )}
                         </div>
-                        <Link
-                          href={`/instructors/${instructor.id}`}
-                          className="inline-block bg-orange-500 text-white font-medium px-6 py-2 rounded-lg hover:bg-orange-600 transition-colors"
-                        >
-                          View Profile
-                        </Link>
                       </div>
                     </div>
                   </div>
@@ -154,7 +157,7 @@ export default function PopularInstructors() {
           <div className="flex items-center justify-center gap-4 mt-8">
             <button
               onClick={prevSlide}
-              className="w-12 h-12 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center transition-colors"
+              className="px-6 py-3 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center transition-colors"
               aria-label="Previous instructor"
             >
               <svg
@@ -173,11 +176,11 @@ export default function PopularInstructors() {
             </button>
             <button
               onClick={nextSlide}
-              className="w-12 h-12 rounded-full bg-orange-500 hover:bg-orange-600 flex items-center justify-center transition-colors"
+              className="px-6 py-3 rounded-full bg-orange-500 hover:bg-orange-600 flex items-center justify-center transition-colors"
               aria-label="Next instructor"
             >
               <svg
-                className="w-6 h-6 text-white"
+                className="w-6 h-6 text-black"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -192,7 +195,6 @@ export default function PopularInstructors() {
             </button>
           </div>
         </div>
-      </div>
     </section>
   );
 }
