@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 interface Instructor {
   id: number;
@@ -69,12 +70,12 @@ export default function PopularInstructors() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
         <div className="text-center">
           <div className="flex items-center justify-center gap-2 mb-4">
-            <div className="w-8 h-0.5 bg-orange-500"></div>
-            <h2 className="text-sm font-semibold text-orange-500 uppercase tracking-wider">
+            <div className="w-8 h-0.5 bg-[#FE9A00]"></div>
+            <h2 className="text-sm font-semibold text-[#FE9A00] uppercase tracking-wider">
               Popular Instructors
             </h2>
           </div>
-          <h3 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h3 className="text-4xl md:text-5xl font-semi-bold text-white mb-4">
             Learn From Professional Barbers
           </h3>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">
@@ -106,20 +107,21 @@ export default function PopularInstructors() {
                       zIndex: zIndex,
                     }}
                   >
-                    <div className={`relative rounded-lg overflow-hidden ${isCenter ? 'shadow-2xl ring-2 ring-orange-500 ring-opacity-70 brightness-110' : 'shadow-xl'}`}>
+                    <div className={`relative rounded-lg overflow-hidden ${isCenter ? 'shadow-2xl ring-2 ring-[#FE9A00] ring-opacity-70 brightness-110' : 'shadow-xl'}`}>
                       {/* Instructor Image - Full Card */}
                       <div className="relative w-full h-[600px] md:h-[700px] overflow-hidden">
-                        <img
+                        <Image
                           src={instructor.image}
                           alt={instructor.name}
-                          className="w-full h-full object-cover"
+                          fill
+                          className="object-cover"
                         />
                         {/* Gradient Overlay for text readability */}
                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
 
                         {/* Instructor Info - Overlaid at bottom */}
                         <div className="absolute bottom-0 left-0 right-0 p-6 text-center">
-                          <h4 className="text-2xl font-bold text-white mb-2">
+                          <h4 className="text-2xl font-semi-bold text-white mb-2">
                             {instructor.name}
                           </h4>
                           {/* Skills - Only show for center card */}
@@ -129,7 +131,7 @@ export default function PopularInstructors() {
                                 <span key={skillIdx}>
                                   {skill}
                                   {skillIdx < instructor.skills.length - 1 && (
-                                    <span className="text-orange-500 mx-1">•</span>
+                                    <span className="text-[#FE9A00] mx-1">•</span>
                                   )}
                                 </span>
                               ))}
@@ -139,7 +141,7 @@ export default function PopularInstructors() {
                           {isCenter && (
                             <Link
                               href={`/instructors/${instructor.id}`}
-                              className="inline-block bg-orange-500 text-white font-medium px-6 py-2 rounded-full hover:bg-orange-600 transition-colors"
+                              className="inline-block bg-[#FE9A00] text-white font-medium px-6 py-2 rounded-full hover:bg-[#E68900] transition-colors"
                             >
                               View Profile
                             </Link>
@@ -176,7 +178,7 @@ export default function PopularInstructors() {
             </button>
             <button
               onClick={nextSlide}
-              className="px-6 py-3 rounded-full bg-orange-500 hover:bg-orange-600 flex items-center justify-center transition-colors"
+              className="px-6 py-3 rounded-full bg-[#FE9A00] hover:bg-[#FE9A00] flex items-center justify-center transition-colors"
               aria-label="Next instructor"
             >
               <svg

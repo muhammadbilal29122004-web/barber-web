@@ -48,7 +48,7 @@ export default function ForgotPasswordPage() {
         {/* Close Button */}
         <Link
           href="/auth/login"
-          className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center text-white hover:text-orange-500 transition-colors"
+          className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center text-white hover:text-[#FE9A00] transition-colors"
           aria-label="Close"
         >
           <svg

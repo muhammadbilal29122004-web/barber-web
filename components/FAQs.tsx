@@ -70,13 +70,13 @@ export default function FAQs() {
         {/* Header Section */}
         <div className="text-center mb-12">
           <div className="flex items-center justify-center gap-2 mb-4">
-            <div className="w-8 h-0.5 bg-orange-500"></div>
-            <h2 className="text-sm font-semibold text-orange-500 uppercase tracking-wider">
+            <div className="w-8 h-0.5 bg-[#FE9A00]"></div>
+            <h2 className="text-sm font-semibold text-[#FE9A00] uppercase tracking-wider">
               FAQs
             </h2>
-            <div className="w-8 h-0.5 bg-orange-500"></div>
+            <div className="w-8 h-0.5 bg-[#FE9A00]"></div>
           </div>
-          <h3 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h3 className="text-4xl md:text-5xl font-semi-bold text-white mb-4">
             Your Questions, Answered
           </h3>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">
@@ -98,7 +98,7 @@ export default function FAQs() {
                   onClick={() => toggleFAQ(faq.id)}
                 >
                   <div className="flex items-center justify-between gap-4">
-                    <h4 className="text-white font-semibold text-lg flex-1">
+                    <h4 className="text-white font-semi-bold text-lg flex-1">
                       {faq.question}
                     </h4>
                     <button
@@ -146,7 +146,7 @@ export default function FAQs() {
                   onClick={() => toggleFAQ(faq.id)}
                 >
                   <div className="flex items-center justify-between gap-4">
-                    <h4 className="text-white font-semibold text-lg flex-1">
+                    <h4 className="text-white font-semi-bold text-lg flex-1">
                       {faq.question}
                     </h4>
                     <button

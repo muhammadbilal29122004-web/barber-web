@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 interface Tutorial {
   id: number;
@@ -34,12 +35,12 @@ export default function PopularTutorials() {
         {/* Header Section */}
         <div className="text-center mb-12">
           <div className="flex items-center justify-center gap-2 mb-4">
-            <div className="w-8 h-0.5 bg-orange-500"></div>
-            <h2 className="text-sm font-semibold text-orange-500 uppercase tracking-wider">
+            <div className="w-8 h-0.5 bg-[#FE9A00]"></div>
+            <h2 className="text-sm font-semibold text-[#FE9A00] uppercase tracking-wider">
               Popular Tutorials
             </h2>
           </div>
-          <h3 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h3 className="text-4xl md:text-5xl font-semi-bold text-white mb-4">
             Tutorials Picked Just for You
           </h3>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">
@@ -57,11 +58,12 @@ export default function PopularTutorials() {
               className="group rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] flex flex-col w-full"
             >
               {/* Image Container with Play Button - Extends to yellow line */}
-              <div className="relative w-full overflow-hidden">
-                <img
+              <div className="relative w-full h-[350px] overflow-hidden">
+                <Image
                   src={tutorial.image}
                   alt={tutorial.title}
-                  className="w-full h-[350px] object-cover"
+                  fill
+                  className="object-cover"
                 />
                 {/* Play Button Overlay */}
                 <div className="absolute inset-0 flex items-center justify-center">
@@ -79,7 +81,7 @@ export default function PopularTutorials() {
 
               {/* Gray Background Text Section - Below yellow line */}
               <div className="bg-gray-800 p-6">
-                <h4 className="text-xl font-bold text-white mb-2 group-hover:text-orange-500 transition-colors">
+                <h4 className="text-xl font-semi-bold text-white mb-2 group-hover:text-[#FE9A00] transition-colors">
                   {tutorial.title}
                 </h4>
                 <p className="text-gray-300 leading-relaxed">

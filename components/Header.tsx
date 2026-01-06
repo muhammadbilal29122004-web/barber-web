@@ -20,7 +20,7 @@ export default function Header() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center">
+            <div className="w-8 h-8 bg-[#FE9A00] rounded-full flex items-center justify-center">
               <svg
                 className="w-5 h-5 text-white"
                 fill="currentColor"
@@ -33,7 +33,7 @@ export default function Header() {
                 />
               </svg>
             </div>
-            <span className="text-orange-500 text-lg font-semibold">Logoipsum</span>
+            <span className="text-[#FE9A00] text-lg font-semibold">Logoipsum</span>
           </Link>
 
           {/* Navigation - Centered */}
@@ -44,8 +44,8 @@ export default function Header() {
                 href={item.href}
                 className={`text-sm font-medium transition-colors whitespace-nowrap ${
                   item.active
-                    ? "text-orange-500"
-                    : "text-white hover:text-orange-500"
+                    ? "text-[#FE9A00]"
+                    : "text-white hover:text-[#FE9A00]"
                 }`}
               >
                 {item.label}
@@ -57,13 +57,13 @@ export default function Header() {
           <div className="flex items-center gap-4">
             <Link
               href="/auth/login"
-              className="text-white text-sm font-medium hover:text-orange-500 transition-colors"
+              className="text-white text-sm font-medium hover:text-[#FE9A00] transition-colors"
             >
               Login
             </Link>
             <Link
               href="/auth/signUp"
-              className="bg-orange-500 text-white text-sm font-medium px-4 py-2 rounded-full hover:bg-orange-600 transition-colors"
+              className="bg-[#FE9A00] text-white text-sm font-medium px-4 py-2 rounded-full hover:bg-[#E68900] transition-colors"
             >
               Sign Up
             </Link>

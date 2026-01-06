@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 
 interface Testimonial {
   id: number;
@@ -16,35 +17,35 @@ const testimonials: Testimonial[] = [
     text: "These tutorials made everything so easy to understand. I finally learned how to create clean fades without overthinking the process.",
     name: "James Bond",
     title: "Customer",
-    image: "/testimonials/james-bond.jpg",
+    image: "/Jamesbond.png",
   },
   {
     id: 2,
     text: "I use these lessons to train new barbers in my shop. The content is practical, clear, and perfect for fast learning.",
     name: "James Bond",
     title: "Customer",
-    image: "/testimonials/james-bond-2.jpg",
+    image: "/jamesbond1.png",
   },
   {
     id: 3,
     text: "The step-by-step approach helped me master advanced techniques. Highly recommended for anyone serious about barbering.",
     name: "James Bond",
     title: "Customer",
-    image: "/testimonials/james-bond-3.jpg",
+    image: "/Jamesbond.png",
   },
   {
     id: 4,
     text: "Best investment I've made in my career. The instructors are top-notch and the content is always up-to-date.",
     name: "James Bond",
     title: "Customer",
-    image: "/testimonials/james-bond-4.jpg",
+    image: "/jamesbond1.png",
   },
   {
     id: 5,
     text: "From beginner to professional, this platform has everything you need. The community support is amazing too.",
     name: "James Bond",
     title: "Customer",
-    image: "/testimonials/james-bond-5.jpg",
+    image: "/Jamesbond.png",
   },
 ];
 
@@ -77,13 +78,13 @@ export default function Testimonials() {
         {/* Header Section */}
         <div className="text-center mb-12">
           <div className="flex items-center justify-center gap-2 mb-4">
-            <div className="w-8 h-0.5 bg-orange-500"></div>
-            <h2 className="text-sm font-semibold text-orange-500 uppercase tracking-wider">
+            <div className="w-8 h-0.5 bg-[#FE9A00]"></div>
+            <h2 className="text-sm font-semibold text-[#FE9A00] uppercase tracking-wider">
               Testimonials
             </h2>
-            <div className="w-8 h-0.5 bg-orange-500"></div>
+            <div className="w-8 h-0.5 bg-[#FE9A00]"></div>
           </div>
-          <h3 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h3 className="text-4xl md:text-5xl font-semi-bold text-white mb-4">
             Success Stories From Our Learners
           </h3>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">
@@ -115,17 +116,19 @@ export default function Testimonials() {
                 </div>
 
                 {/* Testimonial Text */}
-                <p className="text-white text-lg leading-relaxeimage.pngd mb-6">
+                <p className="text-white text-lg leading-relaxed mb-6">
                   {testimonial.text}
                 </p>
 
                 {/* Customer Info */}
                 <div className="flex items-center gap-4">
-                  <div className="w-12 h-12 rounded-full bg-gradient-to-br from-gray-600 to-gray-700 flex items-center justify-center overflow-hidden flex-shrink-0">
-                    {/* Placeholder for profile image */}
-                    <div className="w-full h-full bg-gray-500 rounded-full flex items-center justify-center">
-                      <div className="w-8 h-8 bg-gray-400 rounded-full"></div>
-                    </div>
+                  <div className="relative w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
+                    <Image
+                      src={testimonial.image}
+                      alt={testimonial.name}
+                      fill
+                      className="object-cover"
+                    />
                   </div>
                   <div>
                     <h4 className="text-white font-semibold">{testimonial.name}</h4>
@@ -168,7 +171,7 @@ export default function Testimonials() {
                 onClick={() => goToSlide(index)}
                 className={`w-2 h-2 rounded-full transition-colors ${
                   index === currentSlide
-                    ? "bg-orange-500"
+                    ? "bg-[#FE9A00]"
                     : "bg-gray-600 hover:bg-gray-500"
                 }`}
                 aria-label={`Go to slide ${index + 1}`}
@@ -179,7 +182,7 @@ export default function Testimonials() {
           {/* Right Arrow */}
           <button
             onClick={nextSlide}
-            className="w-12 h-12 rounded-full bg-orange-500 hover:bg-orange-600 flex items-center justify-center transition-colors"
+            className="w-12 h-12 rounded-full bg-[#FE9A00] hover:bg-[#E68900] flex items-center justify-center transition-colors"
             aria-label="Next testimonials"
           >
             <svg

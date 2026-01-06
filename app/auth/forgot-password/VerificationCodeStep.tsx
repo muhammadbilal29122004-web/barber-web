@@ -121,7 +121,7 @@ export default function VerificationCodeStep({
               className={`w-12 h-12 md:w-14 md:h-14 text-center text-xl font-semibold bg-gray-700 border rounded-lg text-white focus:outline-none transition-colors ${
                 formik.errors.code
                   ? "border-red-500"
-                  : "border-gray-600 focus:border-orange-500"
+                  : "border-gray-600 focus:border-[#FE9A00]"
               }`}
             />
           ))}
@@ -134,7 +134,7 @@ export default function VerificationCodeStep({
         <button
           type="submit"
           disabled={isLoading || formik.values.code.join("").length !== 4}
-          className="w-full bg-orange-500 text-white font-semibold py-3 rounded-lg hover:bg-orange-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full bg-[#FE9A00] text-white font-semibold py-3 rounded-lg hover:bg-[#E68900] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {isLoading ? "Verifying..." : "Confirm"}
         </button>
@@ -147,7 +147,7 @@ export default function VerificationCodeStep({
           <button
             type="button"
             onClick={handleResend}
-            className="text-orange-500 text-sm hover:text-orange-400 transition-colors"
+            className="text-[#FE9A00] text-sm hover:text-[#E68900] transition-colors"
           >
             Resend Code
           </button>

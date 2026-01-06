@@ -22,7 +22,7 @@ export default function Footer() {
           <div>
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2 mb-6">
-              <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center">
+              <div className="w-8 h-8 bg-[#FE9A00] rounded-full flex items-center justify-center">
                 <svg
                   className="w-5 h-5 text-white"
                   fill="currentColor"
@@ -100,14 +100,14 @@ export default function Footer() {
             <div className="flex items-center gap-3">
               <a
                 href="#"
-                className="w-10 h-10 rounded-full border border-gray-600 flex items-center justify-center hover:border-orange-500 hover:bg-orange-500 transition-colors"
+                className="w-10 h-10 rounded-full border border-gray-600 flex items-center justify-center hover:border-[#FE9A00] hover:bg-[#FE9A00] transition-colors"
                 aria-label="Facebook"
               >
                 <span className="text-white text-sm font-semibold">f</span>
               </a>
               <a
                 href="#"
-                className="w-10 h-10 rounded-full border border-gray-600 flex items-center justify-center hover:border-orange-500 hover:bg-orange-500 transition-colors"
+                className="w-10 h-10 rounded-full border border-gray-600 flex items-center justify-center hover:border-[#FE9A00] hover:bg-[#FE9A00] transition-colors"
                 aria-label="Instagram"
               >
                 <svg
@@ -132,7 +132,7 @@ export default function Footer() {
               </a>
               <a
                 href="#"
-                className="w-10 h-10 rounded-full border border-gray-600 flex items-center justify-center hover:border-orange-500 hover:bg-orange-500 transition-colors"
+                className="w-10 h-10 rounded-full border border-gray-600 flex items-center justify-center hover:border-[#FE9A00] hover:bg-[#FE9A00] transition-colors"
                 aria-label="X (Twitter)"
               >
                 <svg
@@ -145,7 +145,7 @@ export default function Footer() {
               </a>
               <a
                 href="#"
-                className="w-10 h-10 rounded-full border border-gray-600 flex items-center justify-center hover:border-orange-500 hover:bg-orange-500 transition-colors"
+                className="w-10 h-10 rounded-full border border-gray-600 flex items-center justify-center hover:border-[#FE9A00] hover:bg-[#FE9A00] transition-colors"
                 aria-label="YouTube"
               >
                 <svg
@@ -166,7 +166,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/"
-                  className="text-gray-300 hover:text-orange-500 transition-colors"
+                  className="text-gray-300 hover:text-[#FE9A00] transition-colors"
                 >
                   Home
                 </Link>
@@ -174,7 +174,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/learn"
-                  className="text-gray-300 hover:text-orange-500 transition-colors"
+                  className="text-gray-300 hover:text-[#FE9A00] transition-colors"
                 >
                   Learn
                 </Link>
@@ -182,7 +182,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/tutorials"
-                  className="text-gray-300 hover:text-orange-500 transition-colors"
+                  className="text-gray-300 hover:text-[#FE9A00] transition-colors"
                 >
                   Tutorials
                 </Link>
@@ -190,7 +190,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/study-tools"
-                  className="text-gray-300 hover:text-orange-500 transition-colors"
+                  className="text-gray-300 hover:text-[#FE9A00] transition-colors"
                 >
                   Study Tools
                 </Link>
@@ -205,7 +205,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/instructors"
-                  className="text-gray-300 hover:text-orange-500 transition-colors"
+                  className="text-gray-300 hover:text-[#FE9A00] transition-colors"
                 >
                   Instructors
                 </Link>
@@ -213,7 +213,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/pricing"
-                  className="text-gray-300 hover:text-orange-500 transition-colors"
+                  className="text-gray-300 hover:text-[#FE9A00] transition-colors"
                 >
                   Pricing
                 </Link>
@@ -221,7 +221,7 @@ export default function Footer() {
               <li>
                 <Link
                   href="/contact"
-                  className="text-gray-300 hover:text-orange-500 transition-colors"
+                  className="text-gray-300 hover:text-[#FE9A00] transition-colors"
                 >
                   Contact
                 </Link>
@@ -241,12 +241,12 @@ export default function Footer() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Enter your Email"
-                className="flex-1 bg-gray-800 border border-gray-700 rounded-lg px-4 py-2.5 text-white placeholder-gray-400 focus:outline-none focus:border-orange-500 transition-colors"
+                className="flex-1 bg-gray-800 border border-gray-700 rounded-lg px-4 py-2.5 text-white placeholder-gray-400 focus:outline-none focus:border-[#FE9A00] transition-colors"
                 required
               />
               <button
                 type="submit"
-                className="bg-orange-500 text-white font-medium px-6 py-2.5 rounded-lg hover:bg-orange-600 transition-colors whitespace-nowrap"
+                className="bg-[#FE9A00] text-white font-medium px-6 py-2.5 rounded-lg hover:bg-[#E68900] transition-colors whitespace-nowrap"
               >
                 Submit
               </button>
@@ -266,7 +266,7 @@ export default function Footer() {
 
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-orange-500 rounded-full flex items-center justify-center">
+              <div className="w-8 h-8 bg-[#FE9A00] rounded-full flex items-center justify-center">
                 <svg
                   className="w-5 h-5 text-white"
                   fill="currentColor"
@@ -286,14 +286,14 @@ export default function Footer() {
             <div className="flex items-center gap-2 text-gray-300 text-sm">
               <Link
                 href="/privacy"
-                className="hover:text-orange-500 transition-colors"
+                className="hover:text-[#FE9A00] transition-colors"
               >
                 Privacy Policy
               </Link>
               <span className="text-gray-600">•</span>
               <Link
                 href="/terms"
-                className="hover:text-orange-500 transition-colors"
+                className="hover:text-[#FE9A00] transition-colors"
               >
                 Terms & Conditions
               </Link>

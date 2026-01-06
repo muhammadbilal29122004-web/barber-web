@@ -43,7 +43,7 @@ export default function ResetPasswordStep({
       {/* Back Button */}
       <button
         onClick={onBack}
-        className="flex items-center gap-2 text-white hover:text-orange-500 transition-colors mb-4"
+        className="flex items-center gap-2 text-white hover:text-[#FE9A00] transition-colors mb-4"
       >
         <svg
           className="w-5 h-5"
@@ -91,7 +91,7 @@ export default function ResetPasswordStep({
               className={`w-full bg-gray-700 border rounded-lg px-4 py-3 pr-12 text-white placeholder-gray-400 focus:outline-none transition-colors ${
                 formik.errors.password && formik.touched.password
                   ? "border-red-500"
-                  : "border-gray-600 focus:border-orange-500"
+                  : "border-gray-600 focus:border-[#FE9A00]"
               }`}
             />
             <button
@@ -162,7 +162,7 @@ export default function ResetPasswordStep({
               className={`w-full bg-gray-700 border rounded-lg px-4 py-3 pr-12 text-white placeholder-gray-400 focus:outline-none transition-colors ${
                 formik.errors.confirmPassword && formik.touched.confirmPassword
                   ? "border-red-500"
-                  : "border-gray-600 focus:border-orange-500"
+                  : "border-gray-600 focus:border-[#FE9A00]"
               }`}
             />
             <button
@@ -219,7 +219,7 @@ export default function ResetPasswordStep({
         <button
           type="submit"
           disabled={isLoading}
-          className="w-full bg-orange-500 text-white font-semibold py-3 rounded-lg hover:bg-orange-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full bg-[#FE9A00] text-white font-semibold py-3 rounded-lg hover:bg-[#E68900] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {isLoading ? "Updating Password..." : "Update Password"}
         </button>

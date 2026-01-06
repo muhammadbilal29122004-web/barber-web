@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 interface HaircutStyle {
   id: number;
@@ -46,12 +47,12 @@ export default function PopularHaircutStyles() {
         {/* Header Section */}
         <div className="mb-12">
           <div className="flex items-center gap-2 mb-4">
-            <div className="w-8 h-0.5 bg-orange-500"></div>
-            <h2 className="text-sm font-semibold text-orange-500 uppercase tracking-wider">
+            <div className="w-8 h-0.5 bg-[#FE9A00]"></div>
+            <h2 className="text-sm font-semibold text-[#FE9A00] uppercase tracking-wider">
               Haircut Styles
             </h2>
           </div>
-          <h3 className="text-4xl md:text-5xl font-bold text-white mb-4">
+          <h3 className="text-4xl md:text-5xl font-semi-bold text-white mb-4">
             Popular Haircut Styles
           </h3>
           <p className="text-lg text-gray-300 max-w-2xl">
@@ -70,17 +71,18 @@ export default function PopularHaircutStyles() {
             >
               {/* Image Container - Full Card */}
               <div className="relative w-full h-full overflow-hidden">
-                <img
+                <Image
                   src={style.image}
                   alt={style.title}
-                  className="w-full h-full object-cover"
+                  fill
+                  className="object-cover"
                 />
                 {/* Gradient Overlay for text readability */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
 
                 {/* Text Overlays - Bottom Left */}
                 <div className="absolute bottom-0 left-0 p-5">
-                  <h4 className="text-xl font-bold text-white mb-2 group-hover:text-orange-500 transition-colors">
+                  <h4 className="text-xl font-semi-bold text-white mb-2 group-hover:text-[#FE9A00] transition-colors">
                     {style.title}
                   </h4>
                   <div className="flex items-center gap-2 text-white text-sm">
@@ -102,9 +104,9 @@ export default function PopularHaircutStyles() {
                 </div>
 
                 {/* Orange Circular Button - Bottom Right */}
-                <div className="absolute bottom-5 right-5 w-12 h-12 border-2 border-orange-500 rounded-full flex items-center justify-center group-hover:border-orange-600 transition-colors">
+                <div className="absolute bottom-5 right-5 w-12 h-12 border-2 border-[#FE9A00] rounded-full flex items-center justify-center group-hover:border-[#E68900] transition-colors">
                   <svg
-                    className="w-6 h-6 text-orange-500 ml-0.5 group-hover:text-orange-600 transition-colors"
+                    className="w-6 h-6 text-[#FE9A00] ml-0.5 group-hover:text-[#E68900] transition-colors"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                   >

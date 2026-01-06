@@ -10,6 +10,17 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+  --font-anton: var(--font-anton);
+  --font-urbanist: var(--font-urbanist);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-anton), sans-serif;
+
+}
+
+p {
+  font-family: var(--font-urbanist), sans-serif;
 }
 
 @media (prefers-color-scheme: dark) {

@@ -35,7 +35,7 @@ export default function PasswordUpdatedStep({
       {/* Continue to Login Button */}
       <button
         onClick={onContinue}
-        className="w-full bg-orange-500 text-white font-semibold py-3 rounded-lg hover:bg-orange-600 transition-colors"
+        className="w-full bg-[#FE9A00] text-white font-semibold py-3 rounded-lg hover:bg-[#E68900] transition-colors"
       >
         Continue to Login
       </button>
