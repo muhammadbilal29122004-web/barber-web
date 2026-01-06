@@ -73,40 +73,40 @@ export default function Testimonials() {
   };
 
   return (
-    <section className="py-20 bg-black">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-12 sm:py-16 md:py-18 lg:py-20 bg-black">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-10 lg:px-8">
         {/* Header Section */}
-        <div className="text-center mb-12">
-          <div className="flex items-center justify-center gap-2 mb-4">
-            <div className="w-8 h-0.5 bg-[#FE9A00]"></div>
-            <h2 className="text-sm font-semibold text-[#FE9A00] uppercase tracking-wider">
+        <div className="text-center mb-8 sm:mb-10 md:mb-11 lg:mb-12">
+          <div className="flex items-center justify-center gap-2 mb-3 sm:mb-4">
+            <div className="w-6 sm:w-8 h-0.5 bg-[#FE9A00]"></div>
+            <h2 className="text-xs sm:text-sm font-semi-bold text-[#FE9A00] uppercase tracking-wider">
               Testimonials
             </h2>
-            <div className="w-8 h-0.5 bg-[#FE9A00]"></div>
+            <div className="w-6 sm:w-8 h-0.5 bg-[#FE9A00]"></div>
           </div>
-          <h3 className="text-4xl md:text-5xl font-semi-bold text-white mb-4">
+          <h3 className="text-2xl sm:text-3xl md:text-[2.5rem] lg:text-5xl font-semi-bold text-white mb-3 sm:mb-4 px-4">
             Success Stories From Our Learners
           </h3>
-          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base md:text-lg lg:text-lg text-gray-300 max-w-2xl mx-auto px-4">
             Barbers share their experience and the results they achieved through
             our training.
           </p>
         </div>
 
         {/* Testimonial Cards */}
-        <div className="relative mb-8">
-          <div className="grid md:grid-cols-2 gap-6 max-w-[1190px] mx-auto">
+        <div className="relative mb-6 sm:mb-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 max-w-[1190px] mx-auto">
             {getVisibleTestimonials().map((testimonial) => (
               <div
                 key={testimonial.id}
-                className="bg-gray-800 rounded-lg p-6 shadow-xl"
+                className="bg-gray-800 rounded-lg p-5 sm:p-6 shadow-xl"
               >
                 {/* Star Rating */}
-                <div className="flex gap-1 mb-4">
+                <div className="flex gap-1 mb-3 sm:mb-4">
                   {[...Array(5)].map((_, i) => (
                     <svg
                       key={i}
-                      className="w-5 h-5 text-yellow-400"
+                      className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-400"
                       fill="currentColor"
                       viewBox="0 0 20 20"
                     >
@@ -116,13 +116,13 @@ export default function Testimonials() {
                 </div>
 
                 {/* Testimonial Text */}
-                <p className="text-white text-lg leading-relaxed mb-6">
+                <p className="text-white text-sm sm:text-base lg:text-lg leading-relaxed mb-5 sm:mb-6">
                   {testimonial.text}
                 </p>
 
                 {/* Customer Info */}
-                <div className="flex items-center gap-4">
-                  <div className="relative w-12 h-12 rounded-full overflow-hidden flex-shrink-0">
+                <div className="flex items-center gap-3 sm:gap-4">
+                  <div className="relative w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden flex-shrink-0">
                     <Image
                       src={testimonial.image}
                       alt={testimonial.name}
@@ -131,8 +131,8 @@ export default function Testimonials() {
                     />
                   </div>
                   <div>
-                    <h4 className="text-white font-semibold">{testimonial.name}</h4>
-                    <p className="text-gray-400 text-sm">{testimonial.title}</p>
+                    <h4 className="text-white font-semi-bold text-sm sm:text-base">{testimonial.name}</h4>
+                    <p className="text-gray-400 text-xs sm:text-sm">{testimonial.title}</p>
                   </div>
                 </div>
               </div>
@@ -141,15 +141,15 @@ export default function Testimonials() {
         </div>
 
         {/* Carousel Navigation */}
-        <div className="flex items-center justify-center gap-6">
+        <div className="flex items-center justify-center gap-4 sm:gap-6">
           {/* Left Arrow */}
           <button
             onClick={prevSlide}
-            className="w-12 h-12 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center transition-colors"
+            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center transition-colors"
             aria-label="Previous testimonials"
           >
             <svg
-              className="w-6 h-6 text-gray-300"
+              className="w-5 h-5 sm:w-6 sm:h-6 text-gray-300"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -182,11 +182,11 @@ export default function Testimonials() {
           {/* Right Arrow */}
           <button
             onClick={nextSlide}
-            className="w-12 h-12 rounded-full bg-[#FE9A00] hover:bg-[#E68900] flex items-center justify-center transition-colors"
+            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#FE9A00] hover:bg-[#E68900] flex items-center justify-center transition-colors"
             aria-label="Next testimonials"
           >
             <svg
-              className="w-6 h-6 text-white"
+              className="w-5 h-5 sm:w-6 sm:h-6 text-white"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"

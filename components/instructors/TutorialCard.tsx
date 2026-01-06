@@ -90,7 +90,7 @@ export default function TutorialCard({
       {/* Card Content */}
       <div className="p-4">
         {/* Title */}
-        <h3 className="text-lg font-bold text-white mb-2 line-clamp-2 group-hover:text-orange-500 transition-colors">
+        <h3 className="text-lg font-semi-bold text-white mb-2 line-clamp-2 group-hover:text-orange-500 transition-colors">
           {title}
         </h3>
 

@@ -65,51 +65,51 @@ export default function FAQs() {
   const rightColumnFAQs = faqs.filter((_, index) => index % 2 === 1);
 
   return (
-    <section className="py-20 bg-black">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-12 sm:py-16 md:py-18 lg:py-20 bg-black">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-10 lg:px-8">
         {/* Header Section */}
-        <div className="text-center mb-12">
-          <div className="flex items-center justify-center gap-2 mb-4">
-            <div className="w-8 h-0.5 bg-[#FE9A00]"></div>
-            <h2 className="text-sm font-semibold text-[#FE9A00] uppercase tracking-wider">
+        <div className="text-center mb-8 sm:mb-10 md:mb-11 lg:mb-12">
+          <div className="flex items-center justify-center gap-2 mb-3 sm:mb-4">
+            <div className="w-6 sm:w-8 h-0.5 bg-[#FE9A00]"></div>
+            <h2 className="text-xs sm:text-sm font-semi-bold text-[#FE9A00] uppercase tracking-wider">
               FAQs
             </h2>
-            <div className="w-8 h-0.5 bg-[#FE9A00]"></div>
+            <div className="w-6 sm:w-8 h-0.5 bg-[#FE9A00]"></div>
           </div>
-          <h3 className="text-4xl md:text-5xl font-semi-bold text-white mb-4">
+          <h3 className="text-2xl sm:text-3xl md:text-[2.5rem] lg:text-5xl font-semi-bold text-white mb-3 sm:mb-4 px-4">
             Your Questions, Answered
           </h3>
-          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+          <p className="text-sm sm:text-base md:text-lg lg:text-lg text-gray-300 max-w-2xl mx-auto px-4">
             Get answers to your questions about courses, subscriptions, and
             learning.
           </p>
         </div>
 
         {/* FAQ Items Grid */}
-        <div className="grid md:grid-cols-2 gap-4 max-w-5xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 max-w-5xl mx-auto">
           {/* Left Column */}
-          <div className="space-y-4">
+          <div className="space-y-3 sm:space-y-4">
             {leftColumnFAQs.map((faq) => {
               const isOpen = openId === faq.id;
               return (
                 <div
                   key={faq.id}
-                  className="bg-gray-800 rounded-lg p-6 cursor-pointer transition-all duration-300 hover:bg-gray-700"
+                  className="bg-gray-800 rounded-lg p-4 sm:p-5 lg:p-6 cursor-pointer transition-all duration-300 hover:bg-gray-700"
                   onClick={() => toggleFAQ(faq.id)}
                 >
-                  <div className="flex items-center justify-between gap-4">
-                    <h4 className="text-white font-semi-bold text-lg flex-1">
+                  <div className="flex items-center justify-between gap-3 sm:gap-4">
+                    <h4 className="text-white font-semi-bold text-sm sm:text-base lg:text-lg flex-1">
                       {faq.question}
                     </h4>
                     <button
-                      className="flex-shrink-0 w-6 h-6 flex items-center justify-center text-white transition-transform duration-300"
+                      className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 flex items-center justify-center text-white transition-transform duration-300"
                       style={{
                         transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
                       }}
                       aria-label={isOpen ? "Collapse" : "Expand"}
                     >
                       <svg
-                        className="w-5 h-5"
+                        className="w-4 h-4 sm:w-5 sm:h-5"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -124,8 +124,8 @@ export default function FAQs() {
                     </button>
                   </div>
                   {isOpen && (
-                    <div className="mt-4 pt-4 border-t border-gray-700">
-                      <p className="text-gray-300 leading-relaxed">
+                    <div className="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-gray-700">
+                      <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
                         {faq.answer}
                       </p>
                     </div>
@@ -136,28 +136,28 @@ export default function FAQs() {
           </div>
 
           {/* Right Column */}
-          <div className="space-y-4">
+          <div className="space-y-3 sm:space-y-4">
             {rightColumnFAQs.map((faq) => {
               const isOpen = openId === faq.id;
               return (
                 <div
                   key={faq.id}
-                  className="bg-gray-800 rounded-lg p-6 cursor-pointer transition-all duration-300 hover:bg-gray-700"
+                  className="bg-gray-800 rounded-lg p-4 sm:p-5 lg:p-6 cursor-pointer transition-all duration-300 hover:bg-gray-700"
                   onClick={() => toggleFAQ(faq.id)}
                 >
-                  <div className="flex items-center justify-between gap-4">
-                    <h4 className="text-white font-semi-bold text-lg flex-1">
+                  <div className="flex items-center justify-between gap-3 sm:gap-4">
+                    <h4 className="text-white font-semi-bold text-sm sm:text-base lg:text-lg flex-1">
                       {faq.question}
                     </h4>
                     <button
-                      className="flex-shrink-0 w-6 h-6 flex items-center justify-center text-white transition-transform duration-300"
+                      className="flex-shrink-0 w-5 h-5 sm:w-6 sm:h-6 flex items-center justify-center text-white transition-transform duration-300"
                       style={{
                         transform: isOpen ? "rotate(180deg)" : "rotate(0deg)",
                       }}
                       aria-label={isOpen ? "Collapse" : "Expand"}
                     >
                       <svg
-                        className="w-5 h-5"
+                        className="w-4 h-4 sm:w-5 sm:h-5"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"
@@ -172,8 +172,8 @@ export default function FAQs() {
                     </button>
                   </div>
                   {isOpen && (
-                    <div className="mt-4 pt-4 border-t border-gray-700">
-                      <p className="text-gray-300 leading-relaxed">
+                    <div className="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-gray-700">
+                      <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
                         {faq.answer}
                       </p>
                     </div>

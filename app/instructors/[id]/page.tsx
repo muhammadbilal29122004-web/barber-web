@@ -165,7 +165,7 @@ export default function InstructorDetailPage() {
               <div className="flex-1">
                 <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
                   <div>
-                    <h1 className="text-3xl md:text-4xl font-bold text-white mb-2">
+                    <h1 className="text-3xl md:text-4xl font-semi-bold text-white mb-2">
                       {instructor.name}
                     </h1>
                     <div className="flex flex-wrap gap-4 text-gray-400">
@@ -195,13 +195,13 @@ export default function InstructorDetailPage() {
                         d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
                       />
                     </svg>
-                    <span className="font-semibold">Save</span>
+                    <span className="font-semi-bold">Save</span>
                   </button>
                 </div>
 
                 {/* About Section */}
                 <div className="mb-6">
-                  <h2 className="text-xl font-bold text-white mb-3">About</h2>
+                  <h2 className="text-xl font-semi-bold text-white mb-3">About</h2>
                   <p className="text-gray-300 leading-relaxed">
                     With over 15 years of experience, {instructor.name} specializes in classic and
                     modern Fade techniques. He&apos;s trained hundreds of barbers and is known for
@@ -211,7 +211,7 @@ export default function InstructorDetailPage() {
 
                 {/* Specializations */}
                 <div>
-                  <h2 className="text-xl font-bold text-white mb-3">Specializations</h2>
+                  <h2 className="text-xl font-semi-bold text-white mb-3">Specializations</h2>
                   <div className="flex flex-wrap gap-2">
                     {instructor.skills.map((skill, index) => (
                       <span
@@ -230,7 +230,7 @@ export default function InstructorDetailPage() {
           {/* Tutorials Section */}
           <div>
             {/* Section Title */}
-            <h2 className="text-3xl font-bold text-white mb-8">
+            <h2 className="text-3xl font-semi-bold text-white mb-8">
               Tutorials By {instructor.name}
             </h2>
 

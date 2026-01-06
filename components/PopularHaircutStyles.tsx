@@ -42,32 +42,32 @@ const haircutStyles: HaircutStyle[] = [
 
 export default function PopularHaircutStyles() {
   return (
-    <section className="py-20 bg-black">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="py-12 sm:py-16 md:py-18 lg:py-20 bg-black">
+      <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-10 lg:px-8">
         {/* Header Section */}
-        <div className="mb-12">
-          <div className="flex items-center gap-2 mb-4">
-            <div className="w-8 h-0.5 bg-[#FE9A00]"></div>
-            <h2 className="text-sm font-semibold text-[#FE9A00] uppercase tracking-wider">
+        <div className="mb-8 sm:mb-10 md:mb-11 lg:mb-12">
+          <div className="flex items-center gap-2 mb-3 sm:mb-4">
+            <div className="w-6 sm:w-8 h-0.5 bg-[#FE9A00]"></div>
+            <h2 className="text-xs sm:text-sm font-semi-bold text-[#FE9A00] uppercase tracking-wider">
               Haircut Styles
             </h2>
           </div>
-          <h3 className="text-4xl md:text-5xl font-semi-bold text-white mb-4">
+          <h3 className="text-2xl sm:text-3xl md:text-[2.5rem] lg:text-5xl font-semi-bold text-white mb-3 sm:mb-4">
             Popular Haircut Styles
           </h3>
-          <p className="text-lg text-gray-300 max-w-2xl">
+          <p className="text-sm sm:text-base md:text-lg lg:text-lg text-gray-300 max-w-2xl">
             Discover the lessons barbers are watching the most—updated daily
             based on real activity.
           </p>
         </div>
 
         {/* Haircut Style Cards Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-5 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-4 lg:gap-5 max-w-7xl mx-auto">
           {haircutStyles.map((style) => (
             <Link
               key={style.id}
               href={style.link}
-              className="group relative rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] w-full h-[400px]"
+              className="group relative rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] w-full h-[350px] sm:h-[380px] lg:h-[400px]"
             >
               {/* Image Container - Full Card */}
               <div className="relative w-full h-full overflow-hidden">
@@ -81,13 +81,13 @@ export default function PopularHaircutStyles() {
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
 
                 {/* Text Overlays - Bottom Left */}
-                <div className="absolute bottom-0 left-0 p-5">
-                  <h4 className="text-xl font-semi-bold text-white mb-2 group-hover:text-[#FE9A00] transition-colors">
+                <div className="absolute bottom-0 left-0 p-4 sm:p-5">
+                  <h4 className="text-lg sm:text-xl font-semi-bold text-white mb-2 group-hover:text-[#FE9A00] transition-colors">
                     {style.title}
                   </h4>
-                  <div className="flex items-center gap-2 text-white text-sm">
+                  <div className="flex items-center gap-2 text-white text-xs sm:text-sm">
                     <svg
-                      className="w-4 h-4"
+                      className="w-3.5 h-3.5 sm:w-4 sm:h-4"
                       fill="none"
                       stroke="currentColor"
                       viewBox="0 0 24 24"
@@ -104,9 +104,9 @@ export default function PopularHaircutStyles() {
                 </div>
 
                 {/* Orange Circular Button - Bottom Right */}
-                <div className="absolute bottom-5 right-5 w-12 h-12 border-2 border-[#FE9A00] rounded-full flex items-center justify-center group-hover:border-[#E68900] transition-colors">
+                <div className="absolute bottom-4 right-4 sm:bottom-5 sm:right-5 w-10 h-10 sm:w-12 sm:h-12 border-2 border-[#FE9A00] rounded-full flex items-center justify-center group-hover:border-[#E68900] transition-colors">
                   <svg
-                    className="w-6 h-6 text-[#FE9A00] ml-0.5 group-hover:text-[#E68900] transition-colors"
+                    className="w-5 h-5 sm:w-6 sm:h-6 text-[#FE9A00] ml-0.5 group-hover:text-[#E68900] transition-colors"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                   >

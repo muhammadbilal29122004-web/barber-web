@@ -25,7 +25,7 @@ export default function PasswordUpdatedStep({
       </div>
 
       {/* Title */}
-      <h1 className="text-3xl font-bold text-white text-center mb-2">
+      <h1 className="text-3xl font-semi-bold text-white text-center mb-2">
         Password Updated!
       </h1>
       <p className="text-gray-300 text-center mb-8">
@@ -35,7 +35,7 @@ export default function PasswordUpdatedStep({
       {/* Continue to Login Button */}
       <button
         onClick={onContinue}
-        className="w-full bg-[#FE9A00] text-white font-semibold py-3 rounded-lg hover:bg-[#E68900] transition-colors"
+        className="w-full bg-[#FE9A00] text-white font-semi-bold py-3 rounded-lg hover:bg-[#E68900] transition-colors"
       >
         Continue to Login
       </button>

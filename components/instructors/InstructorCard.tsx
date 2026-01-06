@@ -62,7 +62,7 @@ export default function InstructorCard({ id, name, skills, image }: InstructorCa
         {/* Content Overlay at Bottom */}
         <div className="absolute bottom-0 left-0 right-0 p-6 z-10">
           {/* Instructor Name */}
-          <h3 className="text-2xl font-bold text-white mb-2 text-center">
+          <h3 className="text-2xl font-semi-bold text-white mb-2 text-center">
             {name}
           </h3>
 
@@ -74,7 +74,7 @@ export default function InstructorCard({ id, name, skills, image }: InstructorCa
           {/* View Profile Button */}
           <Link
             href={`/instructors/${id}`}
-            className="block w-[50%] bg-orange-500 mx-auto text-white font-semibold py-3 rounded-full hover:bg-orange-600 transition-colors text-center"
+            className="block w-[50%] bg-orange-500 mx-auto text-white font-semi-bold py-3 rounded-full hover:bg-orange-600 transition-colors text-center"
           >
             View Profile
           </Link>

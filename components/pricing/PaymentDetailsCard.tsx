@@ -150,7 +150,7 @@ export default function PaymentDetailsCard() {
         </Link>
 
         {/* Title */}
-        <h2 className="text-2xl font-bold text-white mb-6">Pro Membership</h2>
+        <h2 className="text-2xl font-semi-bold text-white mb-6">Pro Membership</h2>
 
         {/* Payment Method Buttons */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-8">
@@ -288,14 +288,14 @@ export default function PaymentDetailsCard() {
           <div className="flex gap-4 pt-4">
             <Link
               href="/pricing"
-              className="flex-1 bg-gray-700 text-white font-semibold py-3 rounded-full hover:bg-gray-600 transition-colors text-center"
+              className="flex-1 bg-gray-700 text-white font-semi-bold py-3 rounded-full hover:bg-gray-600 transition-colors text-center"
             >
               Back
             </Link>
             <button
               type="submit"
               disabled={formik.isSubmitting}
-              className="flex-1 bg-orange-500 text-white font-semibold py-3 rounded-full hover:bg-orange-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="flex-1 bg-orange-500 text-white font-semi-bold py-3 rounded-full hover:bg-orange-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {formik.isSubmitting ? "Processing..." : "Pay Securely"}
             </button>

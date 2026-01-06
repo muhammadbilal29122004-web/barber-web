@@ -25,7 +25,7 @@ export default function PricingCard() {
         <div className="relative rounded-2xl shadow-2xl border border-[#161616] overflow-hidden">
           {/* Most Popular Tag - Inside Card, Top Right */}
           <div className="absolute top-4 right-4 md:top-6 md:right-6 z-10">
-            <div className="bg-orange-500 text-white px-4 py-2 rounded-lg text-sm font-semibold transform rotate-3">
+            <div className="bg-orange-500 text-white px-4 py-2 rounded-lg text-sm font-semi-bold transform rotate-3">
               Most Popular
             </div>
           </div>
@@ -38,14 +38,14 @@ export default function PricingCard() {
               <div className="mb-6">
                 <div className="flex items-center gap-2 mb-4">
                   <div className="h-0.5 w-8 bg-orange-500"></div>
-                  <span className="text-orange-500 text-sm font-bold uppercase tracking-wide">
+                  <span className="text-orange-500 text-sm font-semi-bold uppercase tracking-wide">
                     — MOST POPULAR
                   </span>
                 </div>
               </div>
 
               {/* Membership Title */}
-              <h3 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              <h3 className="text-3xl md:text-4xl font-semi-bold text-white mb-4">
                 Pro Membership
               </h3>
 
@@ -56,14 +56,14 @@ export default function PricingCard() {
 
               {/* Price */}
               <div className="flex items-baseline gap-2 mb-8">
-                <span className="text-5xl md:text-6xl font-bold text-white">$29</span>
+                <span className="text-5xl md:text-6xl font-semi-bold text-white">$29</span>
                 <span className="text-gray-400 text-xl">/ per month</span>
               </div>
 
               {/* Upgrade Button */}
               <Link
                 href="/pricing/order-summary"
-                className="inline-block bg-orange-500 text-white font-semibold px-8 py-4 rounded-full hover:bg-orange-600 transition-colors text-center"
+                className="inline-block bg-orange-500 text-white font-semi-bold px-8 py-4 rounded-full hover:bg-orange-600 transition-colors text-center"
               >
                 Upgrade Now
               </Link>
@@ -71,7 +71,7 @@ export default function PricingCard() {
 
             {/* Right Panel - What's Included */}
             <div className="flex flex-col bg-[#202020] p-6 md:p-8 lg:p-12">
-              <h4 className="text-xl font-semibold text-white mb-6">What's Included!</h4>
+              <h4 className="text-xl font-semi-bold text-white mb-6">What's Included!</h4>
               <div className="grid grid-cols-2 gap-4">
                 {/* Left Column Features */}
                 <div className="space-y-4">

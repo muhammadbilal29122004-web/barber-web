@@ -36,7 +36,7 @@ export default function PopularTutorials() {
         <div className="text-center mb-12">
           <div className="flex items-center justify-center gap-2 mb-4">
             <div className="w-8 h-0.5 bg-[#FE9A00]"></div>
-            <h2 className="text-sm font-semibold text-[#FE9A00] uppercase tracking-wider">
+            <h2 className="text-sm font-semi-bold text-[#FE9A00] uppercase tracking-wider">
               Popular Tutorials
             </h2>
           </div>

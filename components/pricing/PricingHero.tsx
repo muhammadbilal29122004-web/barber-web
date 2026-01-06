@@ -21,7 +21,7 @@ export default function PricingHero() {
             <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
               {/* Left Content */}
               <div className="flex flex-col gap-4 z-10">
-                <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white">
+                <h1 className="text-5xl md:text-6xl lg:text-7xl font-semi-bold text-white">
                   Pricing
                 </h1>
                 <p className="text-lg md:text-xl text-white max-w-lg leading-relaxed">

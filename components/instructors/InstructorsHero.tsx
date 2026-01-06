@@ -19,7 +19,7 @@ export default function InstructorsHero() {
         <div className="relative z-10 h-full flex items-center">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
             <div className="flex flex-col gap-4 z-10">
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-semi-bold text-white">
                 Instructors
               </h1>
               <p className="text-lg md:text-xl text-white max-w-lg leading-relaxed">

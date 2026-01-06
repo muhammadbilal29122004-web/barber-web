@@ -16,7 +16,7 @@ export default function OrderSummaryHeader() {
         </div>
 
         {/* Title */}
-        <h1 className="text-4xl md:text-5xl font-bold text-white">Order Summary</h1>
+        <h1 className="text-4xl md:text-5xl font-semi-bold text-white">Order Summary</h1>
       </div>
     </div>
   );

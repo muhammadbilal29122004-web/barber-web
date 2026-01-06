@@ -5,14 +5,14 @@ export default function MembershipOverviewCard() {
         <div className="flex items-center justify-between">
           {/* Left Side */}
           <div>
-            <h3 className="text-xl font-bold text-white mb-1">Pro Membership</h3>
+            <h3 className="text-xl font-semi-bold text-white mb-1">Pro Membership</h3>
             <p className="text-gray-400">Monthly subscription</p>
           </div>
 
           {/* Right Side */}
           <div className="text-right">
             <div className="flex items-baseline gap-2">
-              <span className="text-3xl font-bold text-white">$29</span>
+              <span className="text-3xl font-semi-bold text-white">$29</span>
               <span className="text-gray-400">/month</span>
             </div>
           </div>

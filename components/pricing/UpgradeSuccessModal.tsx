@@ -70,7 +70,7 @@ export default function UpgradeSuccessModal({ isOpen, onClose }: UpgradeSuccessM
         </div>
 
         {/* Title */}
-        <h1 className="text-3xl font-bold text-white text-center mb-2">
+        <h1 className="text-3xl font-semi-bold text-white text-center mb-2">
           Upgrade Successful!
         </h1>
         <p className="text-gray-300 text-center mb-8">
@@ -81,7 +81,7 @@ export default function UpgradeSuccessModal({ isOpen, onClose }: UpgradeSuccessM
         <Link
           href="/"
           onClick={onClose}
-          className="block w-full bg-orange-500 text-white font-semibold py-3 rounded-full hover:bg-orange-600 transition-colors text-center"
+          className="block w-full bg-orange-500 text-white font-semi-bold py-3 rounded-full hover:bg-orange-600 transition-colors text-center"
         >
           Continue
         </Link>

@@ -145,7 +145,7 @@ export default function AIAssistant() {
                     />
                   </svg>
                 </div>
-                <span className="text-white font-semibold">AI Assistant</span>
+                <span className="text-white font-semi-bold">AI Assistant</span>
               </div>
               <div className="flex items-center gap-2">
                 {isMinimized ? (

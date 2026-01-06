@@ -62,7 +62,7 @@ export default function ResetPasswordStep({
       </button>
 
       {/* Title */}
-      <h1 className="text-3xl font-bold text-white text-center mb-2">
+      <h1 className="text-3xl font-semi-bold text-white text-center mb-2">
         Reset Password
       </h1>
       <p className="text-gray-300 text-center mb-8">
@@ -219,7 +219,7 @@ export default function ResetPasswordStep({
         <button
           type="submit"
           disabled={isLoading}
-          className="w-full bg-[#FE9A00] text-white font-semibold py-3 rounded-lg hover:bg-[#E68900] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full bg-[#FE9A00] text-white font-semi-bold py-3 rounded-lg hover:bg-[#E68900] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {isLoading ? "Updating Password..." : "Update Password"}
         </button>
