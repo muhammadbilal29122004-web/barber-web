@@ -41,7 +41,7 @@ export default function PaymentDetailsCard() {
       });
       // Simulate API call
       await new Promise((resolve) => setTimeout(resolve, 1000));
-      router.push("/pricing/upgrade-success");
+      router.push("/pricing?success=true");
     },
   });
 
@@ -288,14 +288,14 @@ export default function PaymentDetailsCard() {
           <div className="flex gap-4 pt-4">
             <Link
               href="/pricing"
-              className="flex-1 bg-gray-700 text-white font-semibold py-3 rounded-lg hover:bg-gray-600 transition-colors text-center"
+              className="flex-1 bg-gray-700 text-white font-semibold py-3 rounded-full hover:bg-gray-600 transition-colors text-center"
             >
               Back
             </Link>
             <button
               type="submit"
               disabled={formik.isSubmitting}
-              className="flex-1 bg-orange-500 text-white font-semibold py-3 rounded-lg hover:bg-orange-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              className="flex-1 bg-orange-500 text-white font-semibold py-3 rounded-full hover:bg-orange-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {formik.isSubmitting ? "Processing..." : "Pay Securely"}
             </button>

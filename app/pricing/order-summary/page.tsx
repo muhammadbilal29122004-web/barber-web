@@ -6,10 +6,10 @@ import Footer from "@/components/Footer";
 
 export default function OrderSummaryPage() {
   return (
-    <div className="min-h-screen bg-gray-900">
+    <div className="min-h-screen bg-[#0A0A0A]">
       <Header />
       <OrderSummaryHeader />
-      <div className="bg-gray-900 pb-8">
+      <div className="bg-[#0A0A0A] pb-8">
         <MembershipOverviewCard />
         <PaymentDetailsCard />
       </div>
