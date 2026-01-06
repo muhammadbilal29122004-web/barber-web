@@ -34,13 +34,13 @@ export default function Hero() {
             <div className="flex flex-col sm:flex-row gap-4 mt-2">
               <Link
                 href="/tutorials"
-                className="bg-orange-500 text-white font-medium px-8 py-4 rounded-lg hover:bg-orange-600 transition-colors text-center"
+                className="bg-orange-500 text-white font-medium px-8 py-4 rounded-full hover:bg-orange-600 transition-colors text-center"
               >
                 Start Learning
               </Link>
               <Link
                 href="/tutorials"
-                className="bg-gray-800 text-white font-medium px-8 py-4 rounded-lg hover:bg-gray-700 transition-colors text-center border border-gray-700"
+                className="bg-gray-800 text-white font-medium px-8 py-4 rounded-full hover:bg-gray-700 transition-colors text-center border border-gray-700"
               >
                 Browse Tutorials
               </Link>

@@ -14,7 +14,7 @@ const tutorials: Tutorial[] = [
     title: "Low Fade Basics - Step-by-Step",
     description:
       "Learn how to create a clean low fade using simple, beginner-friendly techniques.",
-    image: "/tutorials/low-fade.jpg",
+    image: "/6.jpg",
     link: "/tutorials/low-fade-basics",
   },
   {
@@ -22,7 +22,7 @@ const tutorials: Tutorial[] = [
     title: "Beard Line-Up & Detailing Guide",
     description:
       "Master precise beard shaping and clean line-ups with easy-to-follow guidance.",
-    image: "/tutorials/beard-lineup.jpg",
+    image: "/7.jpg",
     link: "/tutorials/beard-lineup",
   },
 ];
@@ -59,7 +59,7 @@ export default function PopularTutorials() {
               {/* Image Container with Play Button - Extends to yellow line */}
               <div className="relative w-full overflow-hidden">
                 <img
-                  src="/all in one.png"
+                  src={tutorial.image}
                   alt={tutorial.title}
                   className="w-full h-[350px] object-cover"
                 />

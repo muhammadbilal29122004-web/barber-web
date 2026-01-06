@@ -13,28 +13,28 @@ const haircutStyles: HaircutStyle[] = [
     id: 1,
     title: "Low Fade Basics",
     duration: "8 min",
-    image: "/haircuts/low-fade.jpg",
+    image: "/8.jpg",
     link: "/tutorials/low-fade-basics",
   },
   {
     id: 2,
     title: "Beard Styling",
     duration: "12 min",
-    image: "/haircuts/beard-styling.jpg",
+    image: "/9.jpg",
     link: "/tutorials/beard-styling",
   },
   {
     id: 3,
     title: "Undercut Styling",
     duration: "9 min",
-    image: "/haircuts/undercut.jpg",
+    image: "/10.jpg",
     link: "/tutorials/undercut-styling",
   },
   {
     id: 4,
     title: "Fade with Line",
     duration: "11 min",
-    image: "/haircuts/fade-with-line.jpg",
+    image: "/11.jpg",
     link: "/tutorials/fade-with-line",
   },
 ];
@@ -71,7 +71,7 @@ export default function PopularHaircutStyles() {
               {/* Image Container - Full Card */}
               <div className="relative w-full h-full overflow-hidden">
                 <img
-                  src="/all in one.png"
+                  src={style.image}
                   alt={style.title}
                   className="w-full h-full object-cover"
                 />

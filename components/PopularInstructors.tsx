@@ -15,31 +15,31 @@ const instructors: Instructor[] = [
     id: 1,
     name: "Frank Castle",
     skills: ["Fades", "Beard Shaping", "Clipper Control"],
-    image: "/instructors/frank-castle.jpg",
+    image: "/1.jpg",
   },
   {
     id: 2,
     name: "John Wick",
     skills: ["Classic Cuts", "Hair Styling", "Scissor Work"],
-    image: "/instructors/john-wick.jpg",
+    image: "/2.jpg",
   },
   {
     id: 3,
     name: "James Will",
     skills: ["Modern Fades", "Beard Design", "Precision Cutting"],
-    image: "/instructors/james-will.jpg",
+    image: "/3.jpg",
   },
   {
     id: 4,
     name: "Michael Jack",
     skills: ["Advanced Techniques", "Clipper Mastery", "Style Consultation"],
-    image: "/instructors/michael-jack.jpg",
+    image: "/4.jpg",
   },
   {
     id: 5,
     name: "James",
     skills: ["Traditional Cuts", "Beard Grooming", "Customer Service"],
-    image: "/instructors/james.jpg",
+    image: "/5.jpg",
   },
 ];
 
@@ -110,7 +110,7 @@ export default function PopularInstructors() {
                       {/* Instructor Image - Full Card */}
                       <div className="relative w-full h-[600px] md:h-[700px] overflow-hidden">
                         <img
-                          src="/all in one.png"
+                          src={instructor.image}
                           alt={instructor.name}
                           className="w-full h-full object-cover"
                         />
