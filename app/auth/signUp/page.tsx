@@ -51,13 +51,13 @@ export default function SignUpPage() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0F0F0F] flex items-center justify-center p-4 sm:p-6 md:p-8">
+    <div className="h-screen bg-[#0F0F0F] flex items-center justify-center p-4 sm:p-6 md:p-8 overflow-hidden">
       {/* Sign Up Card */}
-      <div className="relative w-full max-w-[690px] min-h-[600px] sm:min-h-[700px] md:min-h-[771px] bg-[#0F0F0F] rounded-2xl shadow-2xl border border-[#262626] p-6 sm:p-8 md:p-10 flex flex-col">
+      <div className="relative w-full max-w-[690px] max-h-[95vh] bg-[#0F0F0F] rounded-2xl shadow-2xl border border-[#262626] p-5 sm:p-6 md:p-8 flex flex-col overflow-y-auto">
         {/* Close Button */}
         <Link
           href="/"
-          className="absolute top-4 right-4 sm:top-6 sm:right-6 w-8 h-8 flex items-center justify-center text-white hover:text-[#FF9900] transition-colors z-10"
+          className="absolute top-4 right-4 sm:top-5 sm:right-5 w-8 h-8 flex items-center justify-center text-white hover:text-[#FF9900] transition-colors z-10"
           aria-label="Close"
         >
           <svg
@@ -76,11 +76,11 @@ export default function SignUpPage() {
         </Link>
 
         {/* Logo */}
-        <div className="flex justify-center mb-6">
+        <div className="flex justify-center mb-4 sm:mb-5">
           <Link href="/" className="flex items-center gap-2">
-            <div className="relative w-8 h-8">
+            <div className="relative w-7 h-7 sm:w-8 sm:h-8">
               <svg
-                className="w-8 h-8 text-[#FF9900]"
+                className="w-7 h-7 sm:w-8 sm:h-8 text-[#FF9900]"
                 fill="currentColor"
                 viewBox="0 0 24 24"
               >
@@ -89,26 +89,26 @@ export default function SignUpPage() {
                 <path d="M12 2v2M12 20v2M2 12h2M20 12h2M5.64 5.64l1.41 1.41M16.95 16.95l1.41 1.41M5.64 18.36l1.41-1.41M16.95 7.05l1.41-1.41" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
               </svg>
             </div>
-            <span className="text-[#FF9900] text-xl font-semi-bold">Logoipsum</span>
+            <span className="text-[#FF9900] text-lg sm:text-xl font-semi-bold">Logoipsum</span>
           </Link>
         </div>
 
         {/* Title */}
-        <h1 className="text-2xl sm:text-3xl font-semi-bold text-white text-center mb-2">
+        <h1 className="text-2xl sm:text-3xl font-semi-bold text-white text-center mb-1 sm:mb-2">
           Create Your Account
         </h1>
-        <p className="text-gray-300 text-sm sm:text-base text-center mb-6 sm:mb-8">
+        <p className="text-gray-300 text-xs sm:text-sm text-center mb-4 sm:mb-5">
           Sign up to track your progress and unlock the full library.
         </p>
 
         {/* Sign Up Form */}
-        <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+        <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4 flex-1">
           {/* First Name and Second Name - Side by Side */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
             <div>
               <label
                 htmlFor="firstName"
-                className="block text-[#9A9A9A] text-sm font-medium mb-2"
+                className="block text-[#9A9A9A] text-xs sm:text-sm font-medium mb-1.5"
               >
                 First Name
               </label>
@@ -118,14 +118,14 @@ export default function SignUpPage() {
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
                 placeholder="Write your first name"
-                className="w-full bg-[#1A1A1A] border border-[#262626] rounded-lg px-4 py-2.5 sm:py-3 text-white text-sm sm:text-base placeholder:text-[#6F6F6F] focus:outline-none focus:border-[#FF9900] transition-colors"
+                className="w-full bg-[#1A1A1A] border border-[#262626] rounded-lg px-3 sm:px-4 py-2 sm:py-2.5 text-white text-sm placeholder:text-[#6F6F6F] focus:outline-none focus:border-[#FF9900] transition-colors"
                 required
               />
             </div>
             <div>
               <label
                 htmlFor="secondName"
-                className="block text-[#9A9A9A] text-sm font-medium mb-2"
+                className="block text-[#9A9A9A] text-xs sm:text-sm font-medium mb-1.5"
               >
                 Second Name
               </label>
@@ -135,7 +135,7 @@ export default function SignUpPage() {
                 value={secondName}
                 onChange={(e) => setSecondName(e.target.value)}
                 placeholder="Write your second name"
-                className="w-full bg-[#1A1A1A] border border-[#262626] rounded-lg px-4 py-2.5 sm:py-3 text-white text-sm sm:text-base placeholder:text-[#6F6F6F] focus:outline-none focus:border-[#FF9900] transition-colors"
+                className="w-full bg-[#1A1A1A] border border-[#262626] rounded-lg px-3 sm:px-4 py-2 sm:py-2.5 text-white text-sm placeholder:text-[#6F6F6F] focus:outline-none focus:border-[#FF9900] transition-colors"
                 required
               />
             </div>
@@ -145,7 +145,7 @@ export default function SignUpPage() {
           <div>
             <label
               htmlFor="email"
-              className="block text-[#9A9A9A] text-sm font-medium mb-2"
+              className="block text-[#9A9A9A] text-xs sm:text-sm font-medium mb-1.5"
             >
               Email
             </label>
@@ -155,7 +155,7 @@ export default function SignUpPage() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Write your email"
-              className="w-full bg-[#1A1A1A] border border-[#262626] rounded-lg px-4 py-2.5 sm:py-3 text-white text-sm sm:text-base placeholder:text-[#6F6F6F] focus:outline-none focus:border-[#FF9900] transition-colors"
+              className="w-full bg-[#1A1A1A] border border-[#262626] rounded-lg px-3 sm:px-4 py-2 sm:py-2.5 text-white text-sm placeholder:text-[#6F6F6F] focus:outline-none focus:border-[#FF9900] transition-colors"
               required
             />
           </div>
@@ -164,7 +164,7 @@ export default function SignUpPage() {
           <div>
             <label
               htmlFor="password"
-              className="block text-[#9A9A9A] text-sm font-medium mb-2"
+              className="block text-[#9A9A9A] text-xs sm:text-sm font-medium mb-1.5"
             >
               Password
             </label>
@@ -175,7 +175,7 @@ export default function SignUpPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Write your password"
-                className="w-full bg-[#1A1A1A] border border-[#262626] rounded-lg px-4 py-2.5 sm:py-3 pr-12 text-white text-sm sm:text-base placeholder:text-[#6F6F6F] focus:outline-none focus:border-[#FF9900] transition-colors"
+                className="w-full bg-[#1A1A1A] border border-[#262626] rounded-lg px-3 sm:px-4 py-2 sm:py-2.5 pr-10 sm:pr-12 text-white text-sm placeholder:text-[#6F6F6F] focus:outline-none focus:border-[#FF9900] transition-colors"
                 required
               />
               <button
@@ -227,7 +227,7 @@ export default function SignUpPage() {
           <div>
             <label
               htmlFor="confirmPassword"
-              className="block text-[#9A9A9A] text-sm font-medium mb-2"
+              className="block text-[#9A9A9A] text-xs sm:text-sm font-medium mb-1.5"
             >
               Confirm Password
             </label>
@@ -238,7 +238,7 @@ export default function SignUpPage() {
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
                 placeholder="Confirm your password"
-                className="w-full bg-[#1A1A1A] border border-[#262626] rounded-lg px-4 py-2.5 sm:py-3 pr-12 text-white text-sm sm:text-base placeholder:text-[#6F6F6F] focus:outline-none focus:border-[#FF9900] transition-colors"
+                className="w-full bg-[#1A1A1A] border border-[#262626] rounded-lg px-3 sm:px-4 py-2 sm:py-2.5 pr-10 sm:pr-12 text-white text-sm placeholder:text-[#6F6F6F] focus:outline-none focus:border-[#FF9900] transition-colors"
                 required
               />
               <button
@@ -289,16 +289,16 @@ export default function SignUpPage() {
           </div>
 
           {/* Terms & Conditions Checkbox */}
-          <div className="flex items-start gap-3">
+          <div className="flex items-start gap-2 sm:gap-3">
             <input
               type="checkbox"
               id="terms"
               checked={agreeToTerms}
               onChange={(e) => setAgreeToTerms(e.target.checked)}
-              className="mt-1 w-4 h-4 text-[#FF9900] bg-[#1A1A1A] border-[#262626] rounded focus:ring-[#FF9900] focus:ring-2"
+              className="mt-0.5 w-4 h-4 text-[#FF9900] bg-[#1A1A1A] border-[#262626] rounded focus:ring-[#FF9900] focus:ring-2"
               required
             />
-            <label htmlFor="terms" className="text-gray-300 text-xs sm:text-sm">
+            <label htmlFor="terms" className="text-gray-300 text-xs sm:text-sm leading-tight">
               I agree with our{" "}
               <Link
                 href="/terms"
@@ -313,24 +313,24 @@ export default function SignUpPage() {
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full bg-[#FF9900] text-white font-semi-bold py-2.5 sm:py-3 rounded-full hover:bg-[#E68900] transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base"
+            className="w-full bg-[#FF9900] text-white font-semi-bold py-2 sm:py-2.5 rounded-full hover:bg-[#E68900] transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm"
           >
             {isLoading ? "Creating Account..." : "Create Account"}
           </button>
         </form>
 
         {/* Separator */}
-        <div className="relative my-6 sm:my-8">
+        <div className="relative my-4 sm:my-5">
           <div className="absolute inset-0 flex items-center">
             <div className="w-full border-t border-[#262626]"></div>
           </div>
-          <div className="relative flex justify-center text-sm">
-            <span className="px-4 bg-[#0F0F0F] text-gray-300">or</span>
+          <div className="relative flex justify-center text-xs sm:text-sm">
+            <span className="px-3 sm:px-4 bg-[#0F0F0F] text-gray-300">or</span>
           </div>
         </div>
 
         {/* Social Sign Up Buttons */}
-        <div className="grid grid-cols-3 gap-2 sm:gap-3">
+        <div className="grid grid-cols-3 gap-2 sm:gap-2.5">
           {/* Google */}
           <button
             onClick={() => handleSocialSignup("google")}
@@ -381,11 +381,11 @@ export default function SignUpPage() {
         </div>
 
         {/* Login Link */}
-        <div className="mt-auto text-center pt-4 sm:pt-6">
-          <span className="text-gray-300 text-sm sm:text-base">Already have an account? </span>
+        <div className="text-center pt-3 sm:pt-4">
+          <span className="text-gray-300 text-xs sm:text-sm">Already have an account? </span>
           <Link
             href="/auth/login"
-            className="text-[#FF9900] hover:opacity-80 transition-colors font-medium underline text-sm sm:text-base"
+            className="text-[#FF9900] hover:opacity-80 transition-colors font-medium underline text-xs sm:text-sm"
           >
             Login
           </Link>
