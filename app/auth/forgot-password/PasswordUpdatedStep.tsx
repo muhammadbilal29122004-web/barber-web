@@ -1,0 +1,44 @@
+"use client";
+
+import Image from "next/image";
+
+interface PasswordUpdatedStepProps {
+  onContinue: () => void;
+}
+
+export default function PasswordUpdatedStep({
+  onContinue,
+}: PasswordUpdatedStepProps) {
+  return (
+    <>
+      {/* Success Icon */}
+      <div className="flex justify-center mb-6">
+      <div className="relative w-20 h-20 flex items-center justify-center">
+            <Image
+              src="/success.png"
+              alt="Success"
+              width={80}
+              height={80}
+              className="object-contain"
+            />
+          </div>
+      </div>
+
+      {/* Title */}
+      <h1 className="text-3xl font-bold text-white text-center mb-2">
+        Password Updated!
+      </h1>
+      <p className="text-gray-300 text-center mb-8">
+        You can now log in using your new password.
+      </p>
+
+      {/* Continue to Login Button */}
+      <button
+        onClick={onContinue}
+        className="w-full bg-orange-500 text-white font-semibold py-3 rounded-lg hover:bg-orange-600 transition-colors"
+      >
+        Continue to Login
+      </button>
+    </>
+  );
+}
