@@ -1,7 +1,7 @@
 import Header from "@/components/Header";
-import OrderSummaryHeader from "@/components/OrderSummaryHeader";
-import MembershipOverviewCard from "@/components/MembershipOverviewCard";
-import PaymentDetailsCard from "@/components/PaymentDetailsCard";
+import OrderSummaryHeader from "@/components/pricing/OrderSummaryHeader";
+import MembershipOverviewCard from "@/components/pricing/MembershipOverviewCard";
+import PaymentDetailsCard from "@/components/pricing/PaymentDetailsCard";
 import Footer from "@/components/Footer";
 
 export default function OrderSummaryPage() {

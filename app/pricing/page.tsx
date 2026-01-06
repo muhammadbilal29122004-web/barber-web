@@ -3,11 +3,11 @@
 import { useEffect, useState } from "react";
 import { useSearchParams, useRouter } from "next/navigation";
 import Header from "@/components/Header";
-import PricingHero from "@/components/PricingHero";
+import PricingHero from "@/components/pricing/PricingHero";
 import ElevateSection from "@/components/ElevateSection";
-import PricingCard from "@/components/PricingCard";
+import PricingCard from "@/components/pricing/PricingCard";
 import Footer from "@/components/Footer";
-import UpgradeSuccessModal from "@/components/UpgradeSuccess";
+import UpgradeSuccessModal from "@/components/pricing/UpgradeSuccessModal";
 
 export default function PricingPage() {
   const searchParams = useSearchParams();

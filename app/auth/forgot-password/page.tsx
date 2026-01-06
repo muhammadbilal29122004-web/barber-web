@@ -71,7 +71,7 @@ export default function ForgotPasswordPage() {
       <div className="absolute inset-0 backdrop-blur-md bg-black/40"></div>
 
       {/* Modal Card - Centered */}
-      <div className="relative min-h-screen flex items-center justify-center p-4 z-[100]">
+      <div className="relative min-h-screen flex items-center justify-center p-4 z-100">
         <div className="relative w-full max-w-md bg-[#0A0A0A] rounded-2xl shadow-2xl border border-[#0A0A0A] p-8 md:p-10">
           {/* Close Button */}
           <Link
