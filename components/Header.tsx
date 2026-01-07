@@ -90,10 +90,12 @@ export default function Header({ activePage = "home", showUserIcons = false }: H
                 </svg>
               </button>
               {/* Heart Icon */}
-              <button className="text-white hover:text-[#FE9A00] transition-colors">
+              <button className="text-white hover:text-[#FE9A00] transition-colors" >
+                <Link href="/favourites">
                 <svg className="w-5 h-5 xl:w-6 xl:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                 </svg>
+                </Link>
               </button>
               {/* Vertical Separator */}
               <div className="h-6 w-px bg-white/30"></div>
@@ -101,16 +103,19 @@ export default function Header({ activePage = "home", showUserIcons = false }: H
               <div className="relative">
                 <button className="flex items-center gap-2">
                   <div className="relative w-9 h-9 xl:w-10 xl:h-10 rounded-full border-2 border-yellow-400/80 ring-1 ring-yellow-400/40 overflow-hidden">
+                  <Link href="/my-account">
                     <Image 
                       src="/Jamesbond.png" 
                       alt="User Avatar" 
                       fill
                       className="object-cover"
                     />
+                    </Link>
                   </div>
                   <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
+                  
                 </button>
               </div>
             </div>

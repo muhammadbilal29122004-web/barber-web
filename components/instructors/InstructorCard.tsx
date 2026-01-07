@@ -39,22 +39,25 @@ export default function InstructorCard({ id, name, skills, image }: InstructorCa
         {/* Favorite Icon - Top Left */}
         <button
           onClick={handleFavoriteClick}
-          className="absolute top-3 left-3 z-20 w-8 h-8 rounded-full bg-black/50 backdrop-blur-sm border border-white/20 flex items-center justify-center hover:bg-black/70 transition-colors"
+          className="absolute top-3 left-3 z-10 w-8 h-8 rounded-full bg-[#FFFFFF33]/50 backdrop-blur-sm border border-white/20 flex items-center justify-center hover:bg-black/70 transition-colors"
           aria-label={isFavorited ? "Remove from favorites" : "Add to favorites"}
         >
           <svg
-            className={`w-4 h-4 transition-colors ${
-              isFavorited ? "text-orange-500 fill-orange-500" : "text-white"
+            width="14"
+            height="14"
+            viewBox="0 0 20 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className={`transition-colors ${
+              isFavorited ? "fill-orange-500" : "fill-none"
             }`}
-            fill={isFavorited ? "currentColor" : "none"}
-            stroke="currentColor"
-            viewBox="0 0 24 24"
           >
             <path
+              d="M10.3254 17.0271C10.0473 17.1253 9.58908 17.1253 9.3109 17.0271C6.93817 16.2171 1.63635 12.838 1.63635 7.11075C1.63635 4.58256 3.67363 2.53711 6.18544 2.53711C7.67453 2.53711 8.99181 3.25711 9.81817 4.36984C10.6445 3.25711 11.97 2.53711 13.4509 2.53711C15.9627 2.53711 18 4.58256 18 7.11075C18 12.838 12.6982 16.2171 10.3254 17.0271Z"
+              stroke={isFavorited ? "#FE9A00" : "white"}
+              strokeWidth="1.22727"
               strokeLinecap="round"
               strokeLinejoin="round"
-              strokeWidth={2}
-              d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
             />
           </svg>
         </button>

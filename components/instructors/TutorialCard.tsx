@@ -61,44 +61,28 @@ export default function TutorialCard({
           priority={false}
         />
 
-        {/* Completion Checkmark - Top Left */}
-        {isCompleted && !isLocked && (
-          <div className="absolute top-3 left-3 z-10 w-8 h-8 rounded-full bg-green-500 flex items-center justify-center">
-            <svg
-              className="w-5 h-5 text-white"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={3}
-                d="M5 13l4 4L19 7"
-              />
-            </svg>
-          </div>
-        )}
-
-        {/* Favorite Icon - Top Right */}
+        {/* Favorite Icon - Top Left */}
         <button
           onClick={handleFavoriteClick}
-          className="absolute top-3 right-3 z-10 w-8 h-8 rounded-full bg-black/50 backdrop-blur-sm border border-white/20 flex items-center justify-center hover:bg-black/70 transition-colors"
+          className="absolute top-3 left-3 z-10 w-8 h-8 rounded-full bg-[#FFFFFF33]/50 backdrop-blur-sm border border-white/20 flex items-center justify-center hover:bg-black/70 transition-colors"
           aria-label={isFavorited ? "Remove from favorites" : "Add to favorites"}
         >
           <svg
-            className={`w-4 h-4 transition-colors ${
-              isFavorited ? "text-orange-500 fill-orange-500" : "text-white"
+            width="14"
+            height="14"
+            viewBox="0 0 20 20"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            className={`transition-colors ${
+              isFavorited ? "fill-orange-500" : "fill-none"
             }`}
-            fill={isFavorited ? "currentColor" : "none"}
-            stroke="currentColor"
-            viewBox="0 0 24 24"
           >
             <path
+              d="M10.3254 17.0271C10.0473 17.1253 9.58908 17.1253 9.3109 17.0271C6.93817 16.2171 1.63635 12.838 1.63635 7.11075C1.63635 4.58256 3.67363 2.53711 6.18544 2.53711C7.67453 2.53711 8.99181 3.25711 9.81817 4.36984C10.6445 3.25711 11.97 2.53711 13.4509 2.53711C15.9627 2.53711 18 4.58256 18 7.11075C18 12.838 12.6982 16.2171 10.3254 17.0271Z"
+              stroke={isFavorited ? "#FE9A00" : "white"}
+              strokeWidth="1.22727"
               strokeLinecap="round"
               strokeLinejoin="round"
-              strokeWidth={2}
-              d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
             />
           </svg>
         </button>
@@ -130,13 +114,18 @@ export default function TutorialCard({
         {/* Play Button Overlay - Centered (only if not locked) */}
         {!isLocked && (
           <div className="absolute inset-0 flex items-center justify-center bg-black/20 group-hover:bg-black/30 transition-colors">
-            <div className="w-16 h-16 bg-white rounded-full flex items-center justify-center shadow-lg border-2 border-gray-300 group-hover:scale-110 transition-transform">
+            <div className="w-[47px] h-[47px] flex items-center justify-center group-hover:scale-110 transition-transform">
               <svg
-                className="w-8 h-8 text-gray-900 ml-1"
-                fill="currentColor"
-                viewBox="0 0 24 24"
+                width="34"
+                height="34"
+                viewBox="0 0 47 47"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <path d="M8 5v14l11-7z" />
+                <path
+                  d="M23.3333 0C10.4533 0 0 10.4533 0 23.3333C0 36.2133 10.4533 46.6667 23.3333 46.6667C36.2133 46.6667 46.6667 36.2133 46.6667 23.3333C46.6667 10.4533 36.2133 0 23.3333 0ZM29.54 27.37L26.5533 29.0967L23.5667 30.8233C19.7167 33.04 16.5667 31.22 16.5667 26.7867V23.3333V19.88C16.5667 15.4233 19.7167 13.6267 23.5667 15.8433L26.5533 17.57L29.54 19.2967C33.39 21.5133 33.39 25.1533 29.54 27.37Z"
+                  fill="white"
+                />
               </svg>
             </div>
           </div>
