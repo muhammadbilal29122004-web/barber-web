@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 interface HeaderProps {
   activePage?: string;
@@ -94,15 +95,18 @@ export default function Header({ activePage = "home", showUserIcons = false }: H
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                 </svg>
               </button>
+              {/* Vertical Separator */}
+              <div className="h-6 w-px bg-white/30"></div>
               {/* Profile Picture with Dropdown */}
               <div className="relative">
                 <button className="flex items-center gap-2">
-                  <div className="w-9 h-9 xl:w-10 xl:h-10 rounded-full border-2 border-yellow-400 overflow-hidden">
-                    <div className="w-full h-full bg-gray-600 flex items-center justify-center">
-                      <svg className="w-5 h-5 xl:w-6 xl:h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
-                      </svg>
-                    </div>
+                  <div className="relative w-9 h-9 xl:w-10 xl:h-10 rounded-full border-2 border-yellow-400/80 ring-1 ring-yellow-400/40 overflow-hidden">
+                    <Image 
+                      src="/Jamesbond.png" 
+                      alt="User Avatar" 
+                      fill
+                      className="object-cover"
+                    />
                   </div>
                   <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
@@ -180,13 +184,15 @@ export default function Header({ activePage = "home", showUserIcons = false }: H
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                     </svg>
                   </button>
+                  <div className="h-6 w-px bg-white/30"></div>
                   <button className="flex items-center gap-2">
-                    <div className="w-10 h-10 rounded-full border-2 border-yellow-400 overflow-hidden">
-                      <div className="w-full h-full bg-gray-600 flex items-center justify-center">
-                        <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 20 20">
-                          <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
-                        </svg>
-                      </div>
+                    <div className="relative w-10 h-10 rounded-full border-2 border-yellow-400/80 ring-1 ring-yellow-400/40 overflow-hidden">
+                      <Image 
+                        src="/Jamesbond.png" 
+                        alt="User Avatar" 
+                        fill
+                        className="object-cover"
+                      />
                     </div>
                   </button>
                 </div>

@@ -80,7 +80,7 @@ export default function PopularTutorials() {
               </div>
 
               {/* Gray Background Text Section - Below yellow line */}
-              <div className="bg-gray-800 p-6">
+              <div className="bg-[#161616] hover:bg-[#202020] p-6">
                 <h4 className="text-xl font-semi-bold text-white mb-2 group-hover:text-[#FE9A00] transition-colors">
                   {tutorial.title}
                 </h4>

@@ -64,8 +64,8 @@ export default function ContinueReading() {
           {readingItems.map((item) => (
             <div
               key={item.id}
-              className="bg-gray-800 rounded-lg p-6 border border-gray-700"
-            >
+              className="bg-[#161616]  hover:bg-[#202020] rounded-lg p-6 border border-gray-700"
+            > 
               {/* Icon and Title */}
               <div className="flex items-center gap-3 mb-4">
                 <div className="w-10 h-10 bg-[#FE9A00] rounded-full flex items-center justify-center text-black flex-shrink-0">

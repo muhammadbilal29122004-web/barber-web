@@ -7,9 +7,20 @@ import Image from "next/image";
 interface UpgradeSuccessModalProps {
   isOpen: boolean;
   onClose: () => void;
+  title?: string;
+  description?: string;
+  ctaText?: string;
+  ctaHref?: string;
 }
 
-export default function UpgradeSuccessModal({ isOpen, onClose }: UpgradeSuccessModalProps) {
+export default function UpgradeSuccessModal({
+  isOpen,
+  onClose,
+  title = "Upgrade Successful!",
+  description = "You have officially unlocked Pro access. Dive into the exclusive content library now.",
+  ctaText = "Continue",
+  ctaHref = "/",
+}: UpgradeSuccessModalProps) {
   // Prevent body scroll when modal is open
   useEffect(() => {
     if (isOpen) {
@@ -71,20 +82,30 @@ export default function UpgradeSuccessModal({ isOpen, onClose }: UpgradeSuccessM
 
         {/* Title */}
         <h1 className="text-3xl font-semi-bold text-white text-center mb-2">
-          Upgrade Successful!
+          {title}
         </h1>
         <p className="text-gray-300 text-center mb-8">
-          You have officially unlocked Pro access. Dive into the exclusive content library now.
+          {description}
         </p>
 
         {/* Continue Button */}
-        <Link
-          href="/"
-          onClick={onClose}
-          className="block w-full bg-orange-500 text-white font-semi-bold py-3 rounded-full hover:bg-orange-600 transition-colors text-center"
-        >
-          Continue
-        </Link>
+        {ctaHref ? (
+          <Link
+            href={ctaHref}
+            onClick={onClose}
+            className="block w-full bg-orange-500 text-white font-semi-bold py-3 rounded-full hover:bg-orange-600 transition-colors text-center"
+          >
+            {ctaText}
+          </Link>
+        ) : (
+          <button
+            type="button"
+            onClick={onClose}
+            className="block w-full bg-orange-500 text-white font-semi-bold py-3 rounded-full hover:bg-orange-600 transition-colors text-center"
+          >
+            {ctaText}
+          </button>
+        )}
       </div>
     </div>
   );

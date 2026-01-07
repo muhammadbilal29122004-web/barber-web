@@ -14,7 +14,7 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#1a1a1a] text-white">
+    <footer className="bg-[#1a1a1a] text-white w-full">
       {/* Top Section */}
       <div className="max-w-7xl mx-auto px-6 sm:px-8 md:px-10 lg:px-8 py-10 sm:py-12 md:py-14 lg:py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 md:gap-10 lg:gap-12">
@@ -161,7 +161,7 @@ export default function Footer() {
 
           {/* Column 2: Quick Links */}
           <div>
-            <h3 className="text-white font-semi-bold text-base sm:text-lg mb-3 sm:mb-4">Quick Links</h3>
+            <h3 className="text-white font-semi-bold text-base sm:text-lg mb-3 sm:mb-4">Quick links</h3>
             <ul className="space-y-2 sm:space-y-3">
               <li>
                 <Link
@@ -173,10 +173,10 @@ export default function Footer() {
               </li>
               <li>
                 <Link
-                  href="/learn"
+                  href="/library"
                   className="text-gray-300 hover:text-[#FE9A00] transition-colors text-sm sm:text-base"
                 >
-                  Learn
+                  Library
                 </Link>
               </li>
               <li>
@@ -187,20 +187,12 @@ export default function Footer() {
                   Tutorials
                 </Link>
               </li>
-              <li>
-                <Link
-                  href="/study-tools"
-                  className="text-gray-300 hover:text-[#FE9A00] transition-colors text-sm sm:text-base"
-                >
-                  Study Tools
-                </Link>
-              </li>
             </ul>
           </div>
 
           {/* Column 3: Quicklinks */}
           <div>
-            <h3 className="text-white font-semi-bold text-base sm:text-lg mb-3 sm:mb-4">Quicklinks</h3>
+            <h3 className="text-white font-semi-bold text-base sm:text-lg mb-3 sm:mb-4">Quick links</h3>
             <ul className="space-y-2 sm:space-y-3">
               <li>
                 <Link
@@ -235,21 +227,23 @@ export default function Footer() {
             <p className="text-gray-300 text-xs sm:text-sm mb-3 sm:mb-4 leading-relaxed">
               Get the latest articles, tips, and updates — straight to your inbox.
             </p>
-            <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-2">
-              <input
-                type="email"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="Enter your Email"
-                className="flex-1 bg-gray-800 border border-gray-700 rounded-lg px-3 sm:px-4 py-2 sm:py-2.5 text-sm sm:text-base text-white placeholder-gray-400 focus:outline-none focus:border-[#FE9A00] transition-colors"
-                required
-              />
-              <button
-                type="submit"
-                className="bg-[#FE9A00] text-white font-medium px-5 sm:px-6 py-2 sm:py-2.5 rounded-lg hover:bg-[#E68900] transition-colors whitespace-nowrap text-sm sm:text-base"
-              >
-                Submit
-              </button>
+            <form onSubmit={handleSubmit} className="relative flex items-center w-full">
+              <div className="w-full max-w-[403px] h-[57px] rounded-full border border-[#333333] bg-[#1A1A1A] flex items-center p-1.5 focus-within:border-[#FE9A00] transition-colors">
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Enter your Email"
+                  className="flex-1 bg-transparent px-4 py-2 text-sm sm:text-base text-white placeholder-gray-500 focus:outline-none min-w-0 font-urbanist"
+                  required
+                />
+                <button
+                  type="submit"
+                  className="w-[96px] h-[43px] bg-[#FE9A00] text-black font-semi-bold rounded-full hover:bg-[#E68A00] transition-all transform active:scale-95 flex items-center justify-center text-sm font-urbanist flex-shrink-0"
+                >
+                  Submit
+                </button>
+              </div>
             </form>
           </div>
         </div>
@@ -261,7 +255,7 @@ export default function Footer() {
           <div className="flex flex-col md:flex-row items-center justify-between gap-3 sm:gap-4">
             {/* Copyright */}
             <div className="text-gray-300 text-xs sm:text-sm order-2 md:order-1">
-              © 2025 All Rights Reserved
+              © 2025 All Rights Reserved.
             </div>
 
             {/* Logo */}
@@ -279,7 +273,7 @@ export default function Footer() {
                   />
                 </svg>
               </div>
-              <span className="text-white text-base sm:text-lg font-semi-bold">Logoipsum</span>
+              <span className="text-[#FE9A00] text-base sm:text-lg font-semi-bold">Logoipsum</span>
             </Link>
 
             {/* Legal Links */}

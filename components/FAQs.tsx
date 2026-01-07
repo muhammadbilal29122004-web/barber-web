@@ -94,7 +94,7 @@ export default function FAQs() {
               return (
                 <div
                   key={faq.id}
-                  className="bg-gray-800 rounded-lg p-4 sm:p-5 lg:p-6 cursor-pointer transition-all duration-300 hover:bg-gray-700"
+                  className="bg-[#161616] hover:bg-[#202020] rounded-lg p-4 sm:p-5 lg:p-6 cursor-pointer transition-all duration-300 hover:bg-gray-700"
                   onClick={() => toggleFAQ(faq.id)}
                 >
                   <div className="flex items-center justify-between gap-3 sm:gap-4">
@@ -142,7 +142,7 @@ export default function FAQs() {
               return (
                 <div
                   key={faq.id}
-                  className="bg-gray-800 rounded-lg p-4 sm:p-5 lg:p-6 cursor-pointer transition-all duration-300 hover:bg-gray-700"
+                  className="bg-[#161616] hover:bg-[#202020] rounded-lg p-4 sm:p-5 lg:p-6 cursor-pointer transition-all duration-300 hover:bg-gray-700"
                   onClick={() => toggleFAQ(faq.id)}
                 >
                   <div className="flex items-center justify-between gap-3 sm:gap-4">

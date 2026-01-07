@@ -99,7 +99,7 @@ export default function Testimonials() {
             {getVisibleTestimonials().map((testimonial) => (
               <div
                 key={testimonial.id}
-                className="bg-gray-800 rounded-lg p-5 sm:p-6 shadow-xl"
+                className="bg-[#161616] hover:bg-[#202020] rounded-lg p-5 sm:p-6 shadow-xl"
               >
                 {/* Star Rating */}
                 <div className="flex gap-1 mb-3 sm:mb-4">

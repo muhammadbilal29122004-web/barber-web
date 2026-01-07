@@ -20,7 +20,7 @@ const studyTools: StudyTool[] = [
     title: "Flashcards",
     description: "Memorize key concepts with interactive flashcard decks.",
     buttonText: "Start Deck",
-    buttonLink: "/study-tools/flashcards",
+    buttonLink: "/library/flashcards",
   },
   {
     id: 2,
@@ -50,7 +50,7 @@ export default function StudyTools() {
           {studyTools.map((tool) => (
             <div
               key={tool.id}
-              className="bg-gray-800 rounded-lg p-6 border border-gray-700"
+              className="bg-[#161616]  hover:bg-[#202020] rounded-lg p-6 border border-gray-700"
             >
               {/* Icon */}
               <div className="w-12 h-12 bg-[#FE9A00] rounded-full flex items-center justify-center text-white mb-4">
