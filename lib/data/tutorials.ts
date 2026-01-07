@@ -18,6 +18,19 @@ export interface Tutorial {
   duration: string;
   instructorId?: number;
   link?: string;
+  videoUrl?: string;
+  fullDescription?: string;
+}
+
+export interface Review {
+  id: number;
+  userId: number;
+  userName: string;
+  userAvatar: string;
+  rating: number; // 1-5
+  title: string;
+  comment: string;
+  date: string;
 }
 
 /**
@@ -118,7 +131,109 @@ export async function getTutorialsByInstructor(
  */
 export async function getTutorialById(id: number): Promise<Tutorial | null> {
   const tutorials = await getAllTutorials();
-  return tutorials.find((tutorial) => tutorial.id === id) || null;
+  const tutorial = tutorials.find((tutorial) => tutorial.id === id);
+  
+  if (!tutorial) return null;
+  
+  // Add full description and video URL for detail page
+  // TODO: Replace with actual video URL from database/backend
+  // For demo: using a YouTube video URL
+  const defaultVideoUrl = "https://www.youtube.com/watch?v=CipXbhzvuUo";
+  
+  return {
+    ...tutorial,
+    fullDescription: "Learn the essential steps to blending a perfect skin fade. This comprehensive tutorial covers everything from setting your initial guidelines to the final clipper-over-comb detailing.",
+    videoUrl: defaultVideoUrl, // Will come from database/backend in production
+  };
+}
+
+/**
+ * Dummy reviews data
+ */
+const DUMMY_REVIEWS: Review[] = [
+  {
+    id: 1,
+    userId: 1,
+    userName: "John Doe",
+    userAvatar: "/icons/user.jpg",
+    rating: 5,
+    title: "Very Good Product",
+    comment: "This Supplement Delivers Explosive Energy And Noticeable Strength Gains With Every Workout. The Taste is Surprisingly Good And The Results Speak For Themselves After Just A Few Sessions.",
+    date: "2024-01-15",
+  },
+  {
+    id: 2,
+    userId: 2,
+    userName: "John Doe",
+    userAvatar: "/icons/user.jpg",
+    rating: 5,
+    title: "Very Good Product",
+    comment: "This Supplement Delivers Explosive Energy And Noticeable Strength Gains With Every Workout. The Taste is Surprisingly Good And The Results Speak For Themselves After Just A Few Sessions.",
+    date: "2024-01-20",
+  },
+  {
+    id: 3,
+    userId: 3,
+    userName: "Sarah Smith",
+    userAvatar: "/icons/user.jpg",
+    rating: 4,
+    title: "Great Tutorial",
+    comment: "Really helpful tutorial that breaks down the techniques step by step. The instructor is clear and the video quality is excellent.",
+    date: "2024-01-18",
+  },
+  {
+    id: 4,
+    userId: 4,
+    userName: "Mike Johnson",
+    userAvatar: "/icons/user.jpg",
+    rating: 5,
+    title: "Excellent Content",
+    comment: "This tutorial helped me improve my skills significantly. The explanations are thorough and easy to follow.",
+    date: "2024-01-22",
+  },
+  {
+    id: 5,
+    userId: 5,
+    userName: "Emily Davis",
+    userAvatar: "/icons/user.jpg",
+    rating: 4,
+    title: "Very Informative",
+    comment: "Great tutorial with practical tips. I've already applied some of these techniques in my work.",
+    date: "2024-01-25",
+  },
+  {
+    id: 6,
+    userId: 6,
+    userName: "David Wilson",
+    userAvatar: "/icons/user.jpg",
+    rating: 5,
+    title: "Perfect for Beginners",
+    comment: "As someone new to barbering, this tutorial was exactly what I needed. Clear instructions and great pacing.",
+    date: "2024-01-28",
+  },
+];
+
+/**
+ * Fetches reviews for a tutorial
+ * 
+ * TODO: Replace with actual API call
+ * Example: return await fetch(`/api/tutorials/${tutorialId}/reviews`).then(res => res.json());
+ */
+export async function getTutorialReviews(tutorialId: number): Promise<Review[]> {
+  // Simulate API delay
+  await new Promise((resolve) => setTimeout(resolve, 0));
+  
+  // Return dummy reviews (in real app, filter by tutorialId)
+  return DUMMY_REVIEWS;
+}
+
+/**
+ * Calculates average rating from reviews
+ */
+export function calculateAverageRating(reviews: Review[]): number {
+  if (reviews.length === 0) return 0;
+  const sum = reviews.reduce((acc, review) => acc + review.rating, 0);
+  return Number((sum / reviews.length).toFixed(2));
 }
 
 /**
