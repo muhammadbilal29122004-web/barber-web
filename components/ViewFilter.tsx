@@ -16,7 +16,7 @@ export default function ViewFilter({
       <select
         value={value}
         onChange={(e) => onChange(e.target.value)}
-        className="appearance-none bg-[#161616] border border-[#2C2C2C] rounded-lg px-4 py-3 pr-10 text-white focus:outline-none focus:border-orange-500 transition-colors cursor-pointer w-full"
+        className="appearance-none sm:text-center bg-[#161616] border border-[#2C2C2C] rounded-full px-4 py-3 pr-10 text-[#A1A1A1] focus:outline-none focus:border-orange-500 transition-colors cursor-pointer w-full"
       >
         {options.map((option) => (
           <option key={option} value={option} className="bg-[#161616]">
@@ -26,7 +26,7 @@ export default function ViewFilter({
       </select>
       <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
         <svg
-          className="w-5 h-5 text-gray-400"
+          className="w-5 h-5 text-[#A1A1A1]"
           fill="none"
           stroke="currentColor"
           viewBox="0 0 24 24"

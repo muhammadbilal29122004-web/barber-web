@@ -3,6 +3,8 @@
 import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import PrimaryButton from "../PrimaryButton";
+import { useRouter } from "next/navigation";
 
 interface InstructorCardProps {
   id: number;
@@ -13,7 +15,7 @@ interface InstructorCardProps {
 
 export default function InstructorCard({ id, name, skills, image }: InstructorCardProps) {
   const [isFavorited, setIsFavorited] = useState(false);
-
+const router = useRouter();
   const handleFavoriteClick = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
@@ -75,12 +77,11 @@ export default function InstructorCard({ id, name, skills, image }: InstructorCa
           </p>
 
           {/* View Profile Button */}
-          <Link
-            href={`/instructors/${id}`}
-            className="block w-[50%] bg-orange-500 mx-auto text-white font-semi-bold py-3 rounded-full hover:bg-orange-600 transition-colors text-center"
-          >
-            View Profile
-          </Link>
+          <PrimaryButton onClick={() => router.push(`/instructors/${id}`)} className="block w-[50%] mx-auto">
+          View Profile
+
+          </PrimaryButton>
+         
         </div>
       </div>
     </div>

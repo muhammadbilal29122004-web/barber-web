@@ -137,8 +137,9 @@ export async function getTutorialById(id: number): Promise<Tutorial | null> {
   
   // Add full description and video URL for detail page
   // TODO: Replace with actual video URL from database/backend
-  // For demo: using a YouTube video URL
-  const defaultVideoUrl = "https://www.youtube.com/watch?v=CipXbhzvuUo";
+  // For demo: using the provided test video URL
+  // Note: If CORS errors occur, ensure your backend video server has proper CORS headers
+  const defaultVideoUrl = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WhatCarCanYouGetForAGrand.mp4";
   
   return {
     ...tutorial,

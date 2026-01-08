@@ -94,14 +94,14 @@ export default function InstructorsPage() {
       <section className="bg-[#0A0A0A] py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Search and Filter Bar */}
-          <div className="flex flex-col sm:flex-row gap-4 mb-8">
-            <div className="flex-1">
+          <div className="flex flex-col sm:flex-row gap-4 mb-8 justify-between">
+            <div className="w-full sm:w-1/2">
               <SearchBar
                 value={searchQuery}
                 onChange={handleSearchChange}
               />
             </div>
-            <div className="w-full sm:w-48">
+            <div className="w-full sm:w-22">
               <ViewFilter value={viewFilter} onChange={handleFilterChange} />
             </div>
           </div>

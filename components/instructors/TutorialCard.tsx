@@ -91,9 +91,9 @@ export default function TutorialCard({
         {isLocked && (
           <div className="absolute inset-0 bg-black/70 flex flex-col items-center justify-center z-20">
             <div className="flex flex-col items-center gap-3">
-              <div className="w-16 h-16 bg-yellow-500 rounded-full flex items-center justify-center">
+              <div className="w-16 h-16 bg-[#FE9A00] rounded-lg flex items-center justify-center">
                 <svg
-                  className="w-8 h-8 text-white"
+                  className="w-8 h-8 text-black"
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"

@@ -2,38 +2,47 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import SecondaryButton from "@/components/SecondaryButton";
 import type { Review } from "@/lib/data/tutorials";
 
 interface TutorialReviewsProps {
   reviews: Review[];
   averageRating: number;
   totalReviews: number;
+  onAddReview?: () => void;
 }
 
-export default function TutorialReviews({ reviews, averageRating, totalReviews }: TutorialReviewsProps) {
+export default function TutorialReviews({ reviews, averageRating, totalReviews, onAddReview }: TutorialReviewsProps) {
   const [sortBy, setSortBy] = useState("Most Relevant");
 
   return (
     <div>
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
         <h2 className="text-3xl font-semi-bold text-white">Reviews</h2>
-        <div className="relative">
-          <select
-            value={sortBy}
-            onChange={(e) => setSortBy(e.target.value)}
-            className="appearance-none bg-[#161616] border border-[#2C2C2C] rounded-lg px-4 py-2 pr-10 text-white text-sm focus:outline-none focus:border-orange-500 transition-colors cursor-pointer"
-          >
-            <option value="Most Relevant" className="bg-[#161616]">Most Relevant</option>
-            <option value="Newest" className="bg-[#161616]">Newest</option>
-            <option value="Oldest" className="bg-[#161616]">Oldest</option>
-            <option value="Highest Rating" className="bg-[#161616]">Highest Rating</option>
-            <option value="Lowest Rating" className="bg-[#161616]">Lowest Rating</option>
-          </select>
-          <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
-            <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-            </svg>
+        <div className="flex items-center gap-3">
+          <div className="relative">
+            <select
+              value={sortBy}
+              onChange={(e) => setSortBy(e.target.value)}
+              className="appearance-none bg-[#161616] border border-[#2C2C2C] rounded-lg px-4 py-2 pr-10 text-white text-sm focus:outline-none focus:border-orange-500 transition-colors cursor-pointer"
+            >
+              <option value="Most Relevant" className="bg-[#161616]">Most Relevant</option>
+              <option value="Newest" className="bg-[#161616]">Newest</option>
+              <option value="Oldest" className="bg-[#161616]">Oldest</option>
+              <option value="Highest Rating" className="bg-[#161616]">Highest Rating</option>
+              <option value="Lowest Rating" className="bg-[#161616]">Lowest Rating</option>
+            </select>
+            <div className="absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none">
+              <svg className="w-4 h-4 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+              </svg>
+            </div>
           </div>
+          {onAddReview && (
+            <SecondaryButton onClick={onAddReview} className="px-6 py-2">
+              Add review
+            </SecondaryButton>
+          )}
         </div>
       </div>
 

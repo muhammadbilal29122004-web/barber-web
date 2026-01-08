@@ -8,6 +8,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ReviewModal from "@/components/ReviewModal";
 import TutorialReviews from "@/components/tutorials/TutorialReviews";
+import VideoPlayer from "@/components/tutorials/VideoPlayer";
 import { getTutorialById, getTutorialReviews, calculateAverageRating, type Tutorial, type Review } from "@/lib/data/tutorials";
 
 export default function TutorialDetailPage() {
@@ -19,7 +20,7 @@ export default function TutorialDetailPage() {
   const [isLoading, setIsLoading] = useState(true);
   const [isFavorited, setIsFavorited] = useState(false);
   const [isLiked, setIsLiked] = useState(false);
-  const [isReviewModalOpen, setIsReviewModalOpen] = useState(false);
+  const [isAddReviewModalOpen, setIsAddReviewModalOpen] = useState(false);
 
   useEffect(() => {
     const loadData = async () => {
@@ -76,12 +77,12 @@ export default function TutorialDetailPage() {
   const handleReviewSubmit = (rating: number, reviewText: string) => {
     // TODO: Submit review to API
     console.log("Review submitted:", { rating, reviewText });
-    // For now, just close the modal
+    setIsAddReviewModalOpen(false);
   };
 
   return (
-    <div className={`min-h-screen bg-[#0A0A0A] ${isReviewModalOpen ? "overflow-hidden" : ""}`}>
-      <div className={isReviewModalOpen ? "blur-sm pointer-events-none" : ""}>
+    <div className={`min-h-screen bg-[#0A0A0A] ${isAddReviewModalOpen ? "overflow-hidden" : ""}`}>
+      <div className={isAddReviewModalOpen ? "blur-sm pointer-events-none" : ""}>
         <Header activePage="tutorials" showUserIcons={true} />
 
       {/* Main Content */}
@@ -99,73 +100,13 @@ export default function TutorialDetailPage() {
             <span className="text-white">{tutorial.title}</span>
           </div>
 
-          {/* Video Player Section - Matching Figma Design */}
+          {/* Video Player Section */}
           <div className="mb-8">
-            <div className="relative w-full aspect-video bg-black rounded-lg overflow-hidden group">
-              {/* Thumbnail Image */}
-              <Image
-                src={tutorial.thumbnail}
-                alt={tutorial.title}
-                fill
-                className="object-cover"
-              />
-              
-              {/* Play Button Overlay */}
-              <div className="absolute inset-0 flex items-center justify-center bg-black/30 z-10">
-                <button 
-                  onClick={() => setIsReviewModalOpen(true)}
-                  className="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
-                  aria-label="Play video"
-                >
-                  <svg
-                    className="w-10 h-10 text-gray-900 ml-1"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
-                </button>
-              </div>
-
-              {/* Video Controls Overlay - Bottom */}
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/95 via-black/80 to-transparent px-4 py-2.5 z-20">
-                {/* Progress Bar */}
-                <div className="mb-2.5">
-                  <div className="w-full h-1.5 bg-gray-700/50 rounded-full relative">
-                    <div 
-                      className="h-full bg-[#FE9A00] rounded-full"
-                      style={{ width: "50%" }}
-                    ></div>
-                    <div 
-                      className="absolute top-1/2 -translate-y-1/2 w-4 h-4 bg-white rounded-full border-2 border-[#FE9A00] shadow-md"
-                      style={{ left: "50%", transform: "translate(-50%, -50%)" }}
-                    ></div>
-                  </div>
-                </div>
-
-                {/* Controls Row */}
-                <div className="flex items-center gap-3 text-white text-sm">
-                  <span>0:47 / 25:00</span>
-                  <div className="flex-1"></div>
-                  <button className="hover:text-orange-500 transition-colors">
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4" />
-                    </svg>
-                  </button>
-                </div>
-              </div>
-
-              {/* Actual Video Player - COMMENTED OUT UNTIL REAL VIDEO IS AVAILABLE */}
-              {/* 
-              {tutorial.videoUrl && (
-                <video
-                  src={tutorial.videoUrl}
-                  className="absolute inset-0 w-full h-full object-cover"
-                  controls={false}
-                />
-              )}
-              */}
-            </div>
+            <VideoPlayer
+              videoUrl={tutorial.videoUrl || "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WhatCarCanYouGetForAGrand.mp4"}
+              thumbnail={tutorial.thumbnail}
+              title={tutorial.title}
+            />
           </div>
 
           {/* Tutorial Info Section */}
@@ -251,6 +192,7 @@ export default function TutorialDetailPage() {
             reviews={reviews}
             averageRating={averageRating}
             totalReviews={totalReviews}
+            onAddReview={() => setIsAddReviewModalOpen(true)}
           />
         </div>
       </section>
@@ -258,10 +200,10 @@ export default function TutorialDetailPage() {
         <Footer />
       </div>
 
-      {/* Review Modal */}
+      {/* Add Review Modal */}
       <ReviewModal
-        isOpen={isReviewModalOpen}
-        onClose={() => setIsReviewModalOpen(false)}
+        isOpen={isAddReviewModalOpen}
+        onClose={() => setIsAddReviewModalOpen(false)}
         onSubmit={handleReviewSubmit}
       />
     </div>

@@ -235,11 +235,11 @@ export default function InstructorDetailPage() {
             </h2>
 
             {/* Search and Filter Bar */}
-            <div className="flex flex-col sm:flex-row gap-4 mb-8">
-              <div className="flex-1">
+            <div className="flex flex-col sm:flex-row gap-4 mb-8 justify-between">
+              <div className="w-full sm:w-1/2">
                 <SearchBar value={searchQuery} onChange={handleSearchChange} />
               </div>
-              <div className="w-full sm:w-48">
+              <div className="w-full sm:w-22">
                 <ViewFilter
                   value={filterValue}
                   onChange={handleFilterChange}

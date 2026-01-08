@@ -19,7 +19,7 @@ export default function PrimaryButton({
   className = "",
   fullWidth = false,
 }: PrimaryButtonProps) {
-  const baseClasses = "bg-[#FE9A00] text-black font-bold py-3 rounded-full hover:bg-[#FE9A00] font-bold transition-colors disabled:opacity-50 disabled:cursor-not-allowed";
+  const baseClasses = "bg-[#FE9A00] cursor-pointer text-black font-bold py-3 rounded-full hover:bg-[#FE9A00] font-bold transition-colors disabled:opacity-50 disabled:cursor-not-allowed";
   const widthClass = fullWidth ? "w-full" : "";
   
   return (
