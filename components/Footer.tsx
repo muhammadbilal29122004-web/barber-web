@@ -39,7 +39,7 @@ export default function Footer() {
             </Link>
 
             {/* Contact Details */}
-            <div className="space-y-2.5 sm:space-y-3 mb-5 sm:mb-6">
+            <div className="space-y-3 mb-5 sm:mb-6">
               <div className="flex items-center gap-2.5 sm:gap-3">
                 <svg
                   className="w-4 h-4 sm:w-5 sm:h-5 text-gray-400 flex-shrink-0"
@@ -54,7 +54,7 @@ export default function Footer() {
                     d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                   />
                 </svg>
-                <span className="text-gray-300 text-sm sm:text-base">+65 6000 2324</span>
+                <span className="text-[#D3D3D3] text-[16px] font-normal" style={{ fontFamily: 'Urbanist, sans-serif', fontWeight: 400, lineHeight: '100%', letterSpacing: '0px' }}>+65 6000 2324</span>
               </div>
               <div className="flex items-center gap-2.5 sm:gap-3">
                 <svg
@@ -70,7 +70,7 @@ export default function Footer() {
                     d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                   />
                 </svg>
-                <span className="text-gray-300 text-sm sm:text-base">abc123@email.com</span>
+                <span className="text-[#D3D3D3] text-[16px] font-normal" style={{ fontFamily: 'Urbanist, sans-serif', fontWeight: 400, lineHeight: '100%', letterSpacing: '0px' }}>abc123@email.com</span>
               </div>
               <div className="flex items-center gap-2.5 sm:gap-3">
                 <svg
@@ -92,7 +92,7 @@ export default function Footer() {
                     d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
                   />
                 </svg>
-                <span className="text-gray-300 text-sm sm:text-base">Newyork, United States</span>
+                <span className="text-[#D3D3D3] text-[16px] font-normal" style={{ fontFamily: 'Urbanist, sans-serif', fontWeight: 400, lineHeight: '100%', letterSpacing: '0px' }}>Newyork, United States</span>
               </div>
             </div>
 
@@ -161,12 +161,13 @@ export default function Footer() {
 
           {/* Column 2: Quick Links */}
           <div>
-            <h3 className="text-white font-semi-bold text-base sm:text-lg mb-3 sm:mb-4">Quick links</h3>
-            <ul className="space-y-2 sm:space-y-3">
+            <h3 className="text-[#FFFFFF] text-[18px] font-medium mb-3 sm:mb-4" style={{ fontFamily: 'Urbanist, sans-serif', fontWeight: 500, lineHeight: '100%', letterSpacing: '-3%' }}>Quick links</h3>
+            <ul className="space-y-3">
               <li>
                 <Link
                   href="/"
-                  className="text-gray-300 hover:text-[#FE9A00] transition-colors text-sm sm:text-base"
+                  className="text-[#D3D3D3] hover:text-[#FE9A00] transition-colors text-[16px] font-normal"
+                  style={{ fontFamily: 'Urbanist, sans-serif', fontWeight: 400, lineHeight: '100%', letterSpacing: '0px' }}
                 >
                   Home
                 </Link>
@@ -174,7 +175,8 @@ export default function Footer() {
               <li>
                 <Link
                   href="/library"
-                  className="text-gray-300 hover:text-[#FE9A00] transition-colors text-sm sm:text-base"
+                  className="text-[#D3D3D3] hover:text-[#FE9A00] transition-colors text-[16px] font-normal"
+                  style={{ fontFamily: 'Urbanist, sans-serif', fontWeight: 400, lineHeight: '100%', letterSpacing: '0px' }}
                 >
                   Library
                 </Link>
@@ -182,7 +184,8 @@ export default function Footer() {
               <li>
                 <Link
                   href="/tutorials"
-                  className="text-gray-300 hover:text-[#FE9A00] transition-colors text-sm sm:text-base"
+                  className="text-[#D3D3D3] hover:text-[#FE9A00] transition-colors text-[16px] font-normal"
+                  style={{ fontFamily: 'Urbanist, sans-serif', fontWeight: 400, lineHeight: '100%', letterSpacing: '0px' }}
                 >
                   Tutorials
                 </Link>
@@ -192,12 +195,13 @@ export default function Footer() {
 
           {/* Column 3: Quicklinks */}
           <div>
-            <h3 className="text-white font-semi-bold text-base sm:text-lg mb-3 sm:mb-4">Quick links</h3>
-            <ul className="space-y-2 sm:space-y-3">
+            <h3 className="text-[#FFFFFF] text-[18px] font-medium mb-3 sm:mb-4" style={{ fontFamily: 'Urbanist, sans-serif', fontWeight: 500, lineHeight: '100%', letterSpacing: '-3%' }}>Quick links</h3>
+            <ul className="space-y-3">
               <li>
                 <Link
                   href="/instructors"
-                  className="text-gray-300 hover:text-[#FE9A00] transition-colors text-sm sm:text-base"
+                  className="text-[#D3D3D3] hover:text-[#FE9A00] transition-colors text-[16px] font-normal"
+                  style={{ fontFamily: 'Urbanist, sans-serif', fontWeight: 400, lineHeight: '100%', letterSpacing: '0px' }}
                 >
                   Instructors
                 </Link>
@@ -205,7 +209,8 @@ export default function Footer() {
               <li>
                 <Link
                   href="/pricing"
-                  className="text-gray-300 hover:text-[#FE9A00] transition-colors text-sm sm:text-base"
+                  className="text-[#D3D3D3] hover:text-[#FE9A00] transition-colors text-[16px] font-normal"
+                  style={{ fontFamily: 'Urbanist, sans-serif', fontWeight: 400, lineHeight: '100%', letterSpacing: '0px' }}
                 >
                   Pricing
                 </Link>
@@ -213,7 +218,8 @@ export default function Footer() {
               <li>
                 <Link
                   href="/contact"
-                  className="text-gray-300 hover:text-[#FE9A00] transition-colors text-sm sm:text-base"
+                  className="text-[#D3D3D3] hover:text-[#FE9A00] transition-colors text-[16px] font-normal"
+                  style={{ fontFamily: 'Urbanist, sans-serif', fontWeight: 400, lineHeight: '100%', letterSpacing: '0px' }}
                 >
                   Contact
                 </Link>
@@ -223,9 +229,11 @@ export default function Footer() {
 
           {/* Column 4: Newsletter */}
           <div className="sm:col-span-2 lg:col-span-1">
-            <h3 className="text-white font-semi-bold text-base sm:text-lg mb-3 sm:mb-4">Newsletter</h3>
-            <p className="text-gray-300 text-xs sm:text-sm mb-3 sm:mb-4 leading-relaxed">
-              Get the latest articles, tips, and updates — straight to your inbox.
+            <h3 className="text-[#FFFFFF] text-[18px] font-medium mb-3 sm:mb-4" style={{ fontFamily: 'Urbanist, sans-serif', fontWeight: 500, lineHeight: '100%', letterSpacing: '-3%' }}>Newsletter</h3>
+            <p className="text-[#D3D3D3] text-[16px] font-normal mb-3 sm:mb-4" style={{ fontFamily: 'Urbanist, sans-serif', fontWeight: 400, lineHeight: '100%', letterSpacing: '0px' }}>
+              Get the latest articles
+              <br />
+              straight to your inbox.
             </p>
             <form onSubmit={handleSubmit} className="relative flex items-center w-full">
               <div className="w-full max-w-[403px] h-[57px] rounded-full border border-[#333333] bg-[#1A1A1A] flex items-center p-1.5 focus-within:border-[#FE9A00] transition-colors">

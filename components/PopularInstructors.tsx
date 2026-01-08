@@ -76,15 +76,14 @@ export default function PopularInstructors() {
         <div className="text-center">
           <div className="flex items-center justify-center gap-2 mb-3 sm:mb-4">
             <div className="w-6 sm:w-8 h-0.5 bg-[#FE9A00]"></div>
-            <h2 className="text-xs sm:text-sm font-semi-bold text-[#FE9A00] uppercase tracking-wider">
+            <h2 className="text-[18px] font-bold text-[#FE9A00] uppercase" style={{ fontFamily: 'Urbanist, sans-serif', fontWeight: 700, lineHeight: '100%', letterSpacing: '0%' }}>
               Popular Instructors
             </h2>
-            <div className="w-6 sm:w-8 h-0.5 bg-[#FE9A00]"></div>
           </div>
-          <h3 className="text-2xl sm:text-3xl md:text-[2.5rem] lg:text-5xl font-semi-bold text-white mb-3 sm:mb-4 px-4">
+          <h3 className="text-[50px] font-normal text-white mb-3 sm:mb-4 px-4 text-center" style={{ fontFamily: 'Anton, sans-serif', lineHeight: '120%', letterSpacing: '0%', fontWeight: 400 }}>
             Learn From Professional Barbers
           </h3>
-          <p className="text-sm sm:text-base md:text-lg lg:text-lg text-gray-300 max-w-2xl mx-auto px-4">
+          <p className="text-[#A1A1A1] text-[16px] font-normal max-w-2xl mx-auto px-4 text-center" style={{ fontFamily: 'Urbanist, sans-serif', fontWeight: 400, lineHeight: '100%', letterSpacing: '0%' }}>
             Explore expert trainers who guide you through real techniques and
             practical, everyday barbering skills.
           </p>
@@ -101,10 +100,10 @@ export default function PopularInstructors() {
                 return (
                   <div
                     key={`${instructor.id}-${idx}`}
-                    className="w-full max-w-sm px-4"
+                    className="w-full flex justify-center px-4"
                   >
-                    <div className="relative rounded-lg overflow-hidden shadow-2xl ring-2 ring-[#FE9A00] ring-opacity-70">
-                      <div className="relative w-full h-[450px] overflow-hidden">
+                    <div className="relative rounded-[12px] overflow-hidden shadow-2xl border border-gray-700" style={{ width: '420px', height: '520px', borderWidth: '1px' }}>
+                      <div className="relative w-full h-full overflow-hidden rounded-[12px]">
                         <Image
                           src={instructor.image}
                           alt={instructor.name}
@@ -112,7 +111,7 @@ export default function PopularInstructors() {
                           className="object-cover"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-                        <div className="absolute bottom-0 left-0 right-0 p-6 text-center">
+                        <div className="absolute bottom-0 left-0 right-0 text-center" style={{ padding: '34px 25px' }}>
                           <h4 className="text-xl font-semi-bold text-white mb-2">
                             {instructor.name}
                           </h4>
@@ -128,7 +127,8 @@ export default function PopularInstructors() {
                           </div>
                           <Link
                             href={`/instructors/${instructor.id}`}
-                            className="inline-block bg-[#FE9A00] text-white font-medium px-5 py-2 rounded-full hover:bg-[#E68900] transition-colors text-sm"
+                            className="inline-flex items-center justify-center bg-[#FE9A00] text-[#000000] rounded-full hover:bg-[#E68900] transition-colors h-[50px] px-[24px] text-[16px]"
+                            style={{ fontFamily: 'Urbanist, sans-serif', fontWeight: 500, lineHeight: '100%', letterSpacing: '0%' }}
                           >
                             View Profile
                           </Link>
@@ -141,7 +141,7 @@ export default function PopularInstructors() {
             </div>
 
             {/* Medium screens (sm-md): 2 cards */}
-            <div className="hidden sm:flex md:hidden items-center justify-center gap-4">
+            <div className="hidden sm:flex md:hidden items-center justify-center" style={{ gap: '10px' }}>
               {getVisibleCards(2).map((instructor, idx) => {
                 const isCenter = instructor.position === 0;
                 const scale = isCenter ? 1 : 0.9;
@@ -154,11 +154,11 @@ export default function PopularInstructors() {
                     style={{
                       transform: `scale(${scale})`,
                       opacity: opacity,
-                      width: "min(360px, 45vw)",
+                      width: "420px",
                     }}
                   >
-                    <div className={`relative rounded-lg overflow-hidden ${isCenter ? 'shadow-2xl ring-2 ring-[#FE9A00] ring-opacity-70' : 'shadow-xl'}`}>
-                      <div className="relative w-full h-[500px] overflow-hidden">
+                    <div className={`relative rounded-[12px] overflow-hidden border ${isCenter ? 'shadow-2xl border-[#FE9A00]' : 'shadow-xl border-gray-700'}`} style={{ width: '420px', height: '520px', borderWidth: '1px' }}>
+                      <div className="relative w-full h-full overflow-hidden rounded-[12px]">
                         <Image
                           src={instructor.image}
                           alt={instructor.name}
@@ -166,7 +166,7 @@ export default function PopularInstructors() {
                           className="object-cover"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-                        <div className="absolute bottom-0 left-0 right-0 p-5 text-center">
+                        <div className="absolute bottom-0 left-0 right-0 text-center" style={{ padding: '34px 25px' }}>
                           <h4 className="text-xl font-semi-bold text-white mb-2">
                             {instructor.name}
                           </h4>
@@ -184,7 +184,8 @@ export default function PopularInstructors() {
                               </div>
                               <Link
                                 href={`/instructors/${instructor.id}`}
-                                className="inline-block bg-[#FE9A00] text-white font-medium px-6 py-2 rounded-full hover:bg-[#E68900] transition-colors text-sm"
+                                className="inline-flex items-center justify-center bg-[#FE9A00] text-[#000000] rounded-full hover:bg-[#E68900] transition-colors h-[50px] px-[24px] text-[16px]"
+                                style={{ fontFamily: 'Urbanist, sans-serif', fontWeight: 500, lineHeight: '100%', letterSpacing: '0%' }}
                               >
                                 View Profile
                               </Link>
@@ -199,7 +200,7 @@ export default function PopularInstructors() {
             </div>
 
             {/* Large screens (md-lg): 3 cards */}
-            <div className="hidden md:flex lg:hidden items-center justify-center gap-4">
+            <div className="hidden md:flex lg:hidden items-center justify-center" style={{ gap: '10px' }}>
               {getVisibleCards(3).map((instructor, idx) => {
                 const isCenter = instructor.position === 0;
                 const scale = isCenter ? 1 : 0.85;
@@ -213,12 +214,12 @@ export default function PopularInstructors() {
                     style={{
                       transform: `scale(${scale})`,
                       opacity: opacity,
-                      width: "min(320px, 30vw)",
+                      width: "420px",
                       zIndex: zIndex,
                     }}
                   >
-                    <div className={`relative rounded-lg overflow-hidden ${isCenter ? 'shadow-2xl ring-2 ring-[#FE9A00] ring-opacity-70 brightness-110' : 'shadow-xl'}`}>
-                      <div className="relative w-full h-[550px] overflow-hidden">
+                    <div className={`relative rounded-[12px] overflow-hidden border ${isCenter ? 'shadow-2xl border-[#FE9A00] brightness-110' : 'shadow-xl border-gray-700'}`} style={{ width: '420px', height: '520px', borderWidth: '1px' }}>
+                      <div className="relative w-full h-full overflow-hidden rounded-[12px]">
                         <Image
                           src={instructor.image}
                           alt={instructor.name}
@@ -226,7 +227,7 @@ export default function PopularInstructors() {
                           className="object-cover"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-                        <div className="absolute bottom-0 left-0 right-0 p-5 text-center">
+                        <div className="absolute bottom-0 left-0 right-0 text-center" style={{ padding: '34px 25px' }}>
                           <h4 className="text-xl font-semi-bold text-white mb-2">
                             {instructor.name}
                           </h4>
@@ -244,7 +245,8 @@ export default function PopularInstructors() {
                               </div>
                               <Link
                                 href={`/instructors/${instructor.id}`}
-                                className="inline-block bg-[#FE9A00] text-white font-medium px-6 py-2 rounded-full hover:bg-[#E68900] transition-colors text-sm"
+                                className="inline-flex items-center justify-center bg-[#FE9A00] text-[#000000] rounded-full hover:bg-[#E68900] transition-colors h-[50px] px-[24px] text-[16px]"
+                                style={{ fontFamily: 'Urbanist, sans-serif', fontWeight: 500, lineHeight: '100%', letterSpacing: '0%' }}
                               >
                                 View Profile
                               </Link>
@@ -259,7 +261,7 @@ export default function PopularInstructors() {
             </div>
 
             {/* Extra Large screens (lg+): 5 cards */}
-            <div className="hidden lg:flex items-center justify-center gap-3 lg:gap-4 xl:gap-5">
+            <div className="hidden lg:flex items-center justify-center" style={{ gap: '10px' }}>
               {getVisibleCards(5).map((instructor, idx) => {
                 const isCenter = instructor.position === 0;
                 const isEdge = Math.abs(instructor.position) === 2;
@@ -274,12 +276,12 @@ export default function PopularInstructors() {
                     style={{
                       transform: `scale(${scale})`,
                       opacity: opacity,
-                      width: isCenter ? "min(320px, 22vw)" : "min(280px, 20vw)",
+                      width: "420px",
                       zIndex: zIndex,
                     }}
                   >
-                    <div className={`relative rounded-lg overflow-hidden ${isCenter ? 'shadow-2xl ring-2 ring-[#FE9A00] ring-opacity-70 brightness-110' : 'shadow-xl'}`}>
-                      <div className="relative w-full h-[650px] xl:h-[700px] overflow-hidden">
+                    <div className={`relative rounded-[12px] overflow-hidden border ${isCenter ? 'shadow-2xl border-[#FE9A00] brightness-110' : 'shadow-xl border-gray-700'}`} style={{ width: '420px', height: '520px', borderWidth: '1px' }}>
+                      <div className="relative w-full h-full overflow-hidden rounded-[12px]">
                         <Image
                           src={instructor.image}
                           alt={instructor.name}
@@ -287,7 +289,7 @@ export default function PopularInstructors() {
                           className="object-cover"
                         />
                         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent"></div>
-                        <div className="absolute bottom-0 left-0 right-0 p-6 text-center">
+                        <div className="absolute bottom-0 left-0 right-0 text-center" style={{ padding: '34px 25px' }}>
                           <h4 className="text-2xl font-semi-bold text-white mb-2">
                             {instructor.name}
                           </h4>
@@ -305,7 +307,8 @@ export default function PopularInstructors() {
                               </div>
                               <Link
                                 href={`/instructors/${instructor.id}`}
-                                className="inline-block bg-[#FE9A00] text-white font-medium px-6 py-2 rounded-full hover:bg-[#E68900] transition-colors text-sm"
+                                className="inline-flex items-center justify-center bg-[#FE9A00] text-[#000000] rounded-full hover:bg-[#E68900] transition-colors h-[50px] px-[24px] text-[16px]"
+                                style={{ fontFamily: 'Urbanist, sans-serif', fontWeight: 500, lineHeight: '100%', letterSpacing: '0%' }}
                               >
                                 View Profile
                               </Link>
@@ -324,7 +327,7 @@ export default function PopularInstructors() {
           <div className="flex items-center justify-center gap-4 sm:gap-5 mt-8 sm:mt-10 md:mt-12">
             <button
               onClick={prevSlide}
-              className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center transition-colors shadow-lg"
+              className="w-12 h-12 sm:w-14 sm:h-14 rounded-full bg-[#2D2D2D] hover:bg-gray-700 flex items-center justify-center transition-colors shadow-lg"
               aria-label="Previous instructor"
             >
               <svg

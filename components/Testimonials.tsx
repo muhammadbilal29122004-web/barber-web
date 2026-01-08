@@ -79,15 +79,14 @@ export default function Testimonials() {
         <div className="text-center mb-8 sm:mb-10 md:mb-11 lg:mb-12">
           <div className="flex items-center justify-center gap-2 mb-3 sm:mb-4">
             <div className="w-6 sm:w-8 h-0.5 bg-[#FE9A00]"></div>
-            <h2 className="text-xs sm:text-sm font-semi-bold text-[#FE9A00] uppercase tracking-wider">
+            <h2 className="text-[18px] font-bold text-[#FE9A00] uppercase" style={{ fontFamily: 'Urbanist, sans-serif', fontWeight: 700, lineHeight: '100%', letterSpacing: '0%' }}>
               Testimonials
             </h2>
-            <div className="w-6 sm:w-8 h-0.5 bg-[#FE9A00]"></div>
           </div>
-          <h3 className="text-2xl sm:text-3xl md:text-[2.5rem] lg:text-5xl font-semi-bold text-white mb-3 sm:mb-4 px-4">
+          <h3 className="text-[50px] font-normal text-white mb-3 sm:mb-4 px-4 text-center" style={{ fontFamily: 'Anton, sans-serif', lineHeight: '120%', letterSpacing: '0%', fontWeight: 400 }}>
             Success Stories From Our Learners
           </h3>
-          <p className="text-sm sm:text-base md:text-lg lg:text-lg text-gray-300 max-w-2xl mx-auto px-4">
+          <p className="text-[#A1A1A1] text-[16px] font-normal max-w-2xl mx-auto px-4 text-center" style={{ fontFamily: 'Urbanist, sans-serif', fontWeight: 400, lineHeight: '100%', letterSpacing: '0%' }}>
             Barbers share their experience and the results they achieved through
             our training.
           </p>
@@ -116,7 +115,7 @@ export default function Testimonials() {
                 </div>
 
                 {/* Testimonial Text */}
-                <p className="text-white text-sm sm:text-base lg:text-lg leading-relaxed mb-5 sm:mb-6">
+                <p className="text-[#777777] text-[18px] font-normal mb-5 sm:mb-6" style={{ fontFamily: 'Urbanist, sans-serif', fontWeight: 400, lineHeight: '30px', letterSpacing: '0%' }}>
                   {testimonial.text}
                 </p>
 
@@ -141,28 +140,7 @@ export default function Testimonials() {
         </div>
 
         {/* Carousel Navigation */}
-        <div className="flex items-center justify-center gap-4 sm:gap-6">
-          {/* Left Arrow */}
-          <button
-            onClick={prevSlide}
-            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-gray-800 hover:bg-gray-700 flex items-center justify-center transition-colors"
-            aria-label="Previous testimonials"
-          >
-            <svg
-              className="w-5 h-5 sm:w-6 sm:h-6 text-gray-300"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M15 19l-7-7 7-7"
-              />
-            </svg>
-          </button>
-
+        <div className="flex flex-col items-center justify-center gap-8">
           {/* Pagination Dots */}
           <div className="flex items-center gap-2">
             {[...Array(totalSlides)].map((_, index) => (
@@ -171,34 +149,60 @@ export default function Testimonials() {
                 onClick={() => goToSlide(index)}
                 className={`w-2 h-2 rounded-full transition-colors ${
                   index === currentSlide
-                    ? "bg-[#FE9A00]"
-                    : "bg-gray-600 hover:bg-gray-500"
+                    ? "bg-yellow-500"
+                    : index === currentSlide + 1
+                    ? "bg-yellow-400"
+                    : "bg-gray-600"
                 }`}
                 aria-label={`Go to slide ${index + 1}`}
               />
             ))}
           </div>
 
-          {/* Right Arrow */}
-          <button
-            onClick={nextSlide}
-            className="w-10 h-10 sm:w-12 sm:h-12 rounded-full bg-[#FE9A00] hover:bg-[#E68900] flex items-center justify-center transition-colors"
-            aria-label="Next testimonials"
-          >
-            <svg
-              className="w-5 h-5 sm:w-6 sm:h-6 text-white"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
+          {/* Navigation Buttons */}
+          <div className="flex items-center gap-3">
+            {/* Left Arrow */}
+            <button
+              onClick={prevSlide}
+              className="rounded-[40px] bg-gray-800 hover:bg-gray-700 flex items-center justify-center transition-colors px-4 py-2"
+              aria-label="Previous testimonials"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
-          </button>
+              <svg
+                className="w-5 h-5 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M15 19l-7-7 7-7"
+                />
+              </svg>
+            </button>
+
+            {/* Right Arrow */}
+            <button
+              onClick={nextSlide}
+              className="rounded-[40px] bg-[#FE9A00] hover:bg-[#E68900] flex items-center justify-center transition-colors px-4 py-2"
+              aria-label="Next testimonials"
+            >
+              <svg
+                className="w-5 h-5 text-white"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </button>
+          </div>
         </div>
       </div>
     </section>

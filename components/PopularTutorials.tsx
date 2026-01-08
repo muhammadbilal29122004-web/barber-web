@@ -36,14 +36,14 @@ export default function PopularTutorials() {
         <div className="text-center mb-12">
           <div className="flex items-center justify-center gap-2 mb-4">
             <div className="w-8 h-0.5 bg-[#FE9A00]"></div>
-            <h2 className="text-sm font-semi-bold text-[#FE9A00] uppercase tracking-wider">
+            <h2 className="text-[18px] font-bold text-[#FE9A00] uppercase leading-none tracking-normal" style={{ fontFamily: 'Urbanist, sans-serif', fontWeight: 700 }}>
               Popular Tutorials
             </h2>
           </div>
-          <h3 className="text-4xl md:text-5xl font-semi-bold text-white mb-4">
+          <h3 className="text-[50px] font-normal text-white mb-4 text-center" style={{ fontFamily: 'Anton, sans-serif', lineHeight: '120%', letterSpacing: '0%', fontWeight: 400 }}>
             Tutorials Picked Just for You
           </h3>
-          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+          <p className="text-[#A1A1A1] text-[16px] font-normal max-w-2xl mx-auto text-center" style={{ fontFamily: 'Urbanist, sans-serif', fontWeight: 400, lineHeight: '100%', letterSpacing: '0%' }}>
             Personalized lessons based on what you've watched and the skills you
             want to improve.
           </p>

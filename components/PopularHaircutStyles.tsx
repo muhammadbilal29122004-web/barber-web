@@ -48,14 +48,14 @@ export default function PopularHaircutStyles() {
         <div className="mb-8 sm:mb-10 md:mb-11 lg:mb-12">
           <div className="flex items-center gap-2 mb-3 sm:mb-4">
             <div className="w-6 sm:w-8 h-0.5 bg-[#FE9A00]"></div>
-            <h2 className="text-xs sm:text-sm font-semi-bold text-[#FE9A00] uppercase tracking-wider">
+            <h2 className="text-[18px] font-bold text-[#FE9A00] uppercase" style={{ fontFamily: 'Urbanist, sans-serif', fontWeight: 700, lineHeight: '100%', letterSpacing: '0%' }}>
               Haircut Styles
             </h2>
           </div>
-          <h3 className="text-2xl sm:text-3xl md:text-[2.5rem] lg:text-5xl font-semi-bold text-white mb-3 sm:mb-4">
+          <h3 className="text-[50px] font-normal text-white mb-3 sm:mb-4" style={{ fontFamily: 'Anton, sans-serif', lineHeight: '120%', letterSpacing: '0%', fontWeight: 400 }}>
             Popular Haircut Styles
           </h3>
-          <p className="text-sm sm:text-base md:text-lg lg:text-lg text-gray-300 max-w-2xl">
+          <p className="text-[#A1A1A1] text-[16px] font-normal max-w-2xl" style={{ fontFamily: 'Urbanist, sans-serif', fontWeight: 400, lineHeight: '100%', letterSpacing: '0%' }}>
             Discover the lessons barbers are watching the most—updated daily
             based on real activity.
           </p>
@@ -104,13 +104,11 @@ export default function PopularHaircutStyles() {
                 </div>
 
                 {/* Orange Circular Button - Bottom Right */}
-                <div className="absolute bottom-4 right-4 sm:bottom-5 sm:right-5 w-10 h-10 sm:w-12 sm:h-12 border-2 border-[#FE9A00] rounded-full flex items-center justify-center group-hover:border-[#E68900] transition-colors">
-                  <svg
-                    className="w-5 h-5 sm:w-6 sm:h-6 text-[#FE9A00] ml-0.5 group-hover:text-[#E68900] transition-colors"
-                    fill="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path d="M9 5l7 7-7 7" />
+                <div className="absolute bottom-4 right-4 sm:bottom-5 sm:right-5">
+                  <svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect x="0.45" y="0.45" width="44.1" height="44.1" rx="22.05" stroke="#FE9A00" strokeWidth="0.9"/>
+                    <path d="M24.525 17.4417L29.5833 22.5L24.525 27.5583" stroke="#FE9A00" strokeWidth="1.25" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M15.4167 22.5H29.4417" stroke="#FE9A00" strokeWidth="1.25" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </div>
               </div>

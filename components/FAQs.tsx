@@ -71,15 +71,14 @@ export default function FAQs() {
         <div className="text-center mb-8 sm:mb-10 md:mb-11 lg:mb-12">
           <div className="flex items-center justify-center gap-2 mb-3 sm:mb-4">
             <div className="w-6 sm:w-8 h-0.5 bg-[#FE9A00]"></div>
-            <h2 className="text-xs sm:text-sm font-semi-bold text-[#FE9A00] uppercase tracking-wider">
+            <h2 className="text-[18px] font-bold text-[#FE9A00] uppercase" style={{ fontFamily: 'Urbanist, sans-serif', fontWeight: 700, lineHeight: '100%', letterSpacing: '0%' }}>
               FAQs
             </h2>
-            <div className="w-6 sm:w-8 h-0.5 bg-[#FE9A00]"></div>
           </div>
-          <h3 className="text-2xl sm:text-3xl md:text-[2.5rem] lg:text-5xl font-semi-bold text-white mb-3 sm:mb-4 px-4">
+          <h3 className="text-[50px] font-normal text-white mb-3 sm:mb-4 px-4 text-center" style={{ fontFamily: 'Anton, sans-serif', lineHeight: '120%', letterSpacing: '0%', fontWeight: 400 }}>
             Your Questions, Answered
           </h3>
-          <p className="text-sm sm:text-base md:text-lg lg:text-lg text-gray-300 max-w-2xl mx-auto px-4">
+          <p className="text-[#A1A1A1] text-[16px] font-normal max-w-2xl mx-auto px-4 text-center" style={{ fontFamily: 'Urbanist, sans-serif', fontWeight: 400, lineHeight: '100%', letterSpacing: '0%' }}>
             Get answers to your questions about courses, subscriptions, and
             learning.
           </p>
@@ -98,7 +97,7 @@ export default function FAQs() {
                   onClick={() => toggleFAQ(faq.id)}
                 >
                   <div className="flex items-center justify-between gap-3 sm:gap-4">
-                    <h4 className="text-white font-semi-bold text-sm sm:text-base lg:text-lg flex-1">
+                    <h4 className="text-[#FFFFFF] text-[18px] font-normal flex-1" style={{ fontFamily: 'Urbanist, sans-serif', fontWeight: 400, lineHeight: '100%', letterSpacing: '0%' }}>
                       {faq.question}
                     </h4>
                     <button
@@ -125,7 +124,7 @@ export default function FAQs() {
                   </div>
                   {isOpen && (
                     <div className="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-gray-700">
-                      <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
+                      <p className="text-[#A1A1A1] text-[18px] font-normal" style={{ fontFamily: 'Urbanist, sans-serif', fontWeight: 400, lineHeight: '30px', letterSpacing: '0%' }}>
                         {faq.answer}
                       </p>
                     </div>
@@ -146,7 +145,7 @@ export default function FAQs() {
                   onClick={() => toggleFAQ(faq.id)}
                 >
                   <div className="flex items-center justify-between gap-3 sm:gap-4">
-                    <h4 className="text-white font-semi-bold text-sm sm:text-base lg:text-lg flex-1">
+                    <h4 className="text-[#FFFFFF] text-[18px] font-normal flex-1" style={{ fontFamily: 'Urbanist, sans-serif', fontWeight: 400, lineHeight: '100%', letterSpacing: '0%' }}>
                       {faq.question}
                     </h4>
                     <button
@@ -173,7 +172,7 @@ export default function FAQs() {
                   </div>
                   {isOpen && (
                     <div className="mt-3 sm:mt-4 pt-3 sm:pt-4 border-t border-gray-700">
-                      <p className="text-gray-300 text-sm sm:text-base leading-relaxed">
+                      <p className="text-[#A1A1A1] text-[18px] font-normal" style={{ fontFamily: 'Urbanist, sans-serif', fontWeight: 400, lineHeight: '30px', letterSpacing: '0%' }}>
                         {faq.answer}
                       </p>
                     </div>

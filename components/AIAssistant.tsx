@@ -119,121 +119,62 @@ export default function AIAssistant() {
       {/* Chat Window */}
       {isOpen && (
         <div
-          className={`fixed bottom-4 right-4 z-50 transition-all duration-300 max-w-[calc(100vw-2rem)] ${
-            isMinimized
-              ? "w-64 h-12"
-              : "w-[300px] h-[450px]"
-          }`}
+          className={`fixed bottom-8 right-8 z-50 transition-all duration-300 max-w-[calc(100vw-2rem)] ${isMinimized
+            ? "w-64 h-12"
+            : "w-[395px] h-[568px]"
+            }`}
         >
-          <div className="bg-[#1a1a1a] rounded-lg shadow-2xl border border-gray-300/20 flex flex-col h-full overflow-hidden">
-            {/* Header - Orange Background */}
-            <div className="flex items-center justify-between px-4 py-3 bg-[#FE9A00] rounded-t-lg">
+          <div className="bg-[#FE9A00] rounded-[26px] shadow-2xl border border-gray-300/20 flex flex-col h-full overflow-hidden">
+            {/* Header - Transparent (Background provided by parent) */}
+            <div className="flex items-center justify-between px-6 py-4 shrink-0">
               <div className="flex items-center gap-2">
-                <div className="w-6 h-6 bg-[#FE9A00] rounded-full flex items-center justify-center ring-2 ring-white/20">
-                  <Image
-                    src="/icons/ai.png"
-                    alt="AI Assistant"
-                    width={16}
-                    height={16}
-                    className="object-contain brightness-0 invert"
-                  />
-                </div>
-                <span className="text-white font-semi-bold">AI Assistant</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                {isMinimized ? (
-                  <button
-                    onClick={handleMaximize}
-                    className="w-5 h-5 flex items-center justify-center text-white hover:text-gray-200 transition-colors"
-                    aria-label="Maximize"
-                  >
-                    <svg
-                      className="w-3.5 h-3.5"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"
-                      />
-                    </svg>
-                  </button>
-                ) : (
-                  <button
-                    onClick={handleMinimize}
-                    className="w-5 h-5 bg-[#FE9A00] rounded-full flex items-center justify-center border border-white/30 hover:bg-[#E68900] transition-colors"
-                    aria-label="Minimize"
-                  >
-                    <svg
-                      className="w-3 h-3"
-                      fill="none"
-                      stroke="white"
-                      strokeWidth={2.5}
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M20 12H4"
-                      />
-                    </svg>
-                  </button>
-                )}
-                <button
-                  onClick={handleClose}
-                  className="w-5 h-5 flex items-center justify-center text-white hover:text-gray-200 transition-colors"
-                  aria-label="Close"
-                >
-                  <svg
-                    className="w-3.5 h-3.5"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M6 18L18 6M6 6l12 12"
-                    />
+                <div className="w-[37.5px] h-[37.5px] flex items-center justify-center">
+                  <svg width="37.5" height="37.5" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg" className="text-black">
+                    <path fill-rule="evenodd" clip-rule="evenodd" d="M0 7.5C0 3.35786 3.35786 0 7.5 0H30C34.1421 0 37.5 3.35786 37.5 7.5V25C37.5 29.1421 34.1421 32.5 30 32.5H23.6922L19.6908 37.0731C19.4534 37.3444 19.1104 37.5 18.75 37.5C18.3896 37.5 18.0466 37.3444 17.8092 37.0731L13.8078 32.5H7.5C3.35786 32.5 0 29.1421 0 25V7.5ZM18.75 7.5C19.3336 7.5 19.8395 7.90381 19.9689 8.47281L20.6605 11.5143C20.9804 12.9211 22.0789 14.0196 23.4857 14.3395L26.5272 15.0311C27.0962 15.1605 27.5 15.6664 27.5 16.25C27.5 16.8336 27.0962 17.3395 26.5272 17.4689L23.4857 18.1605C22.0789 18.4804 20.9804 19.5789 20.6605 20.9857L19.9689 24.0272C19.8395 24.5962 19.3336 25 18.75 25C18.1664 25 17.6605 24.5962 17.5311 24.0272L16.8395 20.9857C16.5196 19.5789 15.4211 18.4804 14.0143 18.1605L10.9728 17.4689C10.4038 17.3395 10 16.8336 10 16.25C10 15.6664 10.4038 15.1605 10.9728 15.0311L14.0143 14.3395C15.4211 14.0196 16.5196 12.9211 16.8395 11.5143L17.5311 8.47281C17.6605 7.90381 18.1664 7.5 18.75 7.5Z" fill="currentColor" />
                   </svg>
-                </button>
+                </div>
+                <span className="text-black font-urbanist font-bold text-[24px] leading-[22px] tracking-[0px]">AI Assistant</span>
               </div>
+              <button
+                onClick={handleClose}
+                className="hover:opacity-80 transition-opacity"
+                aria-label="Close"
+              >
+                <svg width="28.57" height="28.57" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M14.8856 29.2902C22.7427 29.2902 29.1713 22.8616 29.1713 15.0045C29.1713 7.14732 22.7427 0.71875 14.8856 0.71875C7.02843 0.71875 0.599854 7.14732 0.599854 15.0045C0.599854 22.8616 7.02843 29.2902 14.8856 29.2902Z" fill="black" fillOpacity="0.2" />
+                  <path d="M9.17139 15H20.6" stroke="black" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
             </div>
 
-            {/* Messages Container */}
+            {/* Messages Container - Dark Background with Top Radius */}
             {!isMinimized && (
-              <>
-                <div className="flex-1 overflow-y-auto p-3 space-y-3 bg-[#0A0A0A]">
+              <div className="flex-1 bg-[#1D1D1D] rounded-t-[30px] flex flex-col overflow-hidden">
+                <div className="flex-1 overflow-y-auto p-4 space-y-4 no-scrollbar">
                   {messages.map((message) => (
                     <div
                       key={message.id}
-                      className={`flex items-start gap-1.5 ${
-                        message.sender === "user" ? "justify-end" : "justify-start"
-                      }`}
+                      className={`flex items-start gap-2 ${message.sender === "user" ? "flex-row-reverse" : ""
+                        }`}
                     >
                       {/* AI Icon - Only for assistant messages, before the bubble */}
                       {message.sender === "assistant" && (
-                        <div className="w-5 h-5 bg-[#FE9A00] rounded-full flex items-center justify-center shrink-0 mt-0.5">
+                        <div className="w-[30px] h-[30px] bg-[#FE9A00] rounded-full flex items-center justify-center shrink-0 mt-0.5">
                           <Image
                             src="/icons/ai.png"
                             alt="AI"
-                            width={12}
-                            height={12}
+                            width={15}
+                            height={15}
                             className="object-contain"
                           />
                         </div>
                       )}
-                      
+
                       <div
-                        className={`max-w-[75%] rounded-lg px-3 py-2.5 ${
-                          message.sender === "user"
-                            ? "bg-[#FE9A00] text-white"
-                            : "bg-[#2C2C2C] text-white"
-                        }`}
+                        className={`max-w-[75%] px-3 py-2.5 ${message.sender === "user"
+                          ? "bg-[#FE9A00] text-black font-urbanist font-medium text-[16px] leading-[22px] rounded-[10px] rounded-tr-none"
+                          : "bg-[#2C2C2C] text-white font-urbanist font-semi-bold text-[16px] leading-[22px] tracking-[0px] rounded-[10px] rounded-tl-none"
+                          }`}
                       >
                         <p className="text-xs leading-relaxed whitespace-pre-wrap break-words">{message.text}</p>
                       </div>
@@ -263,50 +204,35 @@ export default function AIAssistant() {
                 </div>
 
                 {/* Input Area */}
-                <div className="p-3 border-t border-[#2C2C2C] bg-[#1a1a1a]">
-                  <form onSubmit={handleSendMessage} className="flex items-center gap-2">
+                <div className="w-[395px] mx-auto py-3 px-4 border-t border-[#404040] bg-[#1a1a1a]">
+                  <form onSubmit={handleSendMessage} className="flex items-center gap-[12px]">
                     <input
                       ref={inputRef}
                       type="text"
                       value={inputValue}
                       onChange={(e) => setInputValue(e.target.value)}
                       placeholder="Type your message here..."
-                      className="flex-1 bg-gray-200 rounded-lg px-3 py-2 text-xs text-gray-900 placeholder-gray-500 focus:outline-none transition-colors min-w-0"
+                      className="flex-1 bg-transparent text-[#A1A1A1] placeholder-[#A1A1A1] font-urbanist font-normal text-[16px] leading-[22px] focus:outline-none transition-colors min-w-0"
                       disabled={isLoading}
                     />
                     <button
                       type="submit"
                       disabled={!inputValue.trim() || isLoading}
-                      className="w-9 h-9 bg-[#FE9A00] rounded-full flex items-center justify-center hover:bg-[#E68900] transition-colors disabled:opacity-50 disabled:cursor-not-allowed shrink-0"
+                      className="w-[45px] h-[45px] bg-[#FE9A00] rounded-full flex items-center justify-center hover:bg-[#E68900] transition-colors disabled:opacity-50 disabled:cursor-not-allowed shrink-0"
                       aria-label="Send message"
                     >
-                      <svg
-                        width="14"
-                        height="14"
-                        viewBox="0 0 16 16"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <g clipPath="url(#clip0_send_icon)">
-                          <path
-                            d="M1.57579 0.890625C0.393601 0.890625 -0.368118 2.14898 0.183367 3.19711L2.2004 7.02398L8.96751 7.80094L2.2004 8.58094L0.183367 12.4078C-0.368118 13.4559 0.390554 14.7143 1.57579 14.7143C1.78907 14.7143 2.00235 14.6716 2.2004 14.5863L14.6865 9.19336C15.9052 8.66625 15.9052 6.93867 14.6865 6.41156L2.2004 1.01859C2.00235 0.933281 1.78907 0.890625 1.57579 0.890625Z"
-                            fill="white"
-                          />
-                        </g>
-                        <defs>
-                          <clipPath id="clip0_send_icon">
-                            <rect width="15.6" height="15.6" fill="white" />
-                          </clipPath>
-                        </defs>
+                      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M2.01 21L23 12L2.01 3L2 10L17 12L2 14L2.01 21Z" fill="black" />
                       </svg>
                     </button>
                   </form>
                 </div>
-              </>
+              </div>
             )}
           </div>
         </div>
-      )}
+      )
+      }
     </>
   );
 }

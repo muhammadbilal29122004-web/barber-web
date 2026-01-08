@@ -22,25 +22,27 @@ export default function Hero() {
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 xl:gap-16 items-center min-h-[calc(100vh-3.5rem)] sm:min-h-[calc(100vh-4rem)]">
           {/* Left Content */}
           <div className="flex flex-col gap-4 sm:gap-5 md:gap-6 lg:gap-7 z-10 py-8 sm:py-12 md:py-16 lg:py-20 max-w-3xl">
-            <h1 className="text-3xl sm:text-4xl md:text-[2.75rem] lg:text-5xl xl:text-6xl 2xl:text-7xl font-semi-bold leading-[1.2] tracking-[1.5px] sm:tracking-[2px] md:tracking-[2.5px] lg:tracking-[3.5px] xl:tracking-[4.5px]">
+            <h1 className="text-[90px] font-normal leading-[100px] tracking-[0%]" style={{ fontFamily: 'Anton, sans-serif', fontWeight: 400 }}>
               <span className="text-white block mb-1 sm:mb-2">Learn the Skills</span>
               <span className="text-white block mb-1 sm:mb-2">That Make a</span>
               <span className="text-[#FE9A00] block">Great Barber</span>
             </h1>
-            <p className="text-base sm:text-lg md:text-xl lg:text-xl xl:text-2xl text-white max-w-2xl leading-relaxed">
+            <p className="text-[#D4D4D4] text-[20px] font-medium max-w-2xl leading-[30px]" style={{ fontFamily: 'Urbanist, sans-serif', fontWeight: 500, letterSpacing: '0%' }}>
               Clear tutorials, real techniques, and expert instruction all in one
               place.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 lg:gap-5 mt-2 md:mt-4">
               <Link
                 href="/tutorials"
-                className="bg-[#FE9A00] text-white font-medium px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-4 rounded-full hover:bg-[#E68900] transition-colors text-center text-sm sm:text-base lg:text-lg shadow-lg"
+                className="bg-[#FE9A00] text-black px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-4 rounded-full hover:bg-[#E68900] transition-colors text-center shadow-lg text-[16px]"
+                style={{ fontFamily: 'Urbanist, sans-serif', fontWeight: 500, lineHeight: '100%', letterSpacing: '0%' }}
               >
                 Start Learning
               </Link>
               <Link
                 href="/tutorials"
-                className="bg-gray-800 text-white font-medium px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-4 rounded-full hover:bg-gray-700 transition-colors text-center border border-gray-700 text-sm sm:text-base lg:text-lg shadow-lg"
+                className="bg-[#2D2D2D] text-[#A1A1A1] px-6 sm:px-8 lg:px-10 py-3 sm:py-4 lg:py-4 rounded-full hover:bg-gray-700 transition-colors text-center border border-gray-700 shadow-lg text-[16px]"
+                style={{ fontFamily: 'Urbanist, sans-serif', fontWeight: 500, lineHeight: '100%', textAlign: `center`, letterSpacing: '0%' }}
               >
                 Browse Tutorials
               </Link>
