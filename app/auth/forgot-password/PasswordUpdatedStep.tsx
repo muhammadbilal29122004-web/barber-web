@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import PrimaryButton from "@/components/PrimaryButton";
 
 interface PasswordUpdatedStepProps {
   onContinue: () => void;
@@ -33,12 +34,13 @@ export default function PasswordUpdatedStep({
       </p>
 
       {/* Continue to Login Button */}
-      <button
+      <PrimaryButton
         onClick={onContinue}
-        className="w-full bg-[#FE9A00] text-white font-semi-bold py-3 rounded-lg hover:bg-[#E68900] transition-colors"
+        fullWidth
+        className=" rounded-full hover:bg-[#E68900]"
       >
         Continue to Login
-      </button>
+      </PrimaryButton>
     </>
   );
 }

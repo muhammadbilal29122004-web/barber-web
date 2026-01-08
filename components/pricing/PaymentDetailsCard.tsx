@@ -5,6 +5,8 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import PrimaryButton from "../PrimaryButton";
+import SecondaryButton from "../SecondaryButton";
 
 const validationSchema = Yup.object({
   cardholderName: Yup.string()
@@ -131,21 +133,29 @@ export default function PaymentDetailsCard() {
         {/* Close Button */}
         <Link
           href="/pricing"
-          className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center text-white hover:text-orange-500 transition-colors"
+          className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center hover:opacity-80 transition-opacity"
           aria-label="Close"
         >
           <svg
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
+            width="24"
+            height="24"
             viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M6 18L18 6M6 6l12 12"
-            />
+            <g clipPath="url(#clip0_payment_card)">
+              <path
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M19.2806 18.2194C19.5737 18.5124 19.5737 18.9876 19.2806 19.2806C18.9876 19.5737 18.5124 19.5737 18.2194 19.2806L12 13.0603L5.78062 19.2806C5.48757 19.5737 5.01243 19.5737 4.71938 19.2806C4.42632 18.9876 4.42632 18.5124 4.71938 18.2194L10.9397 12L4.71938 5.78062C4.42632 5.48757 4.42632 5.01243 4.71938 4.71938C5.01243 4.42632 5.48757 4.42632 5.78062 4.71938L12 10.9397L18.2194 4.71938C18.5124 4.42632 18.9876 4.42632 19.2806 4.71938C19.5737 5.01243 19.5737 5.48757 19.2806 5.78062L13.0603 12L19.2806 18.2194Z"
+                fill="#737373"
+              />
+            </g>
+            <defs>
+              <clipPath id="clip0_payment_card">
+                <rect width="24" height="24" fill="white" />
+              </clipPath>
+            </defs>
           </svg>
         </Link>
 
@@ -159,10 +169,10 @@ export default function PaymentDetailsCard() {
               key={method.id}
               type="button"
               onClick={() => setSelectedPaymentMethod(method.id)}
-              className={`flex items-center justify-center gap-2 px-4 py-3 rounded-lg border-2 transition-colors ${
+              className={`flex items-center justify-center gap-2 px-4 py-3 rounded-full  transition-colors ${
                 selectedPaymentMethod === method.id
                   ? "border-orange-500 bg-orange-500/10"
-                  : "border-gray-600 bg-gray-700 hover:border-gray-500"
+                  : " bg-[#2D2D2D] "
               }`}
             >
               <span className="text-white">{method.icon}</span>
@@ -177,7 +187,7 @@ export default function PaymentDetailsCard() {
           <div>
             <label
               htmlFor="cardholderName"
-              className="block text-white text-sm font-medium mb-2"
+              className="block text-[#A1A1A1] text-sm font-medium mb-2"
             >
               Cardholder Name
             </label>
@@ -189,7 +199,7 @@ export default function PaymentDetailsCard() {
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               placeholder="John Doe"
-              className={`w-full bg-[#111111] border rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none transition-colors ${
+              className={`w-full bg-[#111111] border rounded-lg px-4 py-3 text-white placeholder-[#525252] focus:outline-none transition-colors ${
                 formik.errors.cardholderName && formik.touched.cardholderName
                   ? "border-red-500"
                   : "border-gray-600 focus:border-orange-500"
@@ -204,7 +214,7 @@ export default function PaymentDetailsCard() {
           <div>
             <label
               htmlFor="cardNumber"
-              className="block text-white text-sm font-medium mb-2"
+              className="block text-[#A1A1A1] text-sm font-medium mb-2"
             >
               Card Number
             </label>
@@ -217,7 +227,7 @@ export default function PaymentDetailsCard() {
               onBlur={formik.handleBlur}
               placeholder="1234 5678 9012 3456"
               maxLength={19}
-              className={`w-full bg-[#111111] border rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none transition-colors ${
+              className={`w-full bg-[#111111] border rounded-lg px-4 py-3 text-white placeholder-[#525252] focus:outline-none transition-colors ${
                 formik.errors.cardNumber && formik.touched.cardNumber
                   ? "border-red-500"
                   : "border-gray-600 focus:border-orange-500"
@@ -233,7 +243,7 @@ export default function PaymentDetailsCard() {
             <div>
               <label
                 htmlFor="expiryDate"
-                className="block text-white text-sm font-medium mb-2"
+                className="block text-[#A1A1A1] text-sm font-medium mb-2"
               >
                 Expiry Date
               </label>
@@ -246,7 +256,7 @@ export default function PaymentDetailsCard() {
                 onBlur={formik.handleBlur}
                 placeholder="MM/YY"
                 maxLength={5}
-                className={`w-full bg-[#111111] border rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none transition-colors ${
+                className={`w-full bg-[#111111] border rounded-lg px-4 py-3 text-white placeholder-[#525252] focus:outline-none transition-colors ${
                   formik.errors.expiryDate && formik.touched.expiryDate
                     ? "border-red-500"
                     : "border-gray-600 focus:border-orange-500"
@@ -259,7 +269,7 @@ export default function PaymentDetailsCard() {
             <div>
               <label
                 htmlFor="cvc"
-                className="block text-white text-sm font-medium mb-2"
+                className="block text-[#A1A1A1] text-sm font-medium mb-2"
               >
                 CVC
               </label>
@@ -272,7 +282,7 @@ export default function PaymentDetailsCard() {
                 onBlur={formik.handleBlur}
                 placeholder="123"
                 maxLength={3}
-                className={`w-full bg-[#111111] border rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none transition-colors ${
+                className={`w-full bg-[#111111] border rounded-lg px-4 py-3 text-white placeholder-[#525252] focus:outline-none transition-colors ${
                   formik.errors.cvc && formik.touched.cvc
                     ? "border-red-500"
                     : "border-gray-600 focus:border-orange-500"
@@ -286,19 +296,28 @@ export default function PaymentDetailsCard() {
 
           {/* Action Buttons */}
           <div className="flex gap-4 pt-4">
-            <Link
+            <SecondaryButton
+             onClick={() => router.push("/pricing")}
+              className="flex-1"
+            >
+              Back
+            </SecondaryButton>
+            {/* <Link
               href="/pricing"
               className="flex-1 bg-gray-700 text-white font-semi-bold py-3 rounded-full hover:bg-gray-600 transition-colors text-center"
             >
               Back
-            </Link>
-            <button
-              type="submit"
-              disabled={formik.isSubmitting}
-              className="flex-1 bg-orange-500 text-white font-semi-bold py-3 rounded-full hover:bg-orange-600 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-            >
+            </Link> */}
+            <PrimaryButton
+                          type="submit"
+                          disabled={formik.isSubmitting}
+
+              className="flex-1  text-black  py-3 rounded-full  transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              >
               {formik.isSubmitting ? "Processing..." : "Pay Securely"}
-            </button>
+
+            </PrimaryButton>
+            
           </div>
         </form>
       </div>

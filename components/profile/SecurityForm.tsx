@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import PrimaryButton from "@/components/PrimaryButton";
+import SecondaryButton from "@/components/SecondaryButton";
 
 export default function SecurityForm() {
   const [formData, setFormData] = useState({
@@ -178,20 +180,18 @@ export default function SecurityForm() {
 
       {/* Action Buttons - Outside the form card */}
       <div className="flex gap-4 mt-6 justify-start">
-        <button
-          type="button"
+        <SecondaryButton
           onClick={handleCancel}
-          className="px-6 py-3 bg-black text-[#A1A1A1] rounded-full border border-[#2D2D2D] hover:bg-[#3a3a3a] transition-colors font-medium"
+          className="px-6 py-3"
         >
           Cancel
-        </button>
-        <button
-          type="button"
+        </SecondaryButton>
+        <PrimaryButton
           onClick={handleSave}
-          className="px-6 py-3 bg-[#FE9A00] text-black rounded-full hover:bg-[#FE9A00] transition-colors font-medium"
+          className="px-6"
         >
           Save
-        </button>
+        </PrimaryButton>
       </div>
     </>
   );

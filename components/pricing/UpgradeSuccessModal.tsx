@@ -49,21 +49,29 @@ export default function UpgradeSuccessModal({
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center text-white hover:text-orange-500 transition-colors"
+          className="absolute top-4 right-4 w-8 h-8 flex items-center justify-center hover:opacity-80 transition-opacity"
           aria-label="Close"
         >
           <svg
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
+            width="24"
+            height="24"
             viewBox="0 0 24 24"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
           >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M6 18L18 6M6 6l12 12"
-            />
+            <g clipPath="url(#clip0_upgrade_modal)">
+              <path
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M19.2806 18.2194C19.5737 18.5124 19.5737 18.9876 19.2806 19.2806C18.9876 19.5737 18.5124 19.5737 18.2194 19.2806L12 13.0603L5.78062 19.2806C5.48757 19.5737 5.01243 19.5737 4.71938 19.2806C4.42632 18.9876 4.42632 18.5124 4.71938 18.2194L10.9397 12L4.71938 5.78062C4.42632 5.48757 4.42632 5.01243 4.71938 4.71938C5.01243 4.42632 5.48757 4.42632 5.78062 4.71938L12 10.9397L18.2194 4.71938C18.5124 4.42632 18.9876 4.42632 19.2806 4.71938C19.5737 5.01243 19.5737 5.48757 19.2806 5.78062L13.0603 12L19.2806 18.2194Z"
+                fill="#737373"
+              />
+            </g>
+            <defs>
+              <clipPath id="clip0_upgrade_modal">
+                <rect width="24" height="24" fill="white" />
+              </clipPath>
+            </defs>
           </svg>
         </button>
 
@@ -93,7 +101,7 @@ export default function UpgradeSuccessModal({
           <Link
             href={ctaHref}
             onClick={onClose}
-            className="block w-full bg-orange-500 text-white font-semi-bold py-3 rounded-full hover:bg-orange-600 transition-colors text-center"
+            className="block w-full bg-[#FE9A00] text-black font-bold py-3 rounded-full hover:bg-[#FE9A00] transition-colors text-center"
           >
             {ctaText}
           </Link>

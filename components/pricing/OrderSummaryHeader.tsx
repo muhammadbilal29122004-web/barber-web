@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function OrderSummaryHeader() {
   return (
     <div className="bg-[#0A0A0A] pt-20 pb-8">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Breadcrumbs */}
         <div className="mb-4">
           <div className="flex items-center gap-2 text-gray-400 text-sm">

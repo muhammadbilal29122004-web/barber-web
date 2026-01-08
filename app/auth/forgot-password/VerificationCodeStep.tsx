@@ -3,6 +3,7 @@
 import { useRef, useEffect } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import PrimaryButton from "@/components/PrimaryButton";
 
 interface VerificationCodeStepProps {
   email: string;
@@ -118,7 +119,7 @@ export default function VerificationCodeStep({
               onChange={(e) => handleCodeChange(index, e.target.value)}
               onKeyDown={(e) => handleCodeKeyDown(index, e)}
               onPaste={index === 0 ? handleCodePaste : undefined}
-              className={`w-12 h-12 md:w-14 md:h-14 text-center text-xl font-semi-bold bg-gray-700 border rounded-lg text-white focus:outline-none transition-colors ${
+              className={`w-12 h-12 md:w-14 md:h-14 text-center text-xl font-semi-bold bg-black border border-[#737373] rounded-lg text-white focus:outline-none transition-colors ${
                 formik.errors.code
                   ? "border-red-500"
                   : "border-gray-600 focus:border-[#FE9A00]"
@@ -131,13 +132,13 @@ export default function VerificationCodeStep({
         )}
 
         {/* Confirm Button */}
-        <button
+        <PrimaryButton
           type="submit"
           disabled={isLoading || formik.values.code.join("").length !== 4}
-          className="w-full bg-[#FE9A00] text-white font-semi-bold py-3 rounded-lg hover:bg-[#E68900] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          fullWidth
         >
           {isLoading ? "Verifying..." : "Confirm"}
-        </button>
+        </PrimaryButton>
 
         {/* Resend Code Link */}
         <div className="text-center">
@@ -147,7 +148,7 @@ export default function VerificationCodeStep({
           <button
             type="button"
             onClick={handleResend}
-            className="text-[#FE9A00] text-sm hover:text-[#E68900] transition-colors"
+            className="text-[#FE9A00] text-sm underline hover:text-[#E68900] transition-colors"
           >
             Resend Code
           </button>

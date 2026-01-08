@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import PrimaryButton from "@/components/PrimaryButton";
 
 interface ResetPasswordStepProps {
   isLoading: boolean;
@@ -39,7 +40,7 @@ export default function ResetPasswordStep({
   });
 
   return (
-    <>
+    <div>
       {/* Back Button */}
       <button
         onClick={onBack}
@@ -58,14 +59,14 @@ export default function ResetPasswordStep({
             d="M15 19l-7-7 7-7"
           />
         </svg>
-        <span>Back</span>
+        <span className="text-[#737373]">Back</span>
       </button>
 
       {/* Title */}
       <h1 className="text-3xl font-semi-bold text-white text-center mb-2">
         Reset Password
       </h1>
-      <p className="text-gray-300 text-center mb-8">
+      <p className="text-[#A1A1A1] text-center mb-8">
         Enter your new password below.
       </p>
 
@@ -75,7 +76,7 @@ export default function ResetPasswordStep({
         <div>
           <label
             htmlFor="password"
-            className="block text-white text-sm font-medium mb-2"
+            className="block text-[#A1A1A1] text-sm font-medium mb-2"
           >
             Password
           </label>
@@ -88,7 +89,7 @@ export default function ResetPasswordStep({
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               placeholder="Write your password"
-              className={`w-full bg-gray-700 border rounded-lg px-4 py-3 pr-12 text-white placeholder-gray-400 focus:outline-none transition-colors ${
+              className={`w-full bg-[#161616] border rounded-lg px-4 py-3 pr-12 text-white placeholder-[#525252] focus:outline-none transition-colors ${
                 formik.errors.password && formik.touched.password
                   ? "border-red-500"
                   : "border-gray-600 focus:border-[#FE9A00]"
@@ -116,7 +117,7 @@ export default function ResetPasswordStep({
                 </svg>
               ) : (
                 <svg
-                  className="w-5 h-5"
+                  className="w-5 h-5 "
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"
@@ -146,7 +147,7 @@ export default function ResetPasswordStep({
         <div>
           <label
             htmlFor="confirmPassword"
-            className="block text-white text-sm font-medium mb-2"
+            className="block text-[#A1A1A1] text-sm font-medium mb-2"
           >
             Confirm Password
           </label>
@@ -159,7 +160,7 @@ export default function ResetPasswordStep({
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               placeholder="Confirm your password"
-              className={`w-full bg-gray-700 border rounded-lg px-4 py-3 pr-12 text-white placeholder-gray-400 focus:outline-none transition-colors ${
+              className={`w-full bg-[#161616] border rounded-lg px-4 py-3 pr-12 text-white placeholder-[#525252] focus:outline-none transition-colors ${
                 formik.errors.confirmPassword && formik.touched.confirmPassword
                   ? "border-red-500"
                   : "border-gray-600 focus:border-[#FE9A00]"
@@ -216,14 +217,15 @@ export default function ResetPasswordStep({
         </div>
 
         {/* Update Password Button */}
-        <button
+        <PrimaryButton
           type="submit"
           disabled={isLoading}
-          className="w-full bg-[#FE9A00] text-white font-semi-bold py-3 rounded-lg hover:bg-[#E68900] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+          fullWidth
+          className=" hover:bg-[#E68900]"
         >
           {isLoading ? "Updating Password..." : "Update Password"}
-        </button>
+        </PrimaryButton>
       </form>
-    </>
+    </div>
   );
 }
