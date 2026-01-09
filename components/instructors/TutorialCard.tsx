@@ -48,7 +48,7 @@ export default function TutorialCard({
   };
 
   const CardContent = (
-    <div className="group bg-[#161616] rounded-lg border border-[#2C2C2C] overflow-hidden hover:border-orange-500 transition-all duration-300 hover:shadow-xl">
+    <div className="group bg-[#161616] rounded-lg border border-[#2C2C2C] overflow-hidden hover:border-[#FE9A00] transition-all duration-300 hover:shadow-xl">
       {/* Thumbnail with Play Button */}
       <div className="relative w-full h-[200px] overflow-hidden">
         <Image
@@ -74,7 +74,7 @@ export default function TutorialCard({
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
             className={`transition-colors ${
-              isFavorited ? "fill-orange-500" : "fill-none"
+              isFavorited ? "fill-[#FE9A00]" : "fill-none"
             }`}
           >
             <path
@@ -135,7 +135,7 @@ export default function TutorialCard({
       {/* Card Content */}
       <div className="p-4">
         {/* Title */}
-        <h3 className="text-lg font-semi-bold text-white mb-2 line-clamp-2 group-hover:text-orange-500 transition-colors">
+        <h3 className="text-lg font-semi-bold text-white mb-2 line-clamp-2 group-hover:text-[#FE9A00] transition-colors">
           {title}
         </h3>
 

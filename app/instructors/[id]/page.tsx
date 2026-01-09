@@ -178,11 +178,11 @@ export default function InstructorDetailPage() {
                   {/* Save Button */}
                   <button
                     onClick={handleFavoriteClick}
-                    className="flex items-center gap-2 px-6 py-3 border-2 border-orange-500 rounded-full text-orange-500 hover:bg-orange-500 hover:text-white transition-colors"
+                    className="flex items-center gap-2 px-6 py-3 border-2 border-[#FE9A00] rounded-full text-[#FE9A00] hover:bg-[#FE9A00] hover:text-white transition-colors"
                   >
                     <svg
                       className={`w-5 h-5 ${
-                        isFavorited ? "fill-orange-500" : ""
+                        isFavorited ? "fill-[#FE9A00]" : ""
                       }`}
                       fill={isFavorited ? "currentColor" : "none"}
                       stroke="currentColor"
@@ -255,7 +255,7 @@ export default function InstructorDetailPage() {
               </div>
             ) : (
               <>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
                   {paginatedTutorials.map((tutorial) => (
                     <TutorialCard
                       key={tutorial.id}

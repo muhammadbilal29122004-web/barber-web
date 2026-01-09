@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import SecondaryButton from "@/components/SecondaryButton";
+import PrimaryButton from "@/components/PrimaryButton";
 import type { Review } from "@/lib/data/tutorials";
 
 interface TutorialReviewsProps {
@@ -20,6 +20,11 @@ export default function TutorialReviews({ reviews, averageRating, totalReviews, 
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
         <h2 className="text-3xl font-semi-bold text-white">Reviews</h2>
         <div className="flex items-center gap-3">
+          {onAddReview && (
+            <PrimaryButton onClick={onAddReview} className="px-6 py-2">
+              Add review
+            </PrimaryButton>
+          )}
           <div className="relative">
             <select
               value={sortBy}
@@ -38,11 +43,6 @@ export default function TutorialReviews({ reviews, averageRating, totalReviews, 
               </svg>
             </div>
           </div>
-          {onAddReview && (
-            <SecondaryButton onClick={onAddReview} className="px-6 py-2">
-              Add review
-            </SecondaryButton>
-          )}
         </div>
       </div>
 
@@ -53,11 +53,16 @@ export default function TutorialReviews({ reviews, averageRating, totalReviews, 
             {[1, 2, 3, 4, 5].map((star) => (
               <svg
                 key={star}
-                className="w-6 h-6 text-[#FE9A00]"
-                fill="currentColor"
+                width="24"
+                height="24"
                 viewBox="0 0 20 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
               >
-                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                <path
+                  d="M11.7289 1.4325L13.4889 4.9525C13.7289 5.4425 14.3689 5.9125 14.9089 6.0025L18.0989 6.5325C20.1389 6.8725 20.6189 8.3525 19.1489 9.8125L16.6689 12.2925C16.2489 12.7125 16.0189 13.5225 16.1489 14.1025L16.8589 17.1725C17.4189 19.6025 16.1289 20.5425 13.9789 19.2725L10.9889 17.5025C10.4489 17.1825 9.55893 17.1825 9.00893 17.5025L6.01893 19.2725C3.87893 20.5425 2.57893 19.5925 3.13893 17.1725L3.84893 14.1025C3.97893 13.5225 3.74893 12.7125 3.32893 12.2925L0.848932 9.8125C-0.611068 8.3525 -0.141067 6.8725 1.89893 6.5325L5.08893 6.0025C5.61893 5.9125 6.25893 5.4425 6.49893 4.9525L8.25893 1.4325C9.21893 -0.4775 10.7789 -0.4775 11.7289 1.4325Z"
+                  fill="#FDC700"
+                />
               </svg>
             ))}
           </div>
@@ -93,13 +98,16 @@ export default function TutorialReviews({ reviews, averageRating, totalReviews, 
                       {[1, 2, 3, 4, 5].map((star) => (
                         <svg
                           key={star}
-                          className={`w-4 h-4 ${
-                            star <= review.rating ? "text-[#FE9A00]" : "text-gray-600"
-                          }`}
-                          fill="currentColor"
+                          width="16"
+                          height="16"
                           viewBox="0 0 20 20"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
                         >
-                          <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                          <path
+                            d="M11.7289 1.4325L13.4889 4.9525C13.7289 5.4425 14.3689 5.9125 14.9089 6.0025L18.0989 6.5325C20.1389 6.8725 20.6189 8.3525 19.1489 9.8125L16.6689 12.2925C16.2489 12.7125 16.0189 13.5225 16.1489 14.1025L16.8589 17.1725C17.4189 19.6025 16.1289 20.5425 13.9789 19.2725L10.9889 17.5025C10.4489 17.1825 9.55893 17.1825 9.00893 17.5025L6.01893 19.2725C3.87893 20.5425 2.57893 19.5925 3.13893 17.1725L3.84893 14.1025C3.97893 13.5225 3.74893 12.7125 3.32893 12.2925L0.848932 9.8125C-0.611068 8.3525 -0.141067 6.8725 1.89893 6.5325L5.08893 6.0025C5.61893 5.9125 6.25893 5.4425 6.49893 4.9525L8.25893 1.4325C9.21893 -0.4775 10.7789 -0.4775 11.7289 1.4325Z"
+                            fill={star <= review.rating ? "#FDC700" : "#3A3A3A"}
+                          />
                         </svg>
                       ))}
                     </div>

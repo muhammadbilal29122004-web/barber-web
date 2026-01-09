@@ -27,18 +27,23 @@ export default function PricingCard() {
         {/* Pricing Card */}
         <div className="relative rounded-2xl shadow-2xl border border-[#161616] overflow-hidden">
          {/* Most Popular Ribbon */}
-<div className="absolute top-0 right-0 z-20 overflow-hidden w-32 h-32 pointer-events-none">
-  <div className="
-    absolute top-6 right-[-42px]
-    bg-orange-500 text-white
-    text-xs font-bold uppercase
-    px-10 py-2
-    transform rotate-45
-    shadow-lg
-  ">
+         <div className="absolute top-0 right-0 z-10 overflow-hidden w-40 h-40 pointer-events-none">
+  <div
+    className="
+      absolute top-10 right-[-33px]
+      bg-[#FE9A00] text-black
+      text-[11px] font-bold uppercase
+      px-12 py-2
+      whitespace-nowrap
+      rotate-45
+      shadow-lg
+      text-center
+    "
+  >
     Most Popular
   </div>
 </div>
+
 
           {/* Two Panel Layout */}
           <div className="grid lg:grid-cols-2 gap-0">

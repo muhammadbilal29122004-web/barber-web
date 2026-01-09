@@ -22,7 +22,7 @@ export default function ProfileTabs({ activeTab = "edit-profile", onTabChange }:
   };
 
   return (
-    <div className="flex gap-0 mb-8 w-full">
+    <div className="flex gap-0 mb-8 w-full bg-[#1a1a1a] rounded-full overflow-hidden">
       {tabs.map((tab, index) => {
         const isActive = activeTab === tab.id;
         const isFirst = index === 0;
@@ -35,11 +35,12 @@ export default function ProfileTabs({ activeTab = "edit-profile", onTabChange }:
             className={`
               flex-1 px-6 py-3 text-sm font-medium transition-colors
               ${isActive 
-                ? "bg-[#FE9A00] text-black font-semi-bold rounded-lg" 
-                : "bg-[#1a1a1a] text-gray-400 hover:text-white"
+                ? "bg-[#FE9A00] text-black font-bold rounded-full" 
+                : "bg-transparent text-gray-400 hover:text-white"
               }
-              ${isFirst ? "rounded-l-lg" : ""}
-              ${isLast ? "rounded-r-lg" : ""}
+              ${isFirst && isActive ? "rounded-l-lg" : ""}
+              ${isLast && isActive ? "rounded-r-lg" : ""}
+              ${!isFirst && !isLast && isActive ? "" : ""}
             `}
           >
             {tab.label}
