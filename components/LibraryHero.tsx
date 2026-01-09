@@ -7,7 +7,7 @@ export default function LibraryHero() {
       {/* Background Image with specific size */}
       <div className="absolute inset-0 w-full h-[500px] -right-[50px]">
         <Image
-          src="/Libraryheroimage.png"
+          src="/Libraryimage.png"
           alt="Library Background"
           fill
           className="object-cover"

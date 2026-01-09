@@ -47,7 +47,18 @@ export default function AddReviewModal({
       <div className="relative w-full max-w-[480px] bg-[#1A1A1A] rounded-[20px] border border-[#444444] text-white overflow-hidden">
         {/* Header */}
         <div className="flex items-center justify-between px-6 py-5 border-b border-[#444444]">
-          <h3 className="text-[24px] font-semibold font-urbanist leading-[100%] tracking-[-0.4px]">Give Review</h3>
+          <h3 
+            style={{ 
+              fontFamily: 'Urbanist, sans-serif', 
+              fontWeight: 600, 
+              fontSize: '24px', 
+              lineHeight: '100%', 
+              letterSpacing: '-0.4px',
+              color: 'rgba(255, 255, 255, 1)'
+            }}
+          >
+            Give Review
+          </h3>
           <button
             onClick={onClose}
             className="w-8 h-8 flex items-center justify-center text-white/80 hover:text-white transition-colors"
@@ -66,7 +77,7 @@ export default function AddReviewModal({
             <p className="text-[12px] font-normal font-urbanist leading-[100%] tracking-[-0.12px] text-[#A1A1A1] mb-3">
               Choose Rating
             </p>
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-1">
               {[1, 2, 3, 4, 5].map((star) => {
                 const active = (hover ?? rating) >= star;
                 return (
@@ -79,13 +90,15 @@ export default function AddReviewModal({
                     className="focus:outline-none"
                     aria-label={`Rate ${star} star`}
                   >
-                    <svg
-                      className={`w-10 h-10 ${active ? "text-[#FF9F0A]" : "text-[#3A3A3A]"}`}
-                      fill="currentColor"
-                      viewBox="0 0 20 20"
-                    >
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
+                    {active ? (
+                      <svg width="50" height="50" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M24.4353 2.98438L28.1019 10.3177C28.6019 11.3385 29.9353 12.3177 31.0603 12.5052L37.7061 13.6094C41.9561 14.3177 42.9561 17.401 39.8936 20.4427L34.7269 25.6094C33.8519 26.4844 33.3728 28.1719 33.6436 29.3802L35.1228 35.776C36.2894 40.8385 33.6019 42.7969 29.1228 40.151L22.8936 36.4635C21.7686 35.7969 19.9144 35.7969 18.7686 36.4635L12.5394 40.151C8.08111 42.7969 5.37278 40.8177 6.53944 35.776L8.01861 29.3802C8.28944 28.1719 7.81028 26.4844 6.93528 25.6094L1.76861 20.4427C-1.27306 17.401 -0.29389 14.3177 3.95611 13.6094L10.6019 12.5052C11.7061 12.3177 13.0394 11.3385 13.5394 10.3177L17.2061 2.98438C19.2061 -0.994792 22.4561 -0.994792 24.4353 2.98438Z" fill="#FDC700"/>
+                      </svg>
+                    ) : (
+                      <svg width="50" height="50" viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M24.4353 2.98438L28.1019 10.3177C28.6019 11.3385 29.9353 12.3177 31.0603 12.5052L37.7061 13.6094C41.9561 14.3177 42.9561 17.401 39.8936 20.4427L34.7269 25.6094C33.8519 26.4844 33.3728 28.1719 33.6436 29.3802L35.1228 35.776C36.2894 40.8385 33.6019 42.7969 29.1228 40.151L22.8936 36.4635C21.7686 35.7969 19.9144 35.7969 18.7686 36.4635L12.5394 40.151C8.08111 42.7969 5.37278 40.8177 6.53944 35.776L8.01861 29.3802C8.28944 28.1719 7.81028 26.4844 6.93528 25.6094L1.76861 20.4427C-1.27306 17.401 -0.29389 14.3177 3.95611 13.6094L10.6019 12.5052C11.7061 12.3177 13.0394 11.3385 13.5394 10.3177L17.2061 2.98438C19.2061 -0.994792 22.4561 -0.994792 24.4353 2.98438Z" fill="#333333"/>
+                      </svg>
+                    )}
                   </button>
                 );
               })}
@@ -112,7 +125,16 @@ export default function AddReviewModal({
             type="button"
             onClick={() => onSubmit(rating, review)}
             disabled={rating === 0 || review.trim().length === 0}
-            className="w-full max-w-[430px] h-[44px] bg-[#2A2A2A] border border-[#444444] rounded-[12px] flex items-center justify-center gap-2 text-white font-urbanist font-medium text-[14px] hover:bg-[#333333] transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+            className="w-full max-w-[430px] h-[44px] bg-[#2A2A2A] border border-[#444444] rounded-[12px] flex items-center justify-center gap-2 hover:bg-[#333333] transition-colors disabled:opacity-60 disabled:cursor-not-allowed"
+            style={{
+              fontFamily: 'Urbanist, sans-serif',
+              fontWeight: 500,
+              fontSize: '14px',
+              lineHeight: '100%',
+              letterSpacing: '0px',
+              color: 'rgba(255, 255, 255, 1)',
+              textAlign: 'center'
+            }}
           >
             Submit Review
           </button>

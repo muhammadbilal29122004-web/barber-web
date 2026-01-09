@@ -224,21 +224,31 @@ export default function QuizInterface() {
             </div>
 
             {/* Navigation Buttons */}
-            <div className="flex flex-col sm:flex-row gap-5 mb-20 max-w-[900px] mx-auto">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-5 mb-12 sm:mb-16 md:mb-20 max-w-[900px] mx-auto w-full">
                 <button
                     onClick={handleSkip}
-                    className="flex-1 h-[60px] rounded-full border border-[#2D2D2D] bg-transparent text-[#A1A1A1] font-urbanist text-[18px] font-bold hover:bg-white/5 transition-all"
+                    className="w-full sm:flex-1 rounded-full border border-[#2D2D2D] bg-transparent text-[#A1A1A1] font-urbanist font-bold hover:bg-white/5 transition-all flex items-center justify-center"
+                    style={{
+                        height: 'clamp(48px, 7vw, 60px)',
+                        fontSize: 'clamp(14px, 2.2vw, 18px)',
+                        padding: '0 clamp(16px, 3vw, 24px)'
+                    }}
                 >
                     Skip
                 </button>
                 <button
                     onClick={handleConfirm}
                     disabled={!selectedOptionId}
-                    className={`flex-1 h-[60px] rounded-full font-urbanist text-[18px] font-bold transition-all
+                    className={`w-full sm:flex-1 rounded-full font-urbanist font-bold transition-all flex items-center justify-center whitespace-nowrap
             ${selectedOptionId
                             ? 'border border-[#FE9A00] bg-transparent text-[#FE9A00] hover:bg-[#FE9A00]/5'
                             : 'border border-[#2D2D2D] bg-[#111111] text-[#A1A1A1] opacity-50 cursor-not-allowed'
                         }`}
+                    style={{
+                        height: 'clamp(48px, 7vw, 60px)',
+                        fontSize: 'clamp(14px, 2.2vw, 18px)',
+                        padding: '0 clamp(16px, 3vw, 24px)'
+                    }}
                 >
                     Confirm
                 </button>

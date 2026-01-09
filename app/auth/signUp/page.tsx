@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import UpgradeSuccessModal from "@/components/pricing/UpgradeSuccessModal";
 
 export default function SignUpPage() {
   const router = useRouter();
@@ -15,6 +16,7 @@ export default function SignUpPage() {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [agreeToTerms, setAgreeToTerms] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [isSuccessOpen, setIsSuccessOpen] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -41,6 +43,7 @@ export default function SignUpPage() {
     // Simulate API call
     setTimeout(() => {
       setIsLoading(false);
+      setIsSuccessOpen(true);
       // router.push("/");
     }, 1000);
   };
@@ -53,7 +56,7 @@ export default function SignUpPage() {
   return (
     <div className="h-screen bg-[#0F0F0F] flex items-center justify-center p-4 sm:p-6 md:p-8 overflow-hidden">
       {/* Sign Up Card */}
-      <div className="relative w-full max-w-[690px] bg-[#0A0A0A] rounded-[40px] shadow-2xl border border-[#262626] p-[50px] flex flex-col gap-[39px] overflow-y-auto" style={{ height: 'fit-content', minHeight: '909px' }}>
+      <div className="relative w-full max-w-[690px] bg-[#0A0A0A] rounded-[20px] sm:rounded-[40px] shadow-2xl border border-[#262626] p-4 sm:p-6 md:p-[40px] flex flex-col gap-3 sm:gap-4 md:gap-[25px] overflow-y-auto md:max-h-[850px] md:h-[850px]" style={{ height: 'auto', minHeight: 'auto' }}>
         {/* Close Button */}
         <Link
           href="/"
@@ -88,26 +91,47 @@ export default function SignUpPage() {
                 <path d="M31.3657 1.31655L27.6765 15.0843L38.5652 4.1956L42.164 7.79442L32.0982 17.8602L47.1806 13.8202L48.4972 18.7355L34.7475 22.4193L49.83 26.4612L48.5135 31.3784L34.8597 27.7199C35.0295 26.9825 35.12 26.214 35.1201 25.425C35.1201 19.8032 30.5621 15.2455 24.9403 15.2452C19.3183 15.2452 14.7606 19.803 14.7606 25.425C14.7606 26.2191 14.8508 26.9926 15.0228 27.7344L0 23.7088L1.31655 18.7916L15.0662 22.4754L4.02561 11.4348L7.62442 7.83601L17.6903 17.9018L13.6502 2.81937L18.5655 1.50282L22.3072 15.4622L26.4486 0L31.3657 1.31655Z" fill="#FE9A00"/>
               </svg>
             </div>
-            <span className="text-[#FE9A00] text-[22px] font-semi-bold leading-[26.76px]" style={{ width: '147.46px', height: '26.76px' }}>Logoipsum</span>
+            <span className="text-[#FE9A00] text-base sm:text-lg md:text-[22px] font-semi-bold leading-[26.76px]">Logoipsum</span>
           </Link>
         </div>
 
         {/* Title */}
-        <h1 className="text-2xl sm:text-3xl font-semi-bold text-white text-center mb-1 sm:mb-2">
+        <h1 
+          className="text-center mb-1"
+          style={{ 
+            fontFamily: 'Anton, sans-serif', 
+            fontWeight: 400, 
+            fontSize: 'clamp(24px, 5vw, 41px)', 
+            lineHeight: 'clamp(30px, 6.5vw, 52px)', 
+            letterSpacing: '0%',
+            color: 'rgba(255, 255, 255, 1)'
+          }}
+        >
           Create Your Account
         </h1>
-        <p className="text-gray-300 text-xs sm:text-sm text-center mb-4 sm:mb-5">
+        <p 
+          className="text-center mb-3 text-sm sm:text-base"
+          style={{ 
+            fontFamily: 'Urbanist, sans-serif', 
+            fontWeight: 500, 
+            fontSize: 'clamp(14px, 2vw, 16px)', 
+            lineHeight: '20px', 
+            letterSpacing: '0%',
+            color: 'rgba(161, 161, 161, 1)',
+            marginTop: '-8px'
+          }}
+        >
           Sign up to track your progress and unlock the full library.
         </p>
 
         {/* Sign Up Form */}
-        <form onSubmit={handleSubmit} className="space-y-3 sm:space-y-4 flex-1">
+        <form onSubmit={handleSubmit} className="space-y-2.5 flex-1">
           {/* First Name and Second Name - Side by Side */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
             <div>
               <label
                 htmlFor="firstName"
-                className="block text-[#9A9A9A] text-xs sm:text-sm font-medium mb-1.5"
+                className="block text-[#9A9A9A] text-xs sm:text-sm font-medium mb-1"
               >
                 First Name
               </label>
@@ -117,14 +141,14 @@ export default function SignUpPage() {
                 value={firstName}
                 onChange={(e) => setFirstName(e.target.value)}
                 placeholder="Write your first name"
-                className="w-full bg-[#161616] border border-[#262626] rounded-lg px-3 sm:px-4 py-2 sm:py-2.5 text-white text-sm placeholder:text-[#6F6F6F] focus:outline-none focus:border-[#FF9900] transition-colors"
+                className="w-full bg-[#161616] border border-[#262626] rounded-lg px-3 sm:px-4 py-1.5 sm:py-2 text-white text-sm placeholder:text-[#6F6F6F] focus:outline-none focus:border-[#FF9900] transition-colors"
                 required
               />
             </div>
             <div>
               <label
                 htmlFor="secondName"
-                className="block text-[#9A9A9A] text-xs sm:text-sm font-medium mb-1.5"
+                className="block text-[#9A9A9A] text-xs sm:text-sm font-medium mb-1"
               >
                 Second Name
               </label>
@@ -134,7 +158,7 @@ export default function SignUpPage() {
                 value={secondName}
                 onChange={(e) => setSecondName(e.target.value)}
                 placeholder="Write your second name"
-                className="w-full bg-[#161616] border border-[#262626] rounded-lg px-3 sm:px-4 py-2 sm:py-2.5 text-white text-sm placeholder:text-[#6F6F6F] focus:outline-none focus:border-[#FF9900] transition-colors"
+                className="w-full bg-[#161616] border border-[#262626] rounded-lg px-3 sm:px-4 py-1.5 sm:py-2 text-white text-sm placeholder:text-[#6F6F6F] focus:outline-none focus:border-[#FF9900] transition-colors"
                 required
               />
             </div>
@@ -144,7 +168,7 @@ export default function SignUpPage() {
           <div>
             <label
               htmlFor="email"
-              className="block text-[#9A9A9A] text-xs sm:text-sm font-medium mb-1.5"
+              className="block text-[#9A9A9A] text-xs sm:text-sm font-medium mb-1"
             >
               Email
             </label>
@@ -154,7 +178,7 @@ export default function SignUpPage() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Write your email"
-              className="w-full bg-[#1A1A1A] border border-[#262626] rounded-lg px-3 sm:px-4 py-2 sm:py-2.5 text-white text-sm placeholder:text-[#6F6F6F] focus:outline-none focus:border-[#FF9900] transition-colors"
+                className="w-full bg-[#1A1A1A] border border-[#262626] rounded-lg px-3 sm:px-4 py-1.5 sm:py-2 text-white text-sm placeholder:text-[#6F6F6F] focus:outline-none focus:border-[#FF9900] transition-colors"
               required
             />
           </div>
@@ -163,7 +187,7 @@ export default function SignUpPage() {
           <div>
             <label
               htmlFor="password"
-              className="block text-[#9A9A9A] text-xs sm:text-sm font-medium mb-1.5"
+              className="block text-[#9A9A9A] text-xs sm:text-sm font-medium mb-1"
             >
               Password
             </label>
@@ -174,7 +198,7 @@ export default function SignUpPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="Write your password"
-                className="w-full bg-[#1A1A1A] border border-[#262626] rounded-lg px-3 sm:px-4 py-2 sm:py-2.5 pr-10 sm:pr-12 text-white text-sm placeholder:text-[#6F6F6F] focus:outline-none focus:border-[#FF9900] transition-colors"
+                className="w-full bg-[#1A1A1A] border border-[#262626] rounded-lg px-3 sm:px-4 py-1.5 sm:py-2 pr-10 sm:pr-12 text-white text-sm placeholder:text-[#6F6F6F] focus:outline-none focus:border-[#FF9900] transition-colors"
                 required
               />
               <button
@@ -226,7 +250,7 @@ export default function SignUpPage() {
           <div>
             <label
               htmlFor="confirmPassword"
-              className="block text-[#9A9A9A] text-xs sm:text-sm font-medium mb-1.5"
+              className="block text-[#9A9A9A] text-xs sm:text-sm font-medium mb-1"
             >
               Confirm Password
             </label>
@@ -288,7 +312,7 @@ export default function SignUpPage() {
           </div>
 
           {/* Terms & Conditions Checkbox */}
-          <div className="flex items-start gap-2 sm:gap-3">
+          <div className="flex items-start gap-2">
             <input
               type="checkbox"
               id="terms"
@@ -312,14 +336,29 @@ export default function SignUpPage() {
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full bg-[#FF9900] text-white font-semi-bold py-2 sm:py-2.5 rounded-full hover:bg-[#E68900] transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm"
+            className="flex items-center justify-center w-full sm:w-auto hover:opacity-90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            style={{
+              maxWidth: '590px',
+              width: '100%',
+              height: '50px',
+              borderRadius: '52px',
+              padding: '20px',
+              gap: '4px',
+              backgroundColor: 'rgba(254, 154, 0, 1)',
+              fontFamily: 'Urbanist, sans-serif',
+              fontWeight: 700,
+              fontSize: '16px',
+              lineHeight: '100%',
+              letterSpacing: '-2%',
+              color: 'rgba(10, 6, 39, 1)'
+            }}
           >
             {isLoading ? "Creating Account..." : "Create Account"}
           </button>
         </form>
 
         {/* Separator */}
-        <div className="relative my-4 sm:my-5">
+        <div className="relative my-2">
           <div className="absolute inset-0 flex items-center">
             <div className="w-full border-t border-[#262626]"></div>
           </div>
@@ -333,7 +372,7 @@ export default function SignUpPage() {
           {/* Google */}
           <button
             onClick={() => handleSocialSignup("google")}
-            className="flex items-center justify-center gap-1 sm:gap-2 bg-[#2D2D2D] hover:bg-[#353535] text-white py-2.5 sm:py-3 rounded-full transition-colors border border-[#262626]"
+            className="flex items-center justify-center gap-1 sm:gap-2 bg-[#2D2D2D] hover:bg-[#353535] text-white py-2 rounded-full transition-colors border border-[#262626]"
           >
             <svg className="w-4 h-4 sm:w-5 sm:h-5" viewBox="0 0 24 24">
               <path
@@ -359,7 +398,7 @@ export default function SignUpPage() {
           {/* Apple */}
           <button
             onClick={() => handleSocialSignup("apple")}
-            className="flex items-center justify-center gap-1 sm:gap-2 bg-[#2D2D2D] hover:bg-[#353535] text-white py-2.5 sm:py-3 rounded-full transition-colors border border-[#262626]"
+            className="flex items-center justify-center gap-1 sm:gap-2 bg-[#2D2D2D] hover:bg-[#353535] text-white py-2 rounded-full transition-colors border border-[#262626]"
           >
             <svg className="w-4 h-4 sm:w-5 sm:h-5" fill="currentColor" viewBox="0 0 24 24">
               <path d="M17.05 20.28c-.98.95-2.05.88-3.08.4-1.09-.5-2.08-.48-3.24 0-1.44.62-2.2.44-3.06-.4C2.79 15.25 3.51 7.59 9.05 7.31c1.35.07 2.29.74 3.08.8 1.18-.24 2.31-.93 3.57-.84 1.51.12 2.65.72 3.4 1.8-3.12 1.87-2.38 5.98.48 7.13-.57 1.5-1.31 2.99-2.54 4.09l.01.01zm-3.67-17.5c.15-1.23 1.13-2.18 2.4-2.3.27 1.18-.72 2.27-1.81 2.61-.23-.84-.28-1.71-.59-2.31z" />
@@ -370,7 +409,7 @@ export default function SignUpPage() {
           {/* Facebook */}
           <button
             onClick={() => handleSocialSignup("facebook")}
-            className="flex items-center justify-center gap-1 sm:gap-2 bg-[#2D2D2D] hover:bg-[#353535] text-white py-2.5 sm:py-3 rounded-full transition-colors border border-[#262626]"
+            className="flex items-center justify-center gap-1 sm:gap-2 bg-[#2D2D2D] hover:bg-[#353535] text-white py-2 rounded-full transition-colors border border-[#262626]"
           >
             <div className="w-4 h-4 sm:w-5 sm:h-5 bg-blue-600 rounded flex items-center justify-center">
               <span className="text-white text-xs font-semi-bold">f</span>
@@ -390,6 +429,16 @@ export default function SignUpPage() {
           </Link>
         </div>
       </div>
+
+      {/* Success Modal */}
+      <UpgradeSuccessModal
+        isOpen={isSuccessOpen}
+        onClose={() => setIsSuccessOpen(false)}
+        title="Sign Up Successful!"
+        description="You have successfully signed up."
+        ctaText="Continue"
+        ctaHref="/"
+      />
     </div>
   );
 }

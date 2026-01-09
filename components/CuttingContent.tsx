@@ -7,7 +7,19 @@ export default function CuttingContent() {
     return (
         <div className="w-full flex flex-col items-start">
             <div className="mb-4">
-                <h1 className="text-[32px] md:text-[36px] font-semi-bold text-white mb-2">Cutting</h1>
+                <h1 
+                  className="mb-2"
+                  style={{ 
+                    fontFamily: 'Urbanist, sans-serif', 
+                    fontWeight: 700, 
+                    fontSize: '32px', 
+                    lineHeight: '100%', 
+                    letterSpacing: '0px',
+                    color: 'rgba(255, 255, 255, 1)'
+                  }}
+                >
+                  Cutting
+                </h1>
                 <div className="w-10 h-[2px] bg-[#FF9F0A]"></div>
             </div>
 
@@ -36,7 +48,19 @@ export default function CuttingContent() {
                 </p>
 
                 <div className="pt-2">
-                    <h2 className="text-[24px] font-semi-bold text-white mb-4">Key Concepts</h2>
+                    <h2 
+                      className="mb-4"
+                      style={{ 
+                        fontFamily: 'Urbanist, sans-serif', 
+                        fontWeight: 600, 
+                        fontSize: '24px', 
+                        lineHeight: '33.6px', 
+                        letterSpacing: '0px',
+                        color: 'rgba(255, 255, 255, 1)'
+                      }}
+                    >
+                      Key Concepts
+                    </h2>
                     <ul className="space-y-3">
                         {[
                             "Understanding the fundamentals of design principles",

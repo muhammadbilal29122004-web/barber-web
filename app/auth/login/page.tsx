@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import UpgradeSuccessModal from "@/components/pricing/UpgradeSuccessModal";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -10,6 +11,7 @@ export default function LoginPage() {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [isSuccessOpen, setIsSuccessOpen] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -19,6 +21,7 @@ export default function LoginPage() {
     // Simulate API call
     setTimeout(() => {
       setIsLoading(false);
+      setIsSuccessOpen(true);
       // router.push("/");
     }, 1000);
   };
@@ -31,7 +34,7 @@ export default function LoginPage() {
   return (
     <div className="h-screen bg-[#0F0F0F] flex items-center justify-center p-4 sm:p-6 md:p-8 overflow-hidden">
       {/* Login Card */}
-      <div className="relative w-full max-w-[690px] bg-[#0A0A0A] rounded-[40px] shadow-2xl border border-[#262626] p-[50px] flex flex-col gap-[39px] overflow-y-auto" style={{ height: 'fit-content', minHeight: '771px' }}>
+      <div className="relative w-full max-w-[690px] bg-[#0A0A0A] rounded-[20px] sm:rounded-[40px] shadow-2xl border border-[#262626] p-4 sm:p-6 md:p-[50px] flex flex-col gap-4 sm:gap-6 md:gap-[39px] overflow-y-auto md:min-h-[721px]" style={{ height: 'fit-content', minHeight: 'auto' }}>
         {/* Close Button */}
         <Link
           href="/"
@@ -66,13 +69,36 @@ export default function LoginPage() {
                 <path d="M31.3657 1.31655L27.6765 15.0843L38.5652 4.1956L42.164 7.79442L32.0982 17.8602L47.1806 13.8202L48.4972 18.7355L34.7475 22.4193L49.83 26.4612L48.5135 31.3784L34.8597 27.7199C35.0295 26.9825 35.12 26.214 35.1201 25.425C35.1201 19.8032 30.5621 15.2455 24.9403 15.2452C19.3183 15.2452 14.7606 19.803 14.7606 25.425C14.7606 26.2191 14.8508 26.9926 15.0228 27.7344L0 23.7088L1.31655 18.7916L15.0662 22.4754L4.02561 11.4348L7.62442 7.83601L17.6903 17.9018L13.6502 2.81937L18.5655 1.50282L22.3072 15.4622L26.4486 0L31.3657 1.31655Z" fill="#FE9A00"/>
               </svg>
             </div>
-            <span className="text-[#FE9A00] text-[22px] font-bold leading-[26.76px]" style={{ width: '147.46px', height: '26.76px' }}>Logoipsum</span>
+            <span className="text-[#FE9A00] text-base sm:text-lg md:text-[22px] font-bold leading-[26.76px]">Logoipsum</span>
           </Link>
         </div>
 
         {/* Title */}
-        <h1 className="text-2xl sm:text-3xl font-semi-bold text-white text-center mb-1 sm:mb-2">Login</h1>
-        <p className="text-gray-300 text-xs sm:text-sm text-center mb-4 sm:mb-5">
+        <h1 
+          className="text-center mb-1 sm:mb-2"
+          style={{ 
+            fontFamily: 'Anton, sans-serif', 
+            fontWeight: 400, 
+            fontSize: 'clamp(28px, 5vw, 41px)', 
+            lineHeight: 'clamp(35px, 6.5vw, 52px)', 
+            letterSpacing: '0%',
+            color: 'rgba(255, 255, 255, 1)'
+          }}
+        >
+          Login
+        </h1>
+        <p 
+          className="text-center mb-4 sm:mb-5 text-sm sm:text-base"
+          style={{ 
+            fontFamily: 'Urbanist, sans-serif', 
+            fontWeight: 500, 
+            fontSize: 'clamp(14px, 2vw, 16px)', 
+            lineHeight: '20px', 
+            letterSpacing: '0%',
+            color: 'rgba(161, 161, 161, 1)',
+            marginTop: '-8px'
+          }}
+        >
           Continue your journey to mastery.
         </p>
 
@@ -174,7 +200,22 @@ export default function LoginPage() {
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full bg-[#FF9900] text-white font-semi-bold py-2 sm:py-2.5 rounded-full hover:bg-[#E68900] transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm"
+            className="flex items-center justify-center w-full sm:w-auto hover:opacity-90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            style={{
+              maxWidth: '590px',
+              width: '100%',
+              height: '50px',
+              borderRadius: '52px',
+              padding: '20px',
+              gap: '4px',
+              backgroundColor: 'rgba(254, 154, 0, 1)',
+              fontFamily: 'Urbanist, sans-serif',
+              fontWeight: 700,
+              fontSize: '16px',
+              lineHeight: '100%',
+              letterSpacing: '-2%',
+              color: 'rgba(10, 6, 39, 1)'
+            }}
           >
             {isLoading ? "Logging in..." : "Login"}
           </button>
@@ -252,6 +293,16 @@ export default function LoginPage() {
           </Link>
         </div>
       </div>
+
+      {/* Success Modal */}
+      <UpgradeSuccessModal
+        isOpen={isSuccessOpen}
+        onClose={() => setIsSuccessOpen(false)}
+        title="Login Successful!"
+        description="You have successfully logged in."
+        ctaText="Continue"
+        ctaHref="/"
+      />
     </div>
   );
 }

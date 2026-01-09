@@ -21,20 +21,7 @@ export default function Footer() {
           {/* Column 1: Logo, Contact & Social */}
           <div className="sm:col-span-2 lg:col-span-1">
             {/* Logo */}
-            <Link href="/" className="flex items-center gap-2 mb-5 sm:mb-6">
-              <div className="w-7 h-7 sm:w-8 sm:h-8 bg-[#FE9A00] rounded-full flex items-center justify-center">
-                <svg
-                  className="w-5 h-5 text-white"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </div>
+            <Link href="/" className="flex items-center mb-5 sm:mb-6">
               <span className="text-white text-base sm:text-lg font-semi-bold">Logoipsum</span>
             </Link>
 
@@ -70,7 +57,19 @@ export default function Footer() {
                     d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                   />
                 </svg>
-                <span className="text-[#D3D3D3] text-[16px] font-normal" style={{ fontFamily: 'Urbanist, sans-serif', fontWeight: 400, lineHeight: '100%', letterSpacing: '0px' }}>abc123@email.com</span>
+                <span 
+                  className="text-[#D3D3D3] text-[16px] font-normal"
+                  style={{ 
+                    fontFamily: 'Urbanist, sans-serif', 
+                    fontWeight: 400, 
+                    fontSize: '16px',
+                    lineHeight: '100%', 
+                    letterSpacing: '0px',
+                    color: 'rgba(211, 211, 211, 1)'
+                  }}
+                >
+                  abc123@email.com
+                </span>
               </div>
               <div className="flex items-center gap-2.5 sm:gap-3">
                 <svg
@@ -167,7 +166,7 @@ export default function Footer() {
                 <Link
                   href="/"
                   className="text-[#D3D3D3] hover:text-[#FE9A00] transition-colors text-[16px] font-normal"
-                  style={{ fontFamily: 'Urbanist, sans-serif', fontWeight: 400, lineHeight: '100%', letterSpacing: '0px' }}
+                  style={{ fontFamily: 'Urbanist, sans-serif', fontWeight: 400, lineHeight: '150%', letterSpacing: '0px' }}
                 >
                   Home
                 </Link>
@@ -176,7 +175,7 @@ export default function Footer() {
                 <Link
                   href="/library"
                   className="text-[#D3D3D3] hover:text-[#FE9A00] transition-colors text-[16px] font-normal"
-                  style={{ fontFamily: 'Urbanist, sans-serif', fontWeight: 400, lineHeight: '100%', letterSpacing: '0px' }}
+                  style={{ fontFamily: 'Urbanist, sans-serif', fontWeight: 400, lineHeight: '150%', letterSpacing: '0%', textAlign: 'center' }}
                 >
                   Library
                 </Link>
@@ -185,7 +184,7 @@ export default function Footer() {
                 <Link
                   href="/tutorials"
                   className="text-[#D3D3D3] hover:text-[#FE9A00] transition-colors text-[16px] font-normal"
-                  style={{ fontFamily: 'Urbanist, sans-serif', fontWeight: 400, lineHeight: '100%', letterSpacing: '0px' }}
+                  style={{ fontFamily: 'Urbanist, sans-serif', fontWeight: 400, lineHeight: '150%', letterSpacing: '0px' }}
                 >
                   Tutorials
                 </Link>
@@ -201,7 +200,7 @@ export default function Footer() {
                 <Link
                   href="/instructors"
                   className="text-[#D3D3D3] hover:text-[#FE9A00] transition-colors text-[16px] font-normal"
-                  style={{ fontFamily: 'Urbanist, sans-serif', fontWeight: 400, lineHeight: '100%', letterSpacing: '0px' }}
+                  style={{ fontFamily: 'Urbanist, sans-serif', fontWeight: 400, lineHeight: '150%', letterSpacing: '0px' }}
                 >
                   Instructors
                 </Link>
@@ -210,7 +209,7 @@ export default function Footer() {
                 <Link
                   href="/pricing"
                   className="text-[#D3D3D3] hover:text-[#FE9A00] transition-colors text-[16px] font-normal"
-                  style={{ fontFamily: 'Urbanist, sans-serif', fontWeight: 400, lineHeight: '100%', letterSpacing: '0px' }}
+                  style={{ fontFamily: 'Urbanist, sans-serif', fontWeight: 400, lineHeight: '150%', letterSpacing: '0px' }}
                 >
                   Pricing
                 </Link>
@@ -219,7 +218,7 @@ export default function Footer() {
                 <Link
                   href="/contact"
                   className="text-[#D3D3D3] hover:text-[#FE9A00] transition-colors text-[16px] font-normal"
-                  style={{ fontFamily: 'Urbanist, sans-serif', fontWeight: 400, lineHeight: '100%', letterSpacing: '0px' }}
+                  style={{ fontFamily: 'Urbanist, sans-serif', fontWeight: 400, lineHeight: '150%', letterSpacing: '0px' }}
                 >
                   Contact
                 </Link>
@@ -268,19 +267,14 @@ export default function Footer() {
 
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2 order-1 md:order-2">
-              <div className="w-7 h-7 sm:w-8 sm:h-8 bg-[#FE9A00] rounded-full flex items-center justify-center">
-                <svg
-                  className="w-5 h-5 text-white"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z"
-                    clipRule="evenodd"
-                  />
-                </svg>
-              </div>
+              <svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M17.7792 28.1901C18.4706 28.381 19.1988 28.4837 19.9508 28.4838C20.6529 28.4838 21.335 28.3948 21.985 28.2277L18.8296 40L14.8973 38.9468L17.7792 28.1901Z" fill="#FE9A00"/>
+                <path d="M28.9453 37.8805L25.0116 38.9337L22.1325 28.1887C23.5335 27.8004 24.7825 27.0456 25.7711 26.0359L28.9453 37.8805Z" fill="#FE9A00"/>
+                <path d="M14.0654 25.9679C15.0337 26.9803 16.2609 27.7435 17.6403 28.151L9.01186 36.7795L6.13281 33.9005L14.0654 25.9679Z" fill="#FE9A00"/>
+                <path d="M36.6435 30.9881L33.763 33.8672L25.8507 25.9534C26.8274 24.9273 27.539 23.6463 27.8762 22.2208L36.6435 30.9881Z" fill="#FE9A00"/>
+                <path d="M12.024 22.2106C12.354 23.6142 13.0485 24.878 14.0003 25.897L2.1195 29.0799L1.06626 25.1476L12.024 22.2106Z" fill="#FE9A00"/>
+                <path d="M25.0926 1.05324L22.1412 12.0674L30.8521 3.35648L33.7312 6.23553L25.6785 14.2882L37.7445 11.0561L38.7977 14.9884L27.798 17.9355L39.864 21.169L38.8108 25.1027L27.8877 22.1759C28.0236 21.586 28.096 20.9712 28.0961 20.34C28.0961 15.8425 24.4497 12.1964 19.9523 12.1962C15.4547 12.1962 11.8084 15.8424 11.8084 20.34C11.8085 20.9753 11.8807 21.5941 12.0182 22.1875L0 18.967L1.05324 15.0333L12.053 17.9803L3.22049 9.14786L6.09954 6.26881L14.1522 14.3215L10.9201 2.2555L14.8524 1.20226L17.8458 12.3698L21.1589 0L25.0926 1.05324Z" fill="#FE9A00"/>
+              </svg>
               <span className="text-[#FE9A00] text-base sm:text-lg font-semi-bold">Logoipsum</span>
             </Link>
 

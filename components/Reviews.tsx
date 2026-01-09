@@ -16,32 +16,69 @@ export default function Reviews() {
     };
 
     return (
-        <section className="w-full text-white min-h-[634px]">
+        <section className="w-full text-white min-h-[634px] px-4 sm:px-6 md:px-8 lg:px-[100px] py-6 sm:py-8 md:py-10" style={{ marginTop: 'clamp(40px, 8vw, 100px)' }}>
             {/* Main Header */}
-            <div className="mb-10 flex items-start justify-between gap-4">
-                <div className="flex-1">
-                    <h2 className="text-[48px] font-semi-bold leading-tight uppercase tracking-tight mb-4 font-anton uppercase">REVIEWS</h2>
+            <div className="mb-6 sm:mb-8 md:mb-10 flex flex-col sm:flex-row items-start sm:items-start justify-between gap-4 sm:gap-4">
+                <div className="flex-1 w-full">
+                    <h2 
+                      className="mb-3 sm:mb-4 uppercase"
+                      style={{ 
+                        fontFamily: 'Anton, sans-serif', 
+                        fontWeight: 400, 
+                        fontSize: 'clamp(28px, 5vw, 50px)', 
+                        lineHeight: '120%', 
+                        letterSpacing: '0%',
+                        background: 'linear-gradient(to bottom, rgba(255, 255, 255, 1) 0%, rgba(193, 193, 193, 1) 50%, rgba(255, 255, 255, 1) 100%)',
+                        WebkitBackgroundClip: 'text',
+                        WebkitTextFillColor: 'transparent',
+                        backgroundClip: 'text'
+                      }}
+                    >
+                      REVIEWS
+                    </h2>
 
-                    <div className="flex flex-col gap-1 font-urbanist">
-                        <div className="flex items-center gap-2">
-                            <div className="flex items-center gap-1">
+                    <div className="flex flex-col gap-1 sm:gap-1 font-urbanist">
+                        <div className="flex items-center gap-1 sm:gap-2 flex-wrap">
+                            <div className="flex items-center gap-0.5 sm:gap-1">
                                 {[1, 2, 3, 4].map((star) => (
-                                    <svg key={star} className="w-5 h-5 text-[#FF9F0A]" fill="currentColor" viewBox="0 0 20 20">
-                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                    <svg key={star} style={{ width: 'clamp(18px, 2.5vw, 24px)', height: 'clamp(18px, 2.5vw, 24px)' }} viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M24.4353 2.98438L28.1019 10.3177C28.6019 11.3385 29.9353 12.3177 31.0603 12.5052L37.7061 13.6094C41.9561 14.3177 42.9561 17.401 39.8936 20.4427L34.7269 25.6094C33.8519 26.4844 33.3728 28.1719 33.6436 29.3802L35.1228 35.776C36.2894 40.8385 33.6019 42.7969 29.1228 40.151L22.8936 36.4635C21.7686 35.7969 19.9144 35.7969 18.7686 36.4635L12.5394 40.151C8.08111 42.7969 5.37278 40.8177 6.53944 35.776L8.01861 29.3802C8.28944 28.1719 7.81028 26.4844 6.93528 25.6094L1.76861 20.4427C-1.27306 17.401 -0.29389 14.3177 3.95611 13.6094L10.6019 12.5052C11.7061 12.3177 13.0394 11.3385 13.5394 10.3177L17.2061 2.98438C19.2061 -0.994792 22.4561 -0.994792 24.4353 2.98438Z" fill="#FDC700"/>
                                     </svg>
                                 ))}
-                                <svg className="w-5 h-5 text-[#333333]" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                <svg style={{ width: 'clamp(18px, 2.5vw, 24px)', height: 'clamp(18px, 2.5vw, 24px)' }} viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M24.4353 2.98438L28.1019 10.3177C28.6019 11.3385 29.9353 12.3177 31.0603 12.5052L37.7061 13.6094C41.9561 14.3177 42.9561 17.401 39.8936 20.4427L34.7269 25.6094C33.8519 26.4844 33.3728 28.1719 33.6436 29.3802L35.1228 35.776C36.2894 40.8385 33.6019 42.7969 29.1228 40.151L22.8936 36.4635C21.7686 35.7969 19.9144 35.7969 18.7686 36.4635L12.5394 40.151C8.08111 42.7969 5.37278 40.8177 6.53944 35.776L8.01861 29.3802C8.28944 28.1719 7.81028 26.4844 6.93528 25.6094L1.76861 20.4427C-1.27306 17.401 -0.29389 14.3177 3.95611 13.6094L10.6019 12.5052C11.7061 12.3177 13.0394 11.3385 13.5394 10.3177L17.2061 2.98438C19.2061 -0.994792 22.4561 -0.994792 24.4353 2.98438Z" fill="#333333"/>
                                 </svg>
                             </div>
-                            <span className="text-[15px] font-medium text-gray-300">4.00 Out Of 5</span>
+                            <span 
+                              style={{ 
+                                fontFamily: 'Urbanist, sans-serif', 
+                                fontWeight: 400, 
+                                fontSize: 'clamp(14px, 2vw, 18px)', 
+                                lineHeight: '24px', 
+                                letterSpacing: '0%',
+                                color: 'rgba(255, 255, 255, 1)'
+                              }}
+                            >
+                              4.00 Out Of 5
+                            </span>
                         </div>
-                        <p className="text-gray-400 text-[14px]">Based On 250 Reviews</p>
+                        <p 
+                          style={{ 
+                            fontFamily: 'Urbanist, sans-serif', 
+                            fontWeight: 400, 
+                            fontSize: 'clamp(14px, 2vw, 18px)', 
+                            lineHeight: '24px', 
+                            letterSpacing: '0%',
+                            color: 'rgba(255, 255, 255, 1)'
+                          }}
+                        >
+                          Based On 250 Reviews
+                        </p>
                     </div>
 
-                    <div className="mt-6 flex items-center gap-2 text-gray-300 text-[14px] cursor-pointer hover:text-white transition-colors font-urbanist">
+                    <div className="mt-4 sm:mt-6 flex items-center gap-2 text-gray-300 cursor-pointer hover:text-white transition-colors font-urbanist" style={{ fontSize: 'clamp(12px, 1.5vw, 14px)' }}>
                         Most Relevant
-                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg className="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                         </svg>
                     </div>
@@ -51,9 +88,10 @@ export default function Reviews() {
                 <button
                     type="button"
                     onClick={() => setIsAddOpen(true)}
-                    className="mt-2 inline-flex items-center gap-2 bg-[#FF9F0A] text-black font-urbanist font-semi-bold text-[14px] px-5 py-2.5 rounded-full hover:bg-[#E68A00] transition-colors active:scale-95"
+                    className="w-full sm:w-auto mt-0 sm:mt-2 inline-flex items-center justify-center gap-2 bg-[#FF9F0A] text-black font-urbanist font-semi-bold rounded-full hover:bg-[#E68A00] transition-colors active:scale-95 px-4 sm:px-5 py-2 sm:py-2.5"
+                    style={{ fontSize: 'clamp(12px, 1.5vw, 14px)' }}
                 >
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M12 5v14M5 12h14" />
                     </svg>
                     Add Review
@@ -61,30 +99,70 @@ export default function Reviews() {
             </div>
 
             {/* Reviews List */}
-            <div className="border-t border-[#222222] flex flex-col gap-8">
+            <div className="border-t border-[#222222] flex flex-col gap-6 sm:gap-8">
                 {[1, 2].map((reviewId) => (
-                    <div key={reviewId} className="pt-10 pb-2 border-b border-[#222222]">
-                        <div className="flex items-center gap-1 mb-4">
+                    <div key={reviewId} className="pt-6 sm:pt-8 md:pt-10 pb-2 border-b border-[#222222]">
+                        <div className="flex items-center gap-0.5 sm:gap-1 mb-3 sm:mb-4 flex-wrap">
                             {[1, 2, 3, 4].map((star) => (
-                                <svg key={star} className="w-4 h-4 text-[#FF9F0A]" fill="currentColor" viewBox="0 0 20 20">
-                                    <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                                <svg key={star} style={{ width: 'clamp(18px, 2.5vw, 24px)', height: 'clamp(18px, 2.5vw, 24px)' }} viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M24.4353 2.98438L28.1019 10.3177C28.6019 11.3385 29.9353 12.3177 31.0603 12.5052L37.7061 13.6094C41.9561 14.3177 42.9561 17.401 39.8936 20.4427L34.7269 25.6094C33.8519 26.4844 33.3728 28.1719 33.6436 29.3802L35.1228 35.776C36.2894 40.8385 33.6019 42.7969 29.1228 40.151L22.8936 36.4635C21.7686 35.7969 19.9144 35.7969 18.7686 36.4635L12.5394 40.151C8.08111 42.7969 5.37278 40.8177 6.53944 35.776L8.01861 29.3802C8.28944 28.1719 7.81028 26.4844 6.93528 25.6094L1.76861 20.4427C-1.27306 17.401 -0.29389 14.3177 3.95611 13.6094L10.6019 12.5052C11.7061 12.3177 13.0394 11.3385 13.5394 10.3177L17.2061 2.98438C19.2061 -0.994792 22.4561 -0.994792 24.4353 2.98438Z" fill="#FDC700"/>
                                 </svg>
                             ))}
-                            <svg className="w-4 h-4 text-[#333333]" fill="currentColor" viewBox="0 0 20 20">
-                                <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                            <svg style={{ width: 'clamp(18px, 2.5vw, 24px)', height: 'clamp(18px, 2.5vw, 24px)' }} viewBox="0 0 42 42" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M24.4353 2.98438L28.1019 10.3177C28.6019 11.3385 29.9353 12.3177 31.0603 12.5052L37.7061 13.6094C41.9561 14.3177 42.9561 17.401 39.8936 20.4427L34.7269 25.6094C33.8519 26.4844 33.3728 28.1719 33.6436 29.3802L35.1228 35.776C36.2894 40.8385 33.6019 42.7969 29.1228 40.151L22.8936 36.4635C21.7686 35.7969 19.9144 35.7969 18.7686 36.4635L12.5394 40.151C8.08111 42.7969 5.37278 40.8177 6.53944 35.776L8.01861 29.3802C8.28944 28.1719 7.81028 26.4844 6.93528 25.6094L1.76861 20.4427C-1.27306 17.401 -0.29389 14.3177 3.95611 13.6094L10.6019 12.5052C11.7061 12.3177 13.0394 11.3385 13.5394 10.3177L17.2061 2.98438C19.2061 -0.994792 22.4561 -0.994792 24.4353 2.98438Z" fill="#333333"/>
                             </svg>
                         </div>
 
-                        <div className="flex items-center gap-3 mb-4 font-urbanist">
-                            <div className="w-8 h-8 rounded-full overflow-hidden bg-[#222222]">
-                                <Image src="/Jamesbond.png" alt="User" width={32} height={32} className="object-cover" />
+                        <div className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4 font-urbanist">
+                            <div 
+                              className="overflow-hidden bg-[#222222] flex-shrink-0"
+                              style={{
+                                width: 'clamp(32px, 4vw, 40px)',
+                                height: 'clamp(32px, 4vw, 40px)',
+                                borderRadius: '50%'
+                              }}
+                            >
+                                <Image src="/Jamesbond.png" alt="User" width={40} height={40} className="object-cover w-full h-full" />
                             </div>
-                            <span className="text-[14px] text-gray-400">John Doe</span>
+                            <span 
+                              style={{ 
+                                fontFamily: 'Urbanist, sans-serif', 
+                                fontWeight: 400, 
+                                fontSize: 'clamp(14px, 2vw, 16px)', 
+                                lineHeight: '24px', 
+                                letterSpacing: '0%',
+                                color: 'rgba(161, 161, 161, 1)'
+                              }}
+                            >
+                              John Doe
+                            </span>
                         </div>
 
-                        <div className="space-y-2 font-urbanist">
-                            <h4 className="text-[18px] font-bold">Very Good Product</h4>
-                            <p className="text-gray-500 text-[15px] leading-relaxed max-w-3xl">
+                        <div className="space-y-1.5 sm:space-y-2 font-urbanist">
+                            <h4 
+                              style={{ 
+                                fontFamily: 'Urbanist, sans-serif', 
+                                fontWeight: 400, 
+                                fontSize: 'clamp(16px, 2vw, 18px)', 
+                                lineHeight: '24px', 
+                                letterSpacing: '-4%',
+                                color: 'rgba(255, 255, 255, 1)'
+                              }}
+                            >
+                              Very Good Product
+                            </h4>
+                            <p 
+                              className="max-w-3xl"
+                              style={{ 
+                                fontFamily: 'Urbanist, sans-serif', 
+                                fontWeight: 400, 
+                                fontSize: 'clamp(14px, 2vw, 18px)', 
+                                lineHeight: '24px', 
+                                letterSpacing: '0%',
+                                color: 'rgba(161, 161, 161, 1)',
+                                opacity: 0.6
+                              }}
+                            >
                                 This Supplement Delivers Explosive Energy And Noticeable Strength Gains With Every Workout. The Taste Is Surprisingly Good, And The Results Speak For Themselves After Just A Few Sessions.
                             </p>
                         </div>
