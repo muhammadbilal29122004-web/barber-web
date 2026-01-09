@@ -12,9 +12,9 @@ export default function MembershipOverviewCard() {
 
           {/* Right Side */}
           <div className="text-right">
-            <div className="flex items-baseline gap-2">
+            <div className="flex items-baseline flex-col gap-2">
               <span className="text-3xl font-semi-bold bg-linear-to-r from-white via-[#C1C1C1] to-white
-  bg-clip-text">$29</span>
+  bg-clip-text font-anton ">$29</span>
               <span className="text-gray-400">/month</span>
             </div>
           </div>

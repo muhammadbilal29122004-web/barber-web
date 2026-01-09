@@ -97,8 +97,8 @@ export default function Pagination({
               onClick={() => onPageChange(page)}
               className={`w-10 h-10 flex items-center justify-center rounded-lg border transition-colors ${
                 currentPage === page
-                  ? "bg-orange-500 border-orange-500 text-white"
-                  : "border-[#2C2C2C] bg-[#161616] text-white hover:border-orange-500 hover:bg-[#1a1a1a]"
+                  ? "bg-[#FE9A00] border-[#FE9A00] text-black"
+                  : "border-[#2C2C2C] bg-[#161616] text-[#737373] hover:border-orange-500 hover:bg-[#1a1a1a]"
               }`}
               aria-label={`Page ${page}`}
             >

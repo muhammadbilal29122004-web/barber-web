@@ -180,7 +180,7 @@ export default function TutorialDetailPage() {
               </div>
               <Link
                 href={`/instructors/${tutorial.instructorId || 1}`}
-                className="text-orange-500 hover:text-orange-400 transition-colors text-sm font-medium"
+                className="text-[#FE9A00] hover:text-orange-400 transition-colors text-sm font-medium underline"
               >
                 View Profile
               </Link>
