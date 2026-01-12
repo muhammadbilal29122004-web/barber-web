@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import StartFreeTrial from "@/components/StartFreeTrial";
 import UpgradeSuccessModal from "@/components/pricing/UpgradeSuccessModal";
 
 export default function SignUpPage() {
@@ -17,6 +18,7 @@ export default function SignUpPage() {
   const [agreeToTerms, setAgreeToTerms] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccessOpen, setIsSuccessOpen] = useState(false);
+  const [showTrialPage, setShowTrialPage] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -43,8 +45,7 @@ export default function SignUpPage() {
     // Simulate API call
     setTimeout(() => {
       setIsLoading(false);
-      setIsSuccessOpen(true);
-      // router.push("/");
+      setShowTrialPage(true);
     }, 1000);
   };
 
@@ -52,6 +53,10 @@ export default function SignUpPage() {
     console.log(`Sign up with ${provider}`);
     // Handle social signup logic here
   };
+
+  if (showTrialPage) {
+    return <StartFreeTrial />;
+  }
 
   return (
     <div className="h-screen bg-[#0F0F0F] flex items-center justify-center p-4 sm:p-6 md:p-8 overflow-hidden">
