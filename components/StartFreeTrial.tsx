@@ -30,15 +30,17 @@ export default function StartFreeTrial() {
   };
 
   if (showCardDetails) {
-    return <EnterCardDetails />;
+    return <EnterCardDetails onBack={() => setShowCardDetails(false)} />;
   }
 
   return (
     <div className="min-h-screen bg-[#0F0F0F] flex items-center justify-center p-4 sm:p-6 md:p-8 relative overflow-hidden">
       {/* Warm glow effect at bottom left */}
       <div
-        className="absolute bottom-0 left-0 w-[600px] h-[400px] pointer-events-none"
+        className="absolute bottom-0 left-0 pointer-events-none"
         style={{
+          width: 'clamp(300px, 50vw, 600px)',
+          height: 'clamp(200px, 40vw, 400px)',
           background: 'radial-gradient(ellipse at bottom left, rgba(180, 100, 20, 0.15) 0%, transparent 60%)',
         }}
       />
@@ -62,15 +64,15 @@ export default function StartFreeTrial() {
 
 
           {/* Top Section - Back, Logo, Close */}
-          <div className="relative flex items-center justify-between mb-8">
+          <div className="relative flex items-center justify-between mb-4 sm:mb-6 md:mb-8">
             {/* Back Button */}
             <button
               onClick={() => router.back()}
-              className="flex items-center gap-2 text-white hover:text-[#FE9A00] transition-colors"
+              className="flex items-center gap-1 sm:gap-2 text-white hover:text-[#FE9A00] transition-colors z-10"
             >
               <svg
-                width="24"
-                height="24"
+                width="clamp(20px, 4vw, 24px)"
+                height="clamp(20px, 4vw, 24px)"
                 viewBox="0 0 24 24"
                 fill="none"
                 xmlns="http://www.w3.org/2000/svg"
@@ -85,10 +87,11 @@ export default function StartFreeTrial() {
                 />
               </svg>
               <span
+                className="hidden sm:inline"
                 style={{
                   fontFamily: 'Urbanist, sans-serif',
                   fontWeight: 500,
-                  fontSize: '16px',
+                  fontSize: 'clamp(14px, 2vw, 16px)',
                   lineHeight: '20px',
                   letterSpacing: '0%',
                   color: 'rgba(161, 161, 161, 1)',
@@ -100,8 +103,14 @@ export default function StartFreeTrial() {
 
             {/* Logo - Centered */}
             <div className="absolute left-1/2 transform -translate-x-1/2">
-              <Link href="/" className="flex items-center gap-2">
-                <svg width="50" height="50" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <Link href="/" className="flex items-center gap-1 sm:gap-2">
+                <svg
+                  width="clamp(30px, 6vw, 50px)"
+                  height="clamp(30px, 6vw, 50px)"
+                  viewBox="0 0 40 40"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
                   <path d="M17.7792 28.1901C18.4706 28.381 19.1988 28.4837 19.9508 28.4838C20.6529 28.4838 21.335 28.3948 21.985 28.2277L18.8296 40L14.8973 38.9468L17.7792 28.1901Z" fill="rgba(254, 154, 0, 1)" />
                   <path d="M28.9453 37.8805L25.0116 38.9337L22.1325 28.1887C23.5335 27.8004 24.7825 27.0456 25.7711 26.0359L28.9453 37.8805Z" fill="rgba(254, 154, 0, 1)" />
                   <path d="M14.0654 25.9679C15.0337 26.9803 16.2609 27.7435 17.6403 28.151L9.01186 36.7795L6.13281 33.9005L14.0654 25.9679Z" fill="rgba(254, 154, 0, 1)" />
@@ -112,7 +121,7 @@ export default function StartFreeTrial() {
                 <span
                   style={{
                     fontFamily: 'Urbanist, sans-serif',
-                    fontSize: '20px',
+                    fontSize: 'clamp(14px, 3vw, 20px)',
                     fontWeight: 700,
                     color: '#FE9A00',
                   }}
@@ -125,12 +134,12 @@ export default function StartFreeTrial() {
             {/* Close Button */}
             <Link
               href="/"
-              className="flex items-center justify-center text-gray-400 hover:text-white transition-colors"
+              className="flex items-center justify-center text-gray-400 hover:text-white transition-colors z-10"
               aria-label="Close"
             >
               <svg
-                width="20"
-                height="20"
+                width="clamp(18px, 3vw, 20px)"
+                height="clamp(18px, 3vw, 20px)"
                 viewBox="0 0 24 24"
                 fill="none"
                 stroke="currentColor"
@@ -174,7 +183,7 @@ export default function StartFreeTrial() {
           </div>
 
           {/* Cards Container */}
-          <div className="flex flex-col md:flex-row">
+          <div className="flex flex-col md:flex-row gap-[40px] md:gap-0 relative">
             {/* Left Card - Pro Membership */}
             <div
               className="flex flex-col w-full md:w-auto rounded-2xl md:rounded-l-2xl md:rounded-r-none"
@@ -183,23 +192,22 @@ export default function StartFreeTrial() {
                 width: '100%',
                 maxWidth: '504px',
                 minHeight: 'auto',
-                padding: 'clamp(24px, 4vw, 50px)',
+                padding: 'clamp(20px, 4vw, 50px)',
               }}
             >
               {/* Header Group */}
               <div className="flex flex-col gap-4">
 
-
                 {/* Most Popular Label */}
                 <div
-                  className="flex items-center gap-3 mb-4"
+                  className="flex items-center gap-2 sm:gap-3 mb-3 sm:mb-4"
                   style={{
-                    marginTop: '-12px'
+                    marginTop: 'clamp(-8px, -1.5vw, -12px)'
                   }}
                 >
                   <div
                     style={{
-                      width: 'clamp(20px, 4vw, 30px)',
+                      width: 'clamp(15px, 3vw, 30px)',
                       height: '2px',
                       backgroundColor: 'rgba(254, 154, 0, 1)',
                     }}
@@ -208,7 +216,7 @@ export default function StartFreeTrial() {
                     style={{
                       fontFamily: 'Urbanist, sans-serif',
                       fontWeight: 700,
-                      fontSize: 'clamp(14px, 2.25vw, 18px)',
+                      fontSize: 'clamp(12px, 2vw, 18px)',
                       lineHeight: '100%',
                       letterSpacing: '0%',
                       textTransform: 'uppercase',
@@ -286,18 +294,18 @@ export default function StartFreeTrial() {
                   backgroundColor: 'rgba(254, 154, 0, 1)',
                   fontFamily: 'Urbanist, sans-serif',
                   fontWeight: 700,
-                  fontSize: '16px',
+                  fontSize: 'clamp(14px, 2vw, 16px)',
                   lineHeight: '100%',
                   letterSpacing: '0%',
                   color: 'rgba(0, 0, 0, 1)',
                   width: '100%',
                   maxWidth: '404px',
-                  height: '50px',
+                  height: 'clamp(44px, 6vw, 50px)',
                   borderRadius: '50px',
-                  paddingTop: '13px',
-                  paddingRight: '24px',
-                  paddingBottom: '13px',
-                  paddingLeft: '24px',
+                  paddingTop: 'clamp(10px, 2vw, 13px)',
+                  paddingRight: 'clamp(20px, 3vw, 24px)',
+                  paddingBottom: 'clamp(10px, 2vw, 13px)',
+                  paddingLeft: 'clamp(20px, 3vw, 24px)',
                   gap: '10px',
                 }}
               >
@@ -323,36 +331,19 @@ export default function StartFreeTrial() {
                 maxWidth: '589px',
                 width: '100%',
                 minHeight: 'auto',
-                overflow: 'hidden',
+                overflow: 'visible',
               }}
             >
               {/* Most Popular Ribbon */}
-              <div
+              <img
+                src="/Ribbon.png"
+                alt="Most Popular"
+                className="absolute z-10 w-[250px] -top-[45px] -right-[65px] md:w-[288px] md:-top-[60px] md:-right-[75px]"
                 style={{
-                  position: 'absolute',
-                  top: '25px',
-                  right: '-32px',
-                  transform: 'rotate(45deg)',
-                  backgroundColor: 'rgba(254, 154, 0, 1)',
-                  width: '130px',
-                  textAlign: 'center',
-                  padding: '6px 0',
-                  boxShadow: '0 2px 4px rgba(0,0,0,0.2)',
-                  zIndex: 10,
+                  height: 'auto',
+                  pointerEvents: 'none',
                 }}
-              >
-                <span
-                  style={{
-                    fontFamily: 'Urbanist, sans-serif',
-                    fontWeight: 600,
-                    fontSize: '13px',
-                    color: '#000000',
-                    lineHeight: '1',
-                  }}
-                >
-                  Most Popular
-                </span>
-              </div>
+              />
               <h3
                 style={{
                   fontFamily: 'Urbanist, sans-serif',
@@ -368,14 +359,14 @@ export default function StartFreeTrial() {
               </h3>
 
               {/* Features List - Two Columns */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 sm:gap-x-6 gap-y-3 sm:gap-y-4">
                 {/* Left Column */}
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '26px' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(20px, 3vw, 26px)' }}>
                   {leftFeatures.map((feature, index) => (
-                    <div key={index} className="flex items-center gap-2.5">
+                    <div key={index} className="flex items-center gap-2 sm:gap-2.5">
                       <svg
-                        width="15"
-                        height="15"
+                        width="clamp(12px, 2vw, 15px)"
+                        height="clamp(12px, 2vw, 15px)"
                         viewBox="0 0 15 15"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
@@ -394,7 +385,7 @@ export default function StartFreeTrial() {
                           fontFamily: 'Urbanist, sans-serif',
                           fontWeight: 400,
                           fontSize: 'clamp(14px, 2.25vw, 18px)',
-                          lineHeight: '100%',
+                          lineHeight: 'clamp(18px, 2.5vw, 22px)',
                           letterSpacing: '0%',
                           color: 'rgba(161, 161, 161, 1)',
                         }}
@@ -406,12 +397,12 @@ export default function StartFreeTrial() {
                 </div>
 
                 {/* Right Column */}
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '26px' }}>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: 'clamp(20px, 3vw, 26px)' }}>
                   {rightFeatures.map((feature, index) => (
-                    <div key={index} className="flex items-center gap-2.5">
+                    <div key={index} className="flex items-center gap-2 sm:gap-2.5">
                       <svg
-                        width="15"
-                        height="15"
+                        width="clamp(12px, 2vw, 15px)"
+                        height="clamp(12px, 2vw, 15px)"
                         viewBox="0 0 15 15"
                         fill="none"
                         xmlns="http://www.w3.org/2000/svg"
@@ -430,7 +421,7 @@ export default function StartFreeTrial() {
                           fontFamily: 'Urbanist, sans-serif',
                           fontWeight: 400,
                           fontSize: 'clamp(14px, 2.25vw, 18px)',
-                          lineHeight: '100%',
+                          lineHeight: 'clamp(18px, 2.5vw, 22px)',
                           letterSpacing: '0%',
                           color: 'rgba(161, 161, 161, 1)',
                         }}

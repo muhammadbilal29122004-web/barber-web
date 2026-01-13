@@ -5,7 +5,11 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import UpgradeSuccessModal from "@/components/pricing/UpgradeSuccessModal";
 
-export default function EnterCardDetails() {
+interface EnterCardDetailsProps {
+  onBack?: () => void;
+}
+
+export default function EnterCardDetails({ onBack }: EnterCardDetailsProps) {
   const router = useRouter();
   const [cardholderName, setCardholderName] = useState("");
   const [cardNumber, setCardNumber] = useState("");
@@ -39,7 +43,13 @@ export default function EnterCardDetails() {
         <div className="relative flex items-center justify-between mb-[50px]">
           {/* Back Button */}
           <button
-            onClick={() => router.back()}
+            onClick={() => {
+              if (onBack) {
+                onBack();
+              } else {
+                router.back();
+              }
+            }}
             className="flex items-center gap-2 text-white hover:text-[#FE9A00] transition-colors"
           >
             <svg
@@ -206,8 +216,9 @@ export default function EnterCardDetails() {
             </div>
             {/* Most Popular Ribbon */}
             <img 
-              src="/Ribbon.png" 
+              src="/rebon.png" 
               alt="Most Popular" 
+              className="hidden sm:block"
               style={{ 
                 position: 'absolute',
                 top: '0',

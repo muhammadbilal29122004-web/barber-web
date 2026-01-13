@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
+import StartFreeTrial from "@/components/StartFreeTrial";
 import UpgradeSuccessModal from "@/components/pricing/UpgradeSuccessModal";
 
 export default function LoginPage() {
@@ -12,6 +13,7 @@ export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [isSuccessOpen, setIsSuccessOpen] = useState(false);
+  const [showTrialPage, setShowTrialPage] = useState(false);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -21,7 +23,7 @@ export default function LoginPage() {
     // Simulate API call
     setTimeout(() => {
       setIsLoading(false);
-      setIsSuccessOpen(true);
+      setShowTrialPage(true);
       // router.push("/");
     }, 1000);
   };
@@ -30,6 +32,10 @@ export default function LoginPage() {
     console.log(`Login with ${provider}`);
     // Handle social login logic here
   };
+
+  if (showTrialPage) {
+    return <StartFreeTrial />;
+  }
 
   return (
     <div className="h-screen bg-[#0F0F0F] flex items-center justify-center p-4 sm:p-6 md:p-8 overflow-hidden">
