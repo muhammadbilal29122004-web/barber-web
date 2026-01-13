@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import { isLoggedIn } from "@/lib/auth";
 
 interface Tutorial {
@@ -36,6 +37,7 @@ const tutorials: Tutorial[] = [
 ];
 
 export default function PopularTutorials() {
+  const router = useRouter();
   const [loggedIn, setLoggedIn] = useState(false);
 
   useEffect(() => {
@@ -89,7 +91,7 @@ export default function PopularTutorials() {
               key={tutorial.id}
               className="group rounded-lg overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-300 hover:scale-[1.02] flex flex-col w-full"
             >
-              <Link href={tutorial.link} className="flex flex-col h-full">
+              <Link href={tutorial.link} className="flex flex-col h-full relative">
                 {/* Image Container with Play Button */}
                 <div className="relative w-full h-[350px] overflow-hidden">
                   <Image
@@ -115,12 +117,22 @@ export default function PopularTutorials() {
                     <button
                       onClick={(e) => {
                         e.preventDefault();
-                        // Handle favorite toggle
+                        e.stopPropagation();
+                        router.push('/favourites');
                       }}
-                      className="absolute top-4 left-4 w-8 h-8 bg-gray-800/80 rounded-full flex items-center justify-center hover:bg-gray-700 transition-colors z-10"
+                      onTouchStart={(e) => {
+                        e.stopPropagation();
+                      }}
+                      className="absolute top-4 left-4 w-10 h-10 sm:w-8 sm:h-8 bg-gray-800/80 rounded-full flex items-center justify-center hover:bg-gray-700 active:bg-gray-600 transition-colors z-50"
+                      style={{ 
+                        touchAction: 'manipulation',
+                        minWidth: '44px',
+                        minHeight: '44px',
+                        WebkitTapHighlightColor: 'transparent'
+                      }}
                     >
                       <svg
-                        className="w-5 h-5 text-white"
+                        className="w-5 h-5 text-white pointer-events-none"
                         fill="none"
                         stroke="currentColor"
                         viewBox="0 0 24 24"

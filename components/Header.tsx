@@ -127,23 +127,22 @@ export default function Header({ activePage = "home", showUserIcons = false }: H
               {/* Vertical Separator */}
               <div className="h-6 w-px bg-white/30"></div>
               {/* Profile Picture with Dropdown */}
-              <div className="relative">
-                <button className="flex items-center gap-2">
-                  <div className="relative w-9 h-9 xl:w-10 xl:h-10 rounded-full border-2 border-yellow-400/80 ring-1 ring-yellow-400/40 overflow-hidden">
-                    <Link href="/my-account">
-                      <Image
-                        src="/Jamesbond.png"
-                        alt="User Avatar"
-                        fill
-                        className="object-cover"
-                      />
-                    </Link>
-                  </div>
-                  <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                  </svg>
-                </button>
-              </div>
+              <Link
+                href="/my-account"
+                className="flex items-center gap-2 hover:opacity-80 transition-opacity"
+              >
+                <div className="relative w-9 h-9 xl:w-10 xl:h-10 rounded-full border-2 border-yellow-400/80 ring-1 ring-yellow-400/40 overflow-hidden">
+                  <Image
+                    src="/Jamesbond.png"
+                    alt="User Avatar"
+                    fill
+                    className="object-cover"
+                  />
+                </div>
+                <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </Link>
               {/* Logout Button */}
               <button
                 onClick={handleLogout}
@@ -223,13 +222,17 @@ export default function Header({ activePage = "home", showUserIcons = false }: H
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
                     </svg>
                   </button>
-                  <button className="text-white hover:text-[#FE9A00] transition-colors">
+                  <button className="text-white hover:text-[#FE9A00] transition-colors" onClick={() => router.push("/favourites")}>
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                     </svg>
                   </button>
                   <div className="h-6 w-px bg-white/30"></div>
-                  <button className="flex items-center gap-2">
+                  <Link
+                    href="/my-account"
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="flex items-center gap-2 hover:opacity-80 transition-opacity"
+                  >
                     <div className="relative w-10 h-10 rounded-full border-2 border-yellow-400/80 ring-1 ring-yellow-400/40 overflow-hidden">
                       <Image
                         src="/Jamesbond.png"
@@ -238,7 +241,7 @@ export default function Header({ activePage = "home", showUserIcons = false }: H
                         className="object-cover"
                       />
                     </div>
-                  </button>
+                  </Link>
                   <button
                     onClick={handleLogout}
                     className="text-white hover:text-[#FE9A00] transition-colors px-4 py-2"
