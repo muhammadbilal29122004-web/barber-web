@@ -1,10 +1,11 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import StartFreeTrial from "@/components/StartFreeTrial";
 import UpgradeSuccessModal from "@/components/pricing/UpgradeSuccessModal";
+import { saveUser, isLoggedIn } from "@/lib/auth";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -15,6 +16,13 @@ export default function LoginPage() {
   const [isSuccessOpen, setIsSuccessOpen] = useState(false);
   const [showTrialPage, setShowTrialPage] = useState(false);
 
+  // Check if user is already logged in
+  useEffect(() => {
+    if (isLoggedIn()) {
+      router.push("/");
+    }
+  }, [router]);
+
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
@@ -22,6 +30,16 @@ export default function LoginPage() {
     console.log("Login attempt:", { email, password });
     // Simulate API call
     setTimeout(() => {
+      // Save user to localStorage
+      saveUser({
+        email: email,
+        name: email.split('@')[0], // Use email prefix as name
+        token: 'mock_token_' + Date.now(), // Mock token
+      });
+      // Dispatch custom event for other components to listen
+      if (typeof window !== 'undefined') {
+        window.dispatchEvent(new CustomEvent('authStateChanged', { detail: { isLoggedIn: true } }));
+      }
       setIsLoading(false);
       setShowTrialPage(true);
       // router.push("/");

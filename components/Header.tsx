@@ -1,8 +1,10 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { getUser, logout, isLoggedIn } from "@/lib/auth";
 
 interface HeaderProps {
   activePage?: string;
@@ -10,7 +12,37 @@ interface HeaderProps {
 }
 
 export default function Header({ activePage = "home", showUserIcons = false }: HeaderProps) {
+  const router = useRouter();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false);
+  const [user, setUser] = useState<{ email: string; name?: string } | null>(null);
+
+  useEffect(() => {
+    // Check if user is logged in
+    const checkAuth = () => {
+      const loggedIn = isLoggedIn();
+      setIsUserLoggedIn(loggedIn);
+      if (loggedIn) {
+        setUser(getUser());
+      }
+    };
+    
+    checkAuth();
+    // Listen for storage changes (for logout from other tabs)
+    window.addEventListener('storage', checkAuth);
+    return () => window.removeEventListener('storage', checkAuth);
+  }, []);
+
+  const handleLogout = () => {
+    logout();
+    setIsUserLoggedIn(false);
+    setUser(null);
+    // Dispatch custom event for other components to listen
+    if (typeof window !== 'undefined') {
+      window.dispatchEvent(new CustomEvent('authStateChanged', { detail: { isLoggedIn: false } }));
+    }
+    router.push("/");
+  };
   
   const navItems = [
     { label: "Home", href: "/", key: "home" },
@@ -76,7 +108,7 @@ export default function Header({ activePage = "home", showUserIcons = false }: H
           </button>
 
           {/* Right Side - User Icons or Auth Buttons (Desktop) */}
-          {showUserIcons ? (
+          {isUserLoggedIn ? (
             <div className="hidden lg:flex items-center gap-3 xl:gap-4">
               {/* Bell Icon */}
               <button className="text-white hover:text-[#FE9A00] transition-colors">
@@ -110,9 +142,17 @@ export default function Header({ activePage = "home", showUserIcons = false }: H
                   <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
                   </svg>
-
                 </button>
               </div>
+              {/* Logout Button */}
+              <button
+                onClick={handleLogout}
+                className="text-white hover:text-[#FE9A00] transition-colors whitespace-nowrap ml-2"
+                style={{ fontFamily: 'Urbanist, sans-serif', fontWeight: 500, fontSize: '14px', lineHeight: '100%', letterSpacing: '0%' }}
+                title="Logout"
+              >
+                Logout
+              </button>
             </div>
           ) : (
             <div className="hidden lg:flex items-center gap-3 xl:gap-4 flex-shrink-0">
@@ -154,7 +194,7 @@ export default function Header({ activePage = "home", showUserIcons = false }: H
               ))}
 
               {/* Mobile Auth Buttons */}
-              {!showUserIcons && (
+              {!isUserLoggedIn && (
                 <div className="flex flex-col gap-3 px-4 sm:px-6 mt-4 pt-4 border-t border-gray-800">
                   <Link
                     href="/auth/login"
@@ -176,7 +216,7 @@ export default function Header({ activePage = "home", showUserIcons = false }: H
               )}
 
               {/* Mobile User Icons */}
-              {showUserIcons && (
+              {isUserLoggedIn && (
                 <div className="flex items-center justify-center gap-6 px-4 sm:px-6 mt-4 pt-4 border-t border-gray-800">
                   <button className="text-white hover:text-[#FE9A00] transition-colors">
                     <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -198,6 +238,13 @@ export default function Header({ activePage = "home", showUserIcons = false }: H
                         className="object-cover"
                       />
                     </div>
+                  </button>
+                  <button
+                    onClick={handleLogout}
+                    className="text-white hover:text-[#FE9A00] transition-colors px-4 py-2"
+                    style={{ fontFamily: 'Urbanist, sans-serif', fontWeight: 500, fontSize: '14px', lineHeight: '100%', letterSpacing: '0%' }}
+                  >
+                    Logout
                   </button>
                 </div>
               )}
