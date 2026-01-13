@@ -16,10 +16,144 @@ export default function EnterCardDetails({ onBack }: EnterCardDetailsProps) {
   const [expiryDate, setExpiryDate] = useState("");
   const [cvc, setCvc] = useState("");
   const [isSuccessOpen, setIsSuccessOpen] = useState(false);
+  
+  // Error states
+  const [errors, setErrors] = useState({
+    cardholderName: "",
+    cardNumber: "",
+    expiryDate: "",
+    cvc: "",
+  });
+
+  // Format card number with spaces
+  const formatCardNumber = (value: string) => {
+    const numbers = value.replace(/\s/g, '').replace(/[^0-9]/gi, '');
+    const formatted = numbers.match(/.{1,4}/g)?.join(' ') || numbers;
+    return formatted.slice(0, 19); // Max 16 digits + 3 spaces
+  };
+
+  // Format expiry date (MM/YY)
+  const formatExpiryDate = (value: string) => {
+    const numbers = value.replace(/\//g, '').replace(/[^0-9]/gi, '');
+    if (numbers.length >= 2) {
+      return numbers.slice(0, 2) + '/' + numbers.slice(2, 4);
+    }
+    return numbers;
+  };
+
+  // Validate cardholder name
+  const validateCardholderName = (value: string) => {
+    if (!value.trim()) {
+      return "Cardholder name is required";
+    }
+    if (!/^[a-zA-Z\s]+$/.test(value)) {
+      return "Name should only contain letters and spaces";
+    }
+    if (value.trim().length < 2) {
+      return "Name must be at least 2 characters";
+    }
+    return "";
+  };
+
+  // Validate card number
+  const validateCardNumber = (value: string) => {
+    const numbers = value.replace(/\s/g, '');
+    if (!numbers) {
+      return "Card number is required";
+    }
+    if (numbers.length < 16) {
+      return "Card number must be 16 digits";
+    }
+    if (!/^[0-9]+$/.test(numbers)) {
+      return "Card number should only contain numbers";
+    }
+    return "";
+  };
+
+  // Validate expiry date
+  const validateExpiryDate = (value: string) => {
+    if (!value) {
+      return "Expiry date is required";
+    }
+    const [month, year] = value.split('/');
+    if (!month || !year || month.length !== 2 || year.length !== 2) {
+      return "Invalid format. Use MM/YY";
+    }
+    const monthNum = parseInt(month);
+    const yearNum = parseInt('20' + year);
+    const currentDate = new Date();
+    const currentYear = currentDate.getFullYear();
+    const currentMonth = currentDate.getMonth() + 1;
+    
+    if (monthNum < 1 || monthNum > 12) {
+      return "Month must be between 01 and 12";
+    }
+    if (yearNum < currentYear || (yearNum === currentYear && monthNum < currentMonth)) {
+      return "Card has expired";
+    }
+    return "";
+  };
+
+  // Validate CVC
+  const validateCVC = (value: string) => {
+    if (!value) {
+      return "CVC is required";
+    }
+    if (!/^[0-9]+$/.test(value)) {
+      return "CVC should only contain numbers";
+    }
+    if (value.length < 3 || value.length > 4) {
+      return "CVC must be 3 or 4 digits";
+    }
+    return "";
+  };
+
+  const handleCardholderNameChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    setCardholderName(value);
+    setErrors({ ...errors, cardholderName: validateCardholderName(value) });
+  };
+
+  const handleCardNumberChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    const formatted = formatCardNumber(value);
+    setCardNumber(formatted);
+    setErrors({ ...errors, cardNumber: validateCardNumber(formatted) });
+  };
+
+  const handleExpiryDateChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    const formatted = formatExpiryDate(value);
+    setExpiryDate(formatted);
+    setErrors({ ...errors, expiryDate: validateExpiryDate(formatted) });
+  };
+
+  const handleCvcChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value.replace(/[^0-9]/g, '').slice(0, 4);
+    setCvc(value);
+    setErrors({ ...errors, cvc: validateCVC(value) });
+  };
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setIsSuccessOpen(true);
+    
+    // Validate all fields
+    const cardholderNameError = validateCardholderName(cardholderName);
+    const cardNumberError = validateCardNumber(cardNumber);
+    const expiryDateError = validateExpiryDate(expiryDate);
+    const cvcError = validateCVC(cvc);
+
+    setErrors({
+      cardholderName: cardholderNameError,
+      cardNumber: cardNumberError,
+      expiryDate: expiryDateError,
+      cvc: cvcError,
+    });
+
+    // If no errors, proceed
+    if (!cardholderNameError && !cardNumberError && !expiryDateError && !cvcError) {
+      setIsSuccessOpen(true);
+    }
   };
 
   return (
@@ -423,12 +557,13 @@ export default function EnterCardDetails({ onBack }: EnterCardDetailsProps) {
               <input
                 type="text"
                 value={cardholderName}
-                onChange={(e) => setCardholderName(e.target.value)}
+                onChange={handleCardholderNameChange}
+                onBlur={(e) => setErrors({ ...errors, cardholderName: validateCardholderName(e.target.value) })}
                 placeholder="John Doe"
                 className="w-full text-white placeholder:text-[#525252] focus:outline-none focus:border-[#FF9900] transition-colors"
                 style={{
                   backgroundColor: 'rgba(17, 17, 17, 1)',
-                  border: '1px solid rgba(255, 255, 255, 0.1)',
+                  border: errors.cardholderName ? '1px solid rgba(239, 68, 68, 1)' : '1px solid rgba(255, 255, 255, 0.1)',
                   borderRadius: '8px',
                   padding: '16px 25px',
                   fontFamily: 'Urbanist, sans-serif',
@@ -439,6 +574,16 @@ export default function EnterCardDetails({ onBack }: EnterCardDetailsProps) {
                 }}
                 required
               />
+              {errors.cardholderName && (
+                <p style={{
+                  fontFamily: 'Urbanist, sans-serif',
+                  fontSize: '12px',
+                  color: 'rgba(239, 68, 68, 1)',
+                  marginTop: '4px',
+                }}>
+                  {errors.cardholderName}
+                </p>
+              )}
             </div>
 
             {/* Card Number */}
@@ -460,12 +605,14 @@ export default function EnterCardDetails({ onBack }: EnterCardDetailsProps) {
               <input
                 type="text"
                 value={cardNumber}
-                onChange={(e) => setCardNumber(e.target.value)}
+                onChange={handleCardNumberChange}
+                onBlur={(e) => setErrors({ ...errors, cardNumber: validateCardNumber(e.target.value) })}
                 placeholder="1234 5678 9012 3456"
+                maxLength={19}
                 className="w-full text-white placeholder:text-[#525252] focus:outline-none focus:border-[#FF9900] transition-colors"
                 style={{
                   backgroundColor: 'rgba(17, 17, 17, 1)',
-                  border: '1px solid rgba(255, 255, 255, 0.1)',
+                  border: errors.cardNumber ? '1px solid rgba(239, 68, 68, 1)' : '1px solid rgba(255, 255, 255, 0.1)',
                   borderRadius: '8px',
                   padding: '16px 25px',
                   fontFamily: 'Urbanist, sans-serif',
@@ -476,6 +623,16 @@ export default function EnterCardDetails({ onBack }: EnterCardDetailsProps) {
                 }}
                 required
               />
+              {errors.cardNumber && (
+                <p style={{
+                  fontFamily: 'Urbanist, sans-serif',
+                  fontSize: '12px',
+                  color: 'rgba(239, 68, 68, 1)',
+                  marginTop: '4px',
+                }}>
+                  {errors.cardNumber}
+                </p>
+              )}
             </div>
 
             {/* Expiry Date and CVC */}
@@ -498,12 +655,14 @@ export default function EnterCardDetails({ onBack }: EnterCardDetailsProps) {
                 <input
                   type="text"
                   value={expiryDate}
-                  onChange={(e) => setExpiryDate(e.target.value)}
+                  onChange={handleExpiryDateChange}
+                  onBlur={(e) => setErrors({ ...errors, expiryDate: validateExpiryDate(e.target.value) })}
                   placeholder="MM/YY"
+                  maxLength={5}
                   className="w-full text-white placeholder:text-[#525252] focus:outline-none focus:border-[#FF9900] transition-colors"
                   style={{
                     backgroundColor: 'rgba(17, 17, 17, 1)',
-                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                    border: errors.expiryDate ? '1px solid rgba(239, 68, 68, 1)' : '1px solid rgba(255, 255, 255, 0.1)',
                     borderRadius: '8px',
                     padding: '16px 25px',
                     fontFamily: 'Urbanist, sans-serif',
@@ -514,6 +673,16 @@ export default function EnterCardDetails({ onBack }: EnterCardDetailsProps) {
                   }}
                   required
                 />
+                {errors.expiryDate && (
+                  <p style={{
+                    fontFamily: 'Urbanist, sans-serif',
+                    fontSize: '12px',
+                    color: 'rgba(239, 68, 68, 1)',
+                    marginTop: '4px',
+                  }}>
+                    {errors.expiryDate}
+                  </p>
+                )}
               </div>
               <div>
                 <label
@@ -533,12 +702,14 @@ export default function EnterCardDetails({ onBack }: EnterCardDetailsProps) {
                 <input
                   type="text"
                   value={cvc}
-                  onChange={(e) => setCvc(e.target.value)}
+                  onChange={handleCvcChange}
+                  onBlur={(e) => setErrors({ ...errors, cvc: validateCVC(e.target.value) })}
                   placeholder="123"
+                  maxLength={4}
                   className="w-full text-white placeholder:text-[#525252] focus:outline-none focus:border-[#FF9900] transition-colors"
                   style={{
                     backgroundColor: 'rgba(17, 17, 17, 1)',
-                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                    border: errors.cvc ? '1px solid rgba(239, 68, 68, 1)' : '1px solid rgba(255, 255, 255, 0.1)',
                     borderRadius: '8px',
                     padding: '16px 25px',
                     fontFamily: 'Urbanist, sans-serif',
@@ -549,6 +720,16 @@ export default function EnterCardDetails({ onBack }: EnterCardDetailsProps) {
                   }}
                   required
                 />
+                {errors.cvc && (
+                  <p style={{
+                    fontFamily: 'Urbanist, sans-serif',
+                    fontSize: '12px',
+                    color: 'rgba(239, 68, 68, 1)',
+                    marginTop: '4px',
+                  }}>
+                    {errors.cvc}
+                  </p>
+                )}
               </div>
             </div>
 
