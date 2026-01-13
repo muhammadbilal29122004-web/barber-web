@@ -15,28 +15,28 @@ const haircutStyles: HaircutStyle[] = [
     title: "Low Fade Basics",
     duration: "8 min",
     image: "/8.jpg",
-    link: "/tutorials/low-fade-basics",
+    link: "/tutorials/1",
   },
   {
     id: 2,
     title: "Beard Styling",
     duration: "12 min",
     image: "/9.jpg",
-    link: "/tutorials/beard-styling",
+    link: "/tutorials/2",
   },
   {
     id: 3,
     title: "Undercut Styling",
     duration: "9 min",
     image: "/10.jpg",
-    link: "/tutorials/undercut-styling",
+    link: "/tutorials/3",
   },
   {
     id: 4,
     title: "Fade with Line",
     duration: "11 min",
     image: "/11.jpg",
-    link: "/tutorials/fade-with-line",
+    link: "/tutorials/4",
   },
 ];
 
@@ -106,9 +106,9 @@ export default function PopularHaircutStyles() {
                 {/* Orange Circular Button - Bottom Right */}
                 <div className="absolute bottom-4 right-4 sm:bottom-5 sm:right-5">
                   <svg width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect x="0.45" y="0.45" width="44.1" height="44.1" rx="22.05" stroke="#FE9A00" strokeWidth="0.9"/>
-                    <path d="M24.525 17.4417L29.5833 22.5L24.525 27.5583" stroke="#FE9A00" strokeWidth="1.25" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
-                    <path d="M15.4167 22.5H29.4417" stroke="#FE9A00" strokeWidth="1.25" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round"/>
+                    <rect x="0.45" y="0.45" width="44.1" height="44.1" rx="22.05" stroke="#FE9A00" strokeWidth="0.9" />
+                    <path d="M24.525 17.4417L29.5833 22.5L24.525 27.5583" stroke="#FE9A00" strokeWidth="1.25" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
+                    <path d="M15.4167 22.5H29.4417" stroke="#FE9A00" strokeWidth="1.25" strokeMiterlimit="10" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
                 </div>
               </div>

@@ -20,39 +20,13 @@ export default function InstructorDetailPage() {
   const params = useParams();
   const instructorId = Number(params.id);
 
-  const [instructor, setInstructor] = useState<Instructor | null>(null);
-  const [tutorials, setTutorials] = useState<Tutorial[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const instructor = getInstructorById(instructorId);
+  const tutorials = getTutorialsByInstructor(instructorId);
   const [isFavorited, setIsFavorited] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [filterValue, setFilterValue] = useState("All");
   const [currentPage, setCurrentPage] = useState(1);
 
-  // Load instructor and tutorials on mount
-  useEffect(() => {
-    const loadData = async () => {
-      setIsLoading(true);
-      try {
-        // TODO: Replace with real API calls when ready
-        const [instructorData, tutorialsData] = await Promise.all([
-          getInstructorById(instructorId),
-          getTutorialsByInstructor(instructorId),
-        ]);
-
-        setInstructor(instructorData);
-        setTutorials(tutorialsData);
-      } catch (error) {
-        console.error("Failed to load instructor data:", error);
-        // Handle error state if needed
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    if (instructorId) {
-      loadData();
-    }
-  }, [instructorId]);
 
   // Filter and search tutorials
   const filteredTutorials = useMemo(() => {
@@ -101,17 +75,7 @@ export default function InstructorDetailPage() {
     // TODO: Add API call to save favorite when real data is integrated
   };
 
-  if (isLoading) {
-    return (
-      <div className="min-h-screen bg-[#0A0A0A]">
-        <Header />
-        <div className="flex items-center justify-center min-h-screen">
-          <p className="text-gray-400">Loading instructor profile...</p>
-        </div>
-        <Footer />
-      </div>
-    );
-  }
+
 
   if (!instructor) {
     return (
@@ -181,9 +145,8 @@ export default function InstructorDetailPage() {
                     className="flex items-center gap-2 px-6 py-3 border-2 border-[#FE9A00] rounded-full text-[#FE9A00] hover:bg-[#FE9A00] hover:text-white transition-colors"
                   >
                     <svg
-                      className={`w-5 h-5 ${
-                        isFavorited ? "fill-[#FE9A00]" : ""
-                      }`}
+                      className={`w-5 h-5 ${isFavorited ? "fill-[#FE9A00]" : ""
+                        }`}
                       fill={isFavorited ? "currentColor" : "none"}
                       stroke="currentColor"
                       viewBox="0 0 24 24"

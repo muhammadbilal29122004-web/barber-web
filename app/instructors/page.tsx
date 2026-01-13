@@ -14,30 +14,12 @@ import { getAllInstructors, type Instructor } from "@/lib/data/instructors";
 const ENTRIES_PER_PAGE = 12;
 
 export default function InstructorsPage() {
-  const [instructors, setInstructors] = useState<Instructor[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [instructors, setInstructors] = useState<Instructor[]>(() => getAllInstructors());
+  const [isLoading, setIsLoading] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [viewFilter, setViewFilter] = useState("All");
   const [currentPage, setCurrentPage] = useState(1);
 
-  // Load instructors on mount
-  useEffect(() => {
-    const loadInstructors = async () => {
-      setIsLoading(true);
-      try {
-        // TODO: Replace with real API call when ready
-        const data = await getAllInstructors();
-        setInstructors(data);
-      } catch (error) {
-        console.error("Failed to load instructors:", error);
-        // Handle error state if needed
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    loadInstructors();
-  }, []);
 
   // Filter and search instructors
   const filteredInstructors = useMemo(() => {
@@ -63,7 +45,7 @@ export default function InstructorsPage() {
     if (viewFilter === "All") {
       return filteredInstructors;
     }
-    
+
     // Add other filter logic here
     return filteredInstructors;
   }, [filteredInstructors, viewFilter]);

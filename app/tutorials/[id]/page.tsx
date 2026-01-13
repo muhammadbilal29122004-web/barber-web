@@ -15,47 +15,12 @@ export default function TutorialDetailPage() {
   const params = useParams();
   const tutorialId = Number(params.id);
 
-  const [tutorial, setTutorial] = useState<Tutorial | null>(null);
-  const [reviews, setReviews] = useState<Review[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const tutorial = getTutorialById(tutorialId);
+  const reviews = getTutorialReviews(tutorialId);
   const [isFavorited, setIsFavorited] = useState(false);
   const [isLiked, setIsLiked] = useState(false);
   const [isAddReviewModalOpen, setIsAddReviewModalOpen] = useState(false);
 
-  useEffect(() => {
-    const loadData = async () => {
-      setIsLoading(true);
-      try {
-        const [tutorialData, reviewsData] = await Promise.all([
-          getTutorialById(tutorialId),
-          getTutorialReviews(tutorialId),
-        ]);
-
-        setTutorial(tutorialData);
-        setReviews(reviewsData);
-      } catch (error) {
-        console.error("Failed to load tutorial data:", error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    if (tutorialId) {
-      loadData();
-    }
-  }, [tutorialId]);
-
-  if (isLoading) {
-    return (
-      <div className="min-h-screen bg-[#0A0A0A]">
-        <Header activePage="tutorials" showUserIcons={true} />
-        <div className="flex items-center justify-center min-h-screen">
-          <p className="text-gray-400">Loading tutorial...</p>
-        </div>
-        <Footer />
-      </div>
-    );
-  }
 
   if (!tutorial) {
     return (
@@ -85,117 +50,116 @@ export default function TutorialDetailPage() {
       <div className={isAddReviewModalOpen ? "blur-sm pointer-events-none" : ""}>
         <Header activePage="tutorials" showUserIcons={true} />
 
-      {/* Main Content */}
-      <section className="pt-20 pb-12">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {/* Breadcrumbs */}
-          <div className="mb-6">
-            <Link
-              href="/tutorials"
-              className="text-gray-400 hover:text-orange-500 transition-colors"
-            >
-              Tutorials
-            </Link>
-            <span className="text-gray-400 mx-2">/</span>
-            <span className="text-white">{tutorial.title}</span>
-          </div>
+        {/* Main Content */}
+        <section className="pt-20 pb-12">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            {/* Breadcrumbs */}
+            <div className="mb-6">
+              <Link
+                href="/tutorials"
+                className="text-gray-400 hover:text-orange-500 transition-colors"
+              >
+                Tutorials
+              </Link>
+              <span className="text-gray-400 mx-2">/</span>
+              <span className="text-white">{tutorial.title}</span>
+            </div>
 
-          {/* Video Player Section */}
-          <div className="mb-8">
-            <VideoPlayer
-              videoUrl={tutorial.videoUrl || "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WhatCarCanYouGetForAGrand.mp4"}
-              thumbnail={tutorial.thumbnail}
-              title={tutorial.title}
+            {/* Video Player Section */}
+            <div className="mb-8">
+              <VideoPlayer
+                videoUrl={tutorial.videoUrl || "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WhatCarCanYouGetForAGrand.mp4"}
+                thumbnail={tutorial.thumbnail}
+                title={tutorial.title}
+              />
+            </div>
+
+            {/* Tutorial Info Section */}
+            <div className="mb-12">
+              {/* Title and Actions */}
+              <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
+                <h1 className="text-3xl md:text-4xl font-semi-bold text-white">
+                  {tutorial.title}
+                </h1>
+                <div className="flex items-center gap-4">
+                  {/* Duration */}
+                  <div className="flex items-center gap-2 text-gray-400">
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span className="text-sm">{tutorial.duration}</span>
+                  </div>
+                  {/* Save/Star Button */}
+                  <button
+                    onClick={() => setIsFavorited(!isFavorited)}
+                    className={`transition-colors ${isFavorited ? "text-orange-500" : "text-gray-400 hover:text-orange-500"
+                      }`}
+                  >
+                    <svg className="w-6 h-6" fill={isFavorited ? "currentColor" : "none"} stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
+                    </svg>
+                  </button>
+                  {/* Share Button */}
+                  <button
+                    onClick={() => {
+                      // TODO: Implement share functionality
+                      if (navigator.share) {
+                        navigator.share({
+                          title: tutorial.title,
+                          text: tutorial.description,
+                          url: window.location.href,
+                        });
+                      }
+                    }}
+                    className="text-gray-400 hover:text-orange-500 transition-colors"
+                    aria-label="Share tutorial"
+                  >
+                    <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+                    </svg>
+                  </button>
+                </div>
+              </div>
+
+              {/* Description */}
+              <p className="text-gray-300 mb-6 leading-relaxed max-w-3xl">
+                {tutorial.fullDescription || tutorial.description}
+              </p>
+
+              {/* Instructor Info */}
+              <div className="flex items-center justify-between">
+                <div className="flex items-center gap-3">
+                  <div className="relative w-10 h-10 rounded-full overflow-hidden">
+                    <Image
+                      src={tutorial.author.avatar}
+                      alt={tutorial.author.name}
+                      fill
+                      className="object-cover"
+                    />
+                  </div>
+                  <div>
+                    <span className="text-gray-400 text-sm">Instructor</span>
+                    <p className="text-white font-medium">{tutorial.author.name}</p>
+                  </div>
+                </div>
+                <Link
+                  href={`/instructors/${tutorial.instructorId || 1}`}
+                  className="text-[#FE9A00] hover:text-orange-400 transition-colors text-sm font-medium underline"
+                >
+                  View Profile
+                </Link>
+              </div>
+            </div>
+
+            {/* Reviews Section */}
+            <TutorialReviews
+              reviews={reviews}
+              averageRating={averageRating}
+              totalReviews={totalReviews}
+              onAddReview={() => setIsAddReviewModalOpen(true)}
             />
           </div>
-
-          {/* Tutorial Info Section */}
-          <div className="mb-12">
-            {/* Title and Actions */}
-            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-4">
-              <h1 className="text-3xl md:text-4xl font-semi-bold text-white">
-                {tutorial.title}
-              </h1>
-              <div className="flex items-center gap-4">
-                {/* Duration */}
-                <div className="flex items-center gap-2 text-gray-400">
-                  <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                  <span className="text-sm">{tutorial.duration}</span>
-                </div>
-                {/* Save/Star Button */}
-                <button
-                  onClick={() => setIsFavorited(!isFavorited)}
-                  className={`transition-colors ${
-                    isFavorited ? "text-orange-500" : "text-gray-400 hover:text-orange-500"
-                  }`}
-                >
-                  <svg className="w-6 h-6" fill={isFavorited ? "currentColor" : "none"} stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
-                  </svg>
-                </button>
-                {/* Share Button */}
-                <button
-                  onClick={() => {
-                    // TODO: Implement share functionality
-                    if (navigator.share) {
-                      navigator.share({
-                        title: tutorial.title,
-                        text: tutorial.description,
-                        url: window.location.href,
-                      });
-                    }
-                  }}
-                  className="text-gray-400 hover:text-orange-500 transition-colors"
-                  aria-label="Share tutorial"
-                >
-                  <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
-                  </svg>
-                </button>
-              </div>
-            </div>
-
-            {/* Description */}
-            <p className="text-gray-300 mb-6 leading-relaxed max-w-3xl">
-              {tutorial.fullDescription || tutorial.description}
-            </p>
-
-            {/* Instructor Info */}
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <div className="relative w-10 h-10 rounded-full overflow-hidden">
-                  <Image
-                    src={tutorial.author.avatar}
-                    alt={tutorial.author.name}
-                    fill
-                    className="object-cover"
-                  />
-                </div>
-                <div>
-                  <span className="text-gray-400 text-sm">Instructor</span>
-                  <p className="text-white font-medium">{tutorial.author.name}</p>
-                </div>
-              </div>
-              <Link
-                href={`/instructors/${tutorial.instructorId || 1}`}
-                className="text-[#FE9A00] hover:text-orange-400 transition-colors text-sm font-medium underline"
-              >
-                View Profile
-              </Link>
-            </div>
-          </div>
-
-          {/* Reviews Section */}
-          <TutorialReviews
-            reviews={reviews}
-            averageRating={averageRating}
-            totalReviews={totalReviews}
-            onAddReview={() => setIsAddReviewModalOpen(true)}
-          />
-        </div>
-      </section>
+        </section>
 
         <Footer />
       </div>

@@ -71,6 +71,7 @@ const DUMMY_AUTHORS = [
   { name: "Frank Castle", avatar: "/1.jpg" },
   { name: "James Will", avatar: "/2.jpg" },
   { name: "Michael Jack", avatar: "/3.jpg" },
+  { name: "Saira Jones", avatar: "/1.jpg" },
 ];
 
 const DUMMY_DURATIONS = ["6 min", "8 min", "10 min", "12 min", "15 min", "18 min", "20 min"];
@@ -85,15 +86,9 @@ const THUMBNAIL_IMAGES = [
 ];
 
 /**
- * Fetches all tutorials
- * 
- * TODO: Replace with actual API call
- * Example: return await fetch('/api/tutorials').then(res => res.json());
+ * Fetches all tutorials synchronously
  */
-export async function getAllTutorials(): Promise<Tutorial[]> {
-  // Simulate API delay
-  await new Promise((resolve) => setTimeout(resolve, 0));
-
+export function getAllTutorials(): Tutorial[] {
   // Generate dummy data
   const totalTutorials = 100;
   return Array.from({ length: totalTutorials }, (_, i) => ({
@@ -108,43 +103,33 @@ export async function getAllTutorials(): Promise<Tutorial[]> {
 }
 
 /**
- * Fetches tutorials by instructor ID
- * 
- * TODO: Replace with actual API call
- * Example: return await fetch(`/api/instructors/${instructorId}/tutorials`).then(res => res.json());
+ * Fetches tutorials by instructor ID synchronously
  */
-export async function getTutorialsByInstructor(
+export function getTutorialsByInstructor(
   instructorId: number
-): Promise<Tutorial[]> {
-  const allTutorials = await getAllTutorials();
-  
+): Tutorial[] {
+  const allTutorials = getAllTutorials();
+
   // For dummy data, assign tutorials to instructors
   // In real implementation, this would be filtered by instructorId
   return allTutorials.filter((_, index) => index % 10 < 4); // Return subset for demo
 }
 
 /**
- * Fetches a single tutorial by ID
- * 
- * TODO: Replace with actual API call
- * Example: return await fetch(`/api/tutorials/${id}`).then(res => res.json());
+ * Fetches a single tutorial by ID synchronously
  */
-export async function getTutorialById(id: number): Promise<Tutorial | null> {
-  const tutorials = await getAllTutorials();
+export function getTutorialById(id: number): Tutorial | null {
+  const tutorials = getAllTutorials();
   const tutorial = tutorials.find((tutorial) => tutorial.id === id);
-  
+
   if (!tutorial) return null;
-  
-  // Add full description and video URL for detail page
-  // TODO: Replace with actual video URL from database/backend
-  // For demo: using the provided test video URL
-  // Note: If CORS errors occur, ensure your backend video server has proper CORS headers
+
   const defaultVideoUrl = "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/WhatCarCanYouGetForAGrand.mp4";
-  
+
   return {
     ...tutorial,
     fullDescription: "Learn the essential steps to blending a perfect skin fade. This comprehensive tutorial covers everything from setting your initial guidelines to the final clipper-over-comb detailing.",
-    videoUrl: defaultVideoUrl, // Will come from database/backend in production
+    videoUrl: defaultVideoUrl,
   };
 }
 
@@ -215,16 +200,9 @@ const DUMMY_REVIEWS: Review[] = [
 ];
 
 /**
- * Fetches reviews for a tutorial
- * 
- * TODO: Replace with actual API call
- * Example: return await fetch(`/api/tutorials/${tutorialId}/reviews`).then(res => res.json());
+ * Fetches reviews for a tutorial synchronously
  */
-export async function getTutorialReviews(tutorialId: number): Promise<Review[]> {
-  // Simulate API delay
-  await new Promise((resolve) => setTimeout(resolve, 0));
-  
-  // Return dummy reviews (in real app, filter by tutorialId)
+export function getTutorialReviews(tutorialId: number): Review[] {
   return DUMMY_REVIEWS;
 }
 
@@ -238,14 +216,11 @@ export function calculateAverageRating(reviews: Review[]): number {
 }
 
 /**
- * Searches tutorials by query
- * 
- * TODO: Replace with actual API call with server-side search
- * Example: return await fetch(`/api/tutorials/search?q=${query}`).then(res => res.json());
+ * Searches tutorials by query synchronously
  */
-export async function searchTutorials(query: string): Promise<Tutorial[]> {
-  const tutorials = await getAllTutorials();
-  
+export function searchTutorials(query: string): Tutorial[] {
+  const tutorials = getAllTutorials();
+
   if (!query.trim()) {
     return tutorials;
   }
@@ -258,4 +233,3 @@ export async function searchTutorials(query: string): Promise<Tutorial[]> {
       tutorial.author.name.toLowerCase().includes(lowerQuery)
   );
 }
-

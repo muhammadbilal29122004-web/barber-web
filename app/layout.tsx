@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono, Anton, Urbanist } from "next/font/google";
 import "./globals.css";
 import AIAssistant from "@/components/AIAssistant";
+import NextTopLoader from "nextjs-toploader";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -39,6 +40,17 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} ${anton.variable} ${urbanist.variable} antialiased`}
       >
+        <NextTopLoader
+          color="#FE9A00"
+          initialPosition={0.08}
+          crawlSpeed={200}
+          height={3}
+          crawl={true}
+          showSpinner={true}
+          easing="ease"
+          speed={200}
+          shadow="0 0 10px #FE9A00,0 0 5px #FE9A00"
+        />
         {children}
         <AIAssistant />
       </body>

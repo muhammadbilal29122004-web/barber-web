@@ -70,17 +70,16 @@ export default function AIAssistant() {
     setInputValue("");
     setIsLoading(true);
 
-    // Simulate AI response
-    setTimeout(() => {
-      const assistantMessage: Message = {
-        id: (Date.now() + 1).toString(),
-        text: "I understand your question. Let me help you with that!",
-        sender: "assistant",
-        timestamp: new Date(),
-      };
-      setMessages((prev) => [...prev, assistantMessage]);
-      setIsLoading(false);
-    }, 1000);
+    // Immediate AI response
+    const assistantMessage: Message = {
+      id: (Date.now() + 1).toString(),
+      text: "I understand your question. Let me help you with that!",
+      sender: "assistant",
+      timestamp: new Date(),
+    };
+    setMessages((prev) => [...prev, assistantMessage]);
+    setIsLoading(false);
+
   };
 
   const handleMinimize = () => {

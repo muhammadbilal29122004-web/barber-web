@@ -18,30 +18,11 @@ const ENTRIES_PER_PAGE = 9;
 const dummyUser = false; // Set to false to see free user experience
 
 export default function TutorialsPage() {
-  const [tutorials, setTutorials] = useState<Tutorial[]>([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [tutorials, setTutorials] = useState<Tutorial[]>(() => getAllTutorials());
+  const [isLoading, setIsLoading] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
   const [viewFilter, setViewFilter] = useState("All");
   const [currentPage, setCurrentPage] = useState(1);
-
-  // Load tutorials on mount
-  useEffect(() => {
-    const loadTutorials = async () => {
-      setIsLoading(true);
-      try {
-        // TODO: Replace with real API call when ready
-        const data = await getAllTutorials();
-        setTutorials(data);
-      } catch (error) {
-        console.error("Failed to load tutorials:", error);
-        // Handle error state if needed
-      } finally {
-        setIsLoading(false);
-      }
-    };
-
-    loadTutorials();
-  }, []);
 
   // Filter and search tutorials
   const filteredTutorials = useMemo(() => {
@@ -102,7 +83,7 @@ export default function TutorialsPage() {
       5: 60,
     };
     const completedIds = [3, 6];
-    
+
     if (completedIds.includes(tutorialId)) {
       return { isCompleted: true, progress: undefined };
     }
@@ -150,7 +131,7 @@ export default function TutorialsPage() {
                   const globalIndex = startIndex + index;
                   const isLocked = shouldLockTutorial(globalIndex);
                   const { isCompleted, progress } = getTutorialStatus(tutorial.id);
-                  
+
                   return (
                     <TutorialCard
                       key={tutorial.id}
@@ -181,11 +162,10 @@ export default function TutorialsPage() {
                       <button
                         key={page}
                         onClick={() => setCurrentPage(page)}
-                        className={`w-10 h-10 flex items-center justify-center rounded-lg border transition-colors ${
-                          currentPage === page
+                        className={`w-10 h-10 flex items-center justify-center rounded-lg border transition-colors ${currentPage === page
                             ? "bg-[#FE9A00] border-[#FE9A00] text-black"
                             : "border-[#2C2C2C] bg-[#161616] text-[#737373] hover:border-orange-500 hover:bg-[#1a1a1a]"
-                        }`}
+                          }`}
                         aria-label={`Page ${page}`}
                       >
                         {page}

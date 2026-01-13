@@ -49,15 +49,9 @@ const DUMMY_SKILL_SETS = [
 const DUMMY_IMAGES = ["/1.jpg", "/2.jpg", "/3.jpg", "/4.jpg", "/5.jpg"];
 
 /**
- * Fetches all instructors
- * 
- * TODO: Replace with actual API call
- * Example: return await fetch('/api/instructors').then(res => res.json());
+ * Fetches all instructors synchronously
  */
-export async function getAllInstructors(): Promise<Instructor[]> {
-  // Simulate API delay
-  await new Promise((resolve) => setTimeout(resolve, 0));
-
+export function getAllInstructors(): Instructor[] {
   // Generate dummy data
   const totalInstructors = 100;
   return Array.from({ length: totalInstructors }, (_, i) => ({
@@ -69,25 +63,19 @@ export async function getAllInstructors(): Promise<Instructor[]> {
 }
 
 /**
- * Fetches a single instructor by ID
- * 
- * TODO: Replace with actual API call
- * Example: return await fetch(`/api/instructors/${id}`).then(res => res.json());
+ * Fetches a single instructor by ID synchronously
  */
-export async function getInstructorById(id: number): Promise<Instructor | null> {
-  const instructors = await getAllInstructors();
+export function getInstructorById(id: number): Instructor | null {
+  const instructors = getAllInstructors();
   return instructors.find((instructor) => instructor.id === id) || null;
 }
 
 /**
- * Searches instructors by query
- * 
- * TODO: Replace with actual API call with server-side search
- * Example: return await fetch(`/api/instructors/search?q=${query}`).then(res => res.json());
+ * Searches instructors by query synchronously
  */
-export async function searchInstructors(query: string): Promise<Instructor[]> {
-  const instructors = await getAllInstructors();
-  
+export function searchInstructors(query: string): Instructor[] {
+  const instructors = getAllInstructors();
+
   if (!query.trim()) {
     return instructors;
   }
@@ -99,4 +87,3 @@ export async function searchInstructors(query: string): Promise<Instructor[]> {
       instructor.skills.some((skill) => skill.toLowerCase().includes(lowerQuery))
   );
 }
-

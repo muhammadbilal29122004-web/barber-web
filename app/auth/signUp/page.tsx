@@ -30,7 +30,7 @@ export default function SignUpPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    
+
     if (password !== confirmPassword) {
       alert("Passwords do not match!");
       return;
@@ -50,21 +50,20 @@ export default function SignUpPage() {
       email,
       password,
     });
-    // Simulate API call
-    setTimeout(() => {
-      // Save user to localStorage
-      saveUser({
-        email: email,
-        name: `${firstName} ${secondName}`.trim() || email.split('@')[0],
-        token: 'mock_token_' + Date.now(), // Mock token
-      });
-      // Dispatch custom event for other components to listen
-      if (typeof window !== 'undefined') {
-        window.dispatchEvent(new CustomEvent('authStateChanged', { detail: { isLoggedIn: true } }));
-      }
-      setIsLoading(false);
-      setShowTrialPage(true);
-    }, 1000);
+    // Immediate signup logic
+    // Save user to localStorage
+    saveUser({
+      email: email,
+      name: `${firstName} ${secondName}`.trim() || email.split('@')[0],
+      token: 'mock_token_' + Date.now(), // Mock token
+    });
+    // Dispatch custom event for other components to listen
+    if (typeof window !== 'undefined') {
+      window.dispatchEvent(new CustomEvent('authStateChanged', { detail: { isLoggedIn: true } }));
+    }
+    setIsLoading(false);
+    setShowTrialPage(true);
+
   };
 
   const handleSocialSignup = (provider: string) => {
@@ -106,12 +105,12 @@ export default function SignUpPage() {
           <Link href="/" className="flex items-center gap-2">
             <div className="relative w-10 h-10 sm:w-12 sm:h-12">
               <svg width="50" height="50" viewBox="0 0 50 50" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-                <path d="M22.224 35.2376C23.0882 35.4762 23.9985 35.6047 24.9385 35.6047C25.8161 35.6047 26.6687 35.4935 27.4812 35.2847L23.537 50L18.6216 48.6835L22.224 35.2376Z" fill="#FE9A00"/>
-                <path d="M36.1816 47.3506L31.2645 48.6672L27.6657 35.2358C29.4169 34.7505 30.9782 33.807 32.2139 32.5448L36.1816 47.3506Z" fill="#FE9A00"/>
-                <path d="M17.5817 32.4599C18.7922 33.7254 20.3261 34.6794 22.0504 35.1888L11.2648 45.9744L7.66602 42.3756L17.5817 32.4599Z" fill="#FE9A00"/>
-                <path d="M45.8044 38.7352L42.2038 42.334L32.3134 32.4418C33.5343 31.1592 34.4237 29.5579 34.8452 27.776L45.8044 38.7352Z" fill="#FE9A00"/>
-                <path d="M15.03 27.7633C15.4425 29.5178 16.3106 31.0975 17.5004 32.3712L2.64938 36.3498L1.33283 31.4345L15.03 27.7633Z" fill="#FE9A00"/>
-                <path d="M31.3657 1.31655L27.6765 15.0843L38.5652 4.1956L42.164 7.79442L32.0982 17.8602L47.1806 13.8202L48.4972 18.7355L34.7475 22.4193L49.83 26.4612L48.5135 31.3784L34.8597 27.7199C35.0295 26.9825 35.12 26.214 35.1201 25.425C35.1201 19.8032 30.5621 15.2455 24.9403 15.2452C19.3183 15.2452 14.7606 19.803 14.7606 25.425C14.7606 26.2191 14.8508 26.9926 15.0228 27.7344L0 23.7088L1.31655 18.7916L15.0662 22.4754L4.02561 11.4348L7.62442 7.83601L17.6903 17.9018L13.6502 2.81937L18.5655 1.50282L22.3072 15.4622L26.4486 0L31.3657 1.31655Z" fill="#FE9A00"/>
+                <path d="M22.224 35.2376C23.0882 35.4762 23.9985 35.6047 24.9385 35.6047C25.8161 35.6047 26.6687 35.4935 27.4812 35.2847L23.537 50L18.6216 48.6835L22.224 35.2376Z" fill="#FE9A00" />
+                <path d="M36.1816 47.3506L31.2645 48.6672L27.6657 35.2358C29.4169 34.7505 30.9782 33.807 32.2139 32.5448L36.1816 47.3506Z" fill="#FE9A00" />
+                <path d="M17.5817 32.4599C18.7922 33.7254 20.3261 34.6794 22.0504 35.1888L11.2648 45.9744L7.66602 42.3756L17.5817 32.4599Z" fill="#FE9A00" />
+                <path d="M45.8044 38.7352L42.2038 42.334L32.3134 32.4418C33.5343 31.1592 34.4237 29.5579 34.8452 27.776L45.8044 38.7352Z" fill="#FE9A00" />
+                <path d="M15.03 27.7633C15.4425 29.5178 16.3106 31.0975 17.5004 32.3712L2.64938 36.3498L1.33283 31.4345L15.03 27.7633Z" fill="#FE9A00" />
+                <path d="M31.3657 1.31655L27.6765 15.0843L38.5652 4.1956L42.164 7.79442L32.0982 17.8602L47.1806 13.8202L48.4972 18.7355L34.7475 22.4193L49.83 26.4612L48.5135 31.3784L34.8597 27.7199C35.0295 26.9825 35.12 26.214 35.1201 25.425C35.1201 19.8032 30.5621 15.2455 24.9403 15.2452C19.3183 15.2452 14.7606 19.803 14.7606 25.425C14.7606 26.2191 14.8508 26.9926 15.0228 27.7344L0 23.7088L1.31655 18.7916L15.0662 22.4754L4.02561 11.4348L7.62442 7.83601L17.6903 17.9018L13.6502 2.81937L18.5655 1.50282L22.3072 15.4622L26.4486 0L31.3657 1.31655Z" fill="#FE9A00" />
               </svg>
             </div>
             <span className="text-[#FE9A00] text-base sm:text-lg md:text-[22px] font-semi-bold leading-[26.76px]">Logoipsum</span>
@@ -119,26 +118,26 @@ export default function SignUpPage() {
         </div>
 
         {/* Title */}
-        <h1 
+        <h1
           className="text-center mb-1"
-          style={{ 
-            fontFamily: 'Anton, sans-serif', 
-            fontWeight: 400, 
-            fontSize: 'clamp(24px, 5vw, 41px)', 
-            lineHeight: 'clamp(30px, 6.5vw, 52px)', 
+          style={{
+            fontFamily: 'Anton, sans-serif',
+            fontWeight: 400,
+            fontSize: 'clamp(24px, 5vw, 41px)',
+            lineHeight: 'clamp(30px, 6.5vw, 52px)',
             letterSpacing: '0%',
             color: 'rgba(255, 255, 255, 1)'
           }}
         >
           Create Your Account
         </h1>
-        <p 
+        <p
           className="text-center mb-3 text-sm sm:text-base"
-          style={{ 
-            fontFamily: 'Urbanist, sans-serif', 
-            fontWeight: 500, 
-            fontSize: 'clamp(14px, 2vw, 16px)', 
-            lineHeight: '20px', 
+          style={{
+            fontFamily: 'Urbanist, sans-serif',
+            fontWeight: 500,
+            fontSize: 'clamp(14px, 2vw, 16px)',
+            lineHeight: '20px',
             letterSpacing: '0%',
             color: 'rgba(161, 161, 161, 1)',
             marginTop: '-8px'
@@ -201,7 +200,7 @@ export default function SignUpPage() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Write your email"
-                className="w-full bg-[#1A1A1A] border border-[#262626] rounded-lg px-3 sm:px-4 py-1.5 sm:py-2 text-white text-sm placeholder:text-[#6F6F6F] focus:outline-none focus:border-[#FF9900] transition-colors"
+              className="w-full bg-[#1A1A1A] border border-[#262626] rounded-lg px-3 sm:px-4 py-1.5 sm:py-2 text-white text-sm placeholder:text-[#6F6F6F] focus:outline-none focus:border-[#FF9900] transition-colors"
               required
             />
           </div>

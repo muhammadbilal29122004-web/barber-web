@@ -22,7 +22,7 @@ const tutorials: Tutorial[] = [
     description:
       "Learn how to create a clean low fade using simple, beginner-friendly techniques.",
     image: "/6.jpg",
-    link: "/tutorials/low-fade-basics",
+    link: "/tutorials/1",
     progress: 60,
   },
   {
@@ -31,7 +31,7 @@ const tutorials: Tutorial[] = [
     description:
       "Master precise beard shaping and clean line-ups with easy-to-follow guidance.",
     image: "/7.jpg",
-    link: "/tutorials/beard-lineup",
+    link: "/tutorials/2",
     progress: 60,
   },
 ];
